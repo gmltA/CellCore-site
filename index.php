@@ -81,8 +81,8 @@ switch ($page)
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta name="robots" content="index,follow"/>
-<meta name="keywords" content="сервер wow, бесплатный сервер wow, играть в wow, Warcraft, World of Warcraft, WOW, Lich King, 335, 3.3.5, CellCore, worlfowarcraft.by, riverrise.net, RiverRise"/>
-<meta name="description" content="RiverRise.net\WorldOfWarcraft.by - это бесплатный сервер WoW со множеством уникальных особенностей!"/>
+<meta name="keywords" content="Игровой сервер World Of Warcraft, бесплатный сервер вов, играть в вов, сервер вов, бесплатный сервер wow, поиграть в wow, играть в wow, сервер wow, wow 3.3.5., сервер wow 3.3.5, вов 3.3.5, wow wotlk, игровой сервер wotlk, CellCore, worlfowarcraft.by, riverrise.net, RiverRise"/>
+<meta name="description" content="RiverRise.net\WorldOfWarcraft.by - это лучший бесплатный сервер WoW WOTLK со множеством уникальных особенностей!"/>
 <meta http-equiv="Content-Language" content="ru"/>
 <script src="/jquery.min.js" type="text/javascript"></script>
 <script src="/jquery.cellAPI.js" type="text/javascript"></script>
