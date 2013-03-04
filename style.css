@@ -359,7 +359,7 @@ ul {
     .standardbox .topbar { height: 44px; width: 100%; }
     .standardbox .topbar .leftcorner { width: 6px; height: 44px; background: url(/images/box-corn.png); float: left; }
     .standardbox .topbar .rightcorner { width: 6px; height: 44px; background: url(/images/box-coro.png); float: right; }
-    .standardbox .topbar .title { line-height: 40px; font-size: 14px; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0px 0px 8px #0091ff; }
+    .standardbox .topbar .title { line-height: 40px; font-size: 14px; font-weight: normal; margin: 0; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0px 0px 8px #0091ff; }
     .standardbox .topbar .title .longertextposition {position: absolute; width: 200px; height: 50px;}
     .standardbox .topbar .middle { background: url(/images/box-top0.jpg); margin: 0 6px 0 6px; }
     .standardbox .topbar .middle .rightfade {height: 44px; width: 100px; background: url(/images/box-top-.png); float: right;}

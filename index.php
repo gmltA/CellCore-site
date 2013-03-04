@@ -71,7 +71,7 @@ switch ($page)
     default:
     {
         $filename = dirname(__FILE__) . '/blocks/main.txt';
-        $title = "Добро пожаловать";
+        $title = "RiverRise.net | World of Warcraft.by";
         $pagen = "main";
         break;
     }
@@ -81,7 +81,7 @@ switch ($page)
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta name="robots" content="index,follow"/>
-<meta name="keywords" content="сервер wow, бесплатный сервер wow, World of Warcraft, WOW, Lich King, CellCore, worlfowarcraft.by, riverrise.net, RiverRise"/>
+<meta name="keywords" content="сервер wow, бесплатный сервер wow, играть в wow, Warcraft, World of Warcraft, WOW, Lich King, 335, 3.3.5, CellCore, worlfowarcraft.by, riverrise.net, RiverRise"/>
 <meta name="description" content="RiverRise.net\WorldOfWarcraft.by - это бесплатный сервер WoW со множеством уникальных особенностей!"/>
 <meta http-equiv="Content-Language" content="ru"/>
 <script src="/jquery.min.js" type="text/javascript"></script>
@@ -137,7 +137,7 @@ window.oncontextmenu = function()
 </script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>RiverRise.net</title>
+<title>RiverRise.net - уникальный бесплатный сервер World of Warcraft</title>
 
 <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -257,7 +257,7 @@ elseif  ($forum_data['skin'] == '21')
         <div class="rightcorner"></div>
         <div class="middle">
             <div class="rightfade"></div>
-            <div class="title" id="title_box"><?php echo $title;?></div>
+            <h1 class="title" id="title_box"><?php echo $title;?></h1>
         </div>
     </div>
     <div class="middlebar <?php if ($pagen == "tools") echo "toolsbg"?>" id="bar">
