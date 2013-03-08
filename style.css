@@ -25,14 +25,7 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 
 .middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
 
-#primary_nav.wowteam {
-    background: #2b2b2b url(/images/pad.png) repeat-x;
-    border-bottom: 1px solid #151515;
-    font-size: 13px;
-    padding: 4px 0 0 0;
-}
-
-#primary_nav.master {
+.master #primary_nav {
 	background: #204066;
 	font-size: 13px;
 	padding: 4px 0 0 0;
@@ -40,33 +33,16 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 
 #primary_nav li { margin: 0px 3px 0 0; position: relative; }
 
-#primary_nav.wowteam a {
-    color: #cbcbcb;
-    display: block;
-    padding: 6px 15px 8px;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
-    text-decoration: none;
-}
-#primary_nav.master a {
+.master #primary_nav a {
     color: #c5d5e2;
     display: block;
     padding: 6px 15px 8px;
     text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
 }
 
-#primary_nav.wowteam a:hover { background: #333333; color: #eee; }
+.master #primary_nav a:hover { background: #173455; color: #fff; }
 
-#primary_nav.wowteam .active a {
-    background: #151515;
-    color: #d4d4d4;
-    font-weight: bold;
-    margin-top: 0;
-    text-shadow: none;
-}
-
-#primary_nav.master a:hover { background: #173455; color: #fff; }
-
-#primary_nav.master .active a {
+.master #primary_nav .active a {
     background: #fff;
     color: #0b5794;
     font-weight: bold;
@@ -74,19 +50,19 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
     text-shadow: none;
 }
 
-#primary_nav.riverrise { 
-    background: url("http://forum.riverrise.net/public/style_images/riverrise/_custom/navi.jpg") 50% 0% repeat-x transparent;
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px #000000;
-    font-family: "Lato", "arial", serif;
-    font-size: 13px;
-    margin-bottom: 10px;
-    padding: 6px 7px;
-    position: relative;
-    text-shadow: -1px -1px 0px #000000;
+.riverrise #primary_nav {
+	background: url("http://forum.riverrise.net/public/style_images/CS/_custom/navi.jpg") 50% 0% repeat-x transparent;
+	border-radius: 5px;
+	box-shadow: 0px 4px 10px #000000;
+	font-family: "Lato", "arial", serif;
+	font-size: 13px;
+	margin-bottom: 10px;
+	padding: 6px 7px;
+	position: relative;
+	text-shadow: -1px -1px 0px #000000;
 }
 
-#primary_nav.riverrise a { 
+.riverrise #primary_nav a {
     border-radius: 5px;
     color: #D8ECF0;
     display: block;
@@ -95,13 +71,13 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
     text-shadow: 0px 1px 1px #000000;
 }
 
-#primary_nav.riverrise .active a { 
+.riverrise #primary_nav .active a {
 background: rgba(0, 0, 0, 0.298);
 box-shadow: 0px 0px 5px #000000 inset;
 color: #FFFFFF;
 }
 
-#primary_nav.riverrise a:hover, #primary_nav.riverrise a.menu_active { 
+.riverrise #primary_nav a:hover, .riverrise #primary_nav a.menu_active {
     background: rgba(0, 0, 0, 0.102);
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.600) inset;
 }
@@ -113,9 +89,9 @@ color: #FFFFFF;
     height: 36px;
 }
 
-#header_bar.riverrise { background: none; }
+.riverrise #header_bar { background: none; }
 
-#header_bar .info { 
+#header_bar .info {
     color: rgb(255, 255, 255);
     display: inline-block;
     font-size: 12px;
@@ -130,26 +106,11 @@ color: #FFFFFF;
     padding-top: 0px;
 }
 
-#header_bar  .info.user { float: right; }
-#header_bar  .info.small_info { float: left; }
-#header_bar  .info.small_info  a { color: white; }
+#header_bar .info.user { float: right; }
+#header_bar .info.small_info { float: left; }
+#header_bar .info.small_info a { color: white; }
 
-#branding.wowteam { 
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: transparent;
-    background-image: url(/images/branding_bg.png);
-    background-origin: padding-box;
-    background-position: 0% 0%;
-    background-repeat: repeat-x;
-    background-size: auto;
-    border-top-color: rgb(0, 0, 0);
-    border-top-style: solid;
-    border-top-width: 1px;
-    min-height: 80px;
-}
-
-#branding.master { 
+.master #branding {
     background-attachment: scroll;
     background-clip: border-box;
     background-color: rgb(15, 56, 84);
@@ -164,13 +125,13 @@ color: #FFFFFF;
     min-height: 64px;
 }
 
-#branding.riverrise { margin-top: -36px; height: 156px; background: url("http://forum.riverrise.net/public/style_images/riverrise/bg.jpg") 50% 0% no-repeat #010E16; color: #5D91A3; }
+.riverrise #branding { height: 120px; }
 
 #logo { display: inline; }
 
 #branding, #header_bar, #primary_nav { min-width: 980px; }
 
-.main_width { 
+.main_width {
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -179,10 +140,9 @@ color: #FFFFFF;
     width: 87% !important;
 }
 
-#branding.wowteam .main_width { margin-left: 0; }
-#branding.riverrise .main_width { width: 90% !important; }
+.riverrise #branding .main_width { width: 90% !important; }
 
-.wrapper { 
+.wrapper {
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -190,7 +150,7 @@ color: #FFFFFF;
     width: 990px;
 }
 
-ul { 
+ul {
     list-style-image: none;
     list-style-position: outside;
     list-style-type: none;
@@ -217,7 +177,7 @@ ul {
 }
 
 #nav_buttons ul { margin-top: 160px; }
-#nav_buttons.master ul { margin-top: 46px; }
+.master #nav_buttons ul { margin-top: 46px; }
 
 .nbutton {
     position: relative;
@@ -230,21 +190,21 @@ ul {
     cursor: default;
 }
 
-.nbutton.main                                                             { border-radius: 5px 0 0 0; z-index: 5; }
-.nbutton.main:hover, .nbutton.main.active     { background-position: 0px -214px; }
-.nbutton.main.active                                               { margin-left: 10px; }
-.nbutton.reg                                                               { z-index: 4; background-position: 0px -42px; }
-.nbutton.reg:hover , .nbutton.reg.active        { background-position: 0px -256px; }
-.nbutton.reg.active                                                 { margin-left: 10px; }
-.nbutton.stats                                                           { z-index: 3; background-position: 0px -85px; }
+.nbutton.main                               { border-radius: 5px 0 0 0; z-index: 5; }
+.nbutton.main:hover, .nbutton.main.active   { background-position: 0px -214px; }
+.nbutton.main.active                        { margin-left: 10px; }
+.nbutton.reg                                { z-index: 4; background-position: 0px -42px; }
+.nbutton.reg:hover , .nbutton.reg.active    { background-position: 0px -256px; }
+.nbutton.reg.active                         { margin-left: 10px; }
+.nbutton.stats                              { z-index: 3; background-position: 0px -85px; }
 .nbutton.stats:hover, .nbutton.stats.active { background-position: 0px -299px; }
-.nbutton.stats.active                                             { margin-left: 10px; }
-.nbutton.rules                                                           { z-index: 2; background-position: 0px -128px; }
+.nbutton.stats.active                       { margin-left: 10px; }
+.nbutton.rules                              { z-index: 2; background-position: 0px -128px; }
 .nbutton.rules:hover, .nbutton.rules.active { background-position: 0px -342px; }
-.nbutton.rules.active                                             { margin-left: 10px; }
-.nbutton.tools                                                           { border-radius: 0 0 0 5px; z-index: 1; background-position: 0px -171px; }
+.nbutton.rules.active                       { margin-left: 10px; }
+.nbutton.tools                              { border-radius: 0 0 0 5px; z-index: 1; background-position: 0px -171px; }
 .nbutton.tools:hover, .nbutton.tools.active { background-position: 0px -385px; }
-.nbutton.tools.active                                             { margin-left: 10px; }
+.nbutton.tools.active                       { margin-left: 10px; }
 
 .top_banner {cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url('images/transfer-banner.png'); opacity: 0.7;}
 
@@ -256,7 +216,7 @@ ul {
     #feature_list .view h3 { font-weight: 700; text-shadow: 0px 0px 8px white; }
     #feature_list ul { position: absolute; top: 0; padding: 0; }
     #output { position: absolute; margin-top: 25px; margin-left: 25px; }
-    #output h3 { 
+    #output h3 {
             color: rgb(255, 255, 255);
             font-size: 18px;
             font-style: normal;
@@ -304,7 +264,7 @@ ul {
     #tabs li a.current                                { color: #FFF; }
     #tabs li a.current:hover                    { cursor: default; }
     #tabs li img                                            { padding: 5px; border: none; float: left; margin: 10px 10px 0 0; }
-    #tabs #fid0.view .pcs-over { 
+    #tabs #fid0.view .pcs-over {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -460,7 +420,7 @@ ul {
     /*Blocks styles*/
     .topmenu ul li {
         float: left;
-        position: relative;	
+        position: relative;
     }
 
     .topmenu ul li ul {
@@ -471,7 +431,7 @@ ul {
     }
 
     .topmenu ul li ul li {
-        display: block;    
+        display: block;
         margin-top: -10px;
     }
     .result_box {
@@ -490,7 +450,7 @@ ul {
         border-radius: 9px
     }
     .standardbox .result_box { margin-left: 160px; font-size: 15px; }
-    
+
     .result_content { line-height: 14px; color: rgb(177, 195, 210); padding-bottom: 18px; padding-left: 35px; padding-right: 35px; padding-top: 4px; }
 
     .result_content h3, .tool_desc h3 {
@@ -511,8 +471,8 @@ ul {
     .tool_desc { font-size: 11px !important; line-height: 14px;color: rgb(177, 195, 210); }
     .tool_desc blockquote { text-shadow: 0px 0px 8px #0099FF; }
     .tool_desc blockquote td, .tool_desc blockquote th { border: 1px rgb(177, 195, 210) solid; border-collapse: collapse; padding: 2px; }
-    
-    .middle_plate { 
+
+    .middle_plate {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: rgb(1, 14, 22);
@@ -529,7 +489,7 @@ ul {
         padding: 0px;
     }
     .middle_placeholder { min-height: 250px; }
-    .text input { 
+    .text input {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -555,7 +515,7 @@ ul {
         height: 32px;
         color: rgb(130, 184, 203);
     }
-    .breadcrumb { 
+    .breadcrumb {
         font-family: "Arial", "Helvetica", sans-serif, sans-serif;
         font-size: 11px;
         margin-bottom: 0px;
@@ -563,13 +523,13 @@ ul {
         margin-right: 0px;
         margin-top: 0px;
     }
-    .breadcrumbsub { 
+    .breadcrumbsub {
         padding-bottom: 40px;
         padding-left: 0px;
         padding-right: 0px;
         padding-top: 30px;
     }
-    .breadcrumb .left { 
+    .breadcrumb .left {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -582,7 +542,7 @@ ul {
         height: 32px;
         width: 8px;
     }
-    .breadcrumb .right { 
+    .breadcrumb .right {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -595,7 +555,7 @@ ul {
         height: 32px;
         width: 8px;
     }
-    .breadcrumb .center { 
+    .breadcrumb .center {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -609,7 +569,7 @@ ul {
         height: 32px;
     }
     .breadcrumb .center .ref .contents_i { float: left; font-size: 11px; height: 32px; line-height: 32px; padding: 0px; }
-    .breadcrumb .center .ref { 
+    .breadcrumb .center .ref {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -622,7 +582,7 @@ ul {
         float: left;
         height: 32px;
     }
-    .breadcrumb .center .ref .contents { 
+    .breadcrumb .center .ref .contents {
         float: left;
         font-size: 11px;
         height: 32px;
@@ -634,7 +594,7 @@ ul {
     }
     .breadcrumb .center .ref .contents .text { color: rgb(130, 184, 203); display: block; float: left; }
     .breadcrumb .center .ref .contents .link { display: block; float: left; }
-    .arrowsm { 
+    .arrowsm {
         background-attachment: scroll;
         background-clip: border-box;
         background-color: transparent;
@@ -676,8 +636,8 @@ ul {
 
     .about_p_core { width: 180px; height: 32px; background-image: url("/images/about_p_core.png"); }
     .support { width: 300px; height: 32px; background-image: url("/images/support.png"); }
-    
+
     .easypay_box { background: url("/images/easypay_box.png") no-repeat; width: 490px; height: 443px; float: right; padding-left: 80px; padding-top: 150px; }
-	
+
 	.ban-dev {float: left; opacity: 0.15; -webkit-filter: hue-rotate(120deg); height: 58px;}
-    
+

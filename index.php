@@ -141,7 +141,6 @@ window.oncontextmenu = function()
 
 <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
 <?php
 include dirname(__FILE__) . '/blocks/includes/config.php';
 include dirname(__FILE__) . '/blocks/includes/database.inc.php';
@@ -171,15 +170,15 @@ elseif  ($forum_data['skin'] == '21')
 {
     $skin = 'riverrise';
 }
-
 ?>
+<body class="<?php echo $skin?>">
 <div class="content">
-<div id="header_bar" class="clearfix <?php echo $skin?>">
+<div id="header_bar" class="clearfix">
     <div class="main_width">
         <div class="info user"><?php echo $member_name?></div>
     </div>
 </div>
-<div id="branding" <?php echo 'class="'.$skin.'"'?>>
+<div id="branding">
     <div class="main_width">
         <div id="logo">
             <a href='http://forum.riverrise.net' title='Перейти к списку форумов' rel="home" accesskey='1'>
@@ -187,7 +186,7 @@ elseif  ($forum_data['skin'] == '21')
         </div>
     </div>
 </div>
-<div id="primary_nav" class="clearfix <?php echo $skin?>">
+<div id="primary_nav" class="clearfix">
     <div class="main_width">
         <ul>
             <li class="left active">
@@ -233,7 +232,7 @@ elseif  ($forum_data['skin'] == '21')
 </div>-->
 <?php// else:?>
 <div class="wrapper">
-<div id="nav_buttons" <?php echo 'class="'.$skin.'"'?>>
+<div id="nav_buttons">
     <ul>
         <li>
             <a href="/"><div class="nbutton main <?php if ($pagen == "main") echo "active"?>"></div></a>
@@ -252,7 +251,7 @@ elseif  ($forum_data['skin'] == '21')
         </li>
     </ul>
 </div>
-<div class="standardbox <?php echo $skin?>">
+<div class="standardbox">
     <div class="topbar">
         <div class="leftcorner"></div>
         <div class="rightcorner"></div>
