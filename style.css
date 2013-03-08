@@ -23,6 +23,8 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 
 .content {min-height: 100%; margin: 0px auto -120px;}
 
+.middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
+
 #primary_nav.wowteam {
     background: #2b2b2b url(/images/pad.png) repeat-x;
     border-bottom: 1px solid #151515;
@@ -519,7 +521,6 @@ ul {
         background-position: 50% 0px;
         background-repeat: no-repeat;
         background-size: auto;
-        height: 100%;
         min-width: 990px;
         margin-bottom: 0px;
         margin-left: 0px;

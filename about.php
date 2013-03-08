@@ -102,8 +102,8 @@
     </ul>
 </div>
 </div>
-    <?php include dirname(__FILE__) . '/footer.inc' ?>
 </div>
+<?php include dirname(__FILE__) . '/footer.inc' ?>
 </div>
 </body>
 </html>
