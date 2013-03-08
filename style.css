@@ -169,8 +169,10 @@ ul {
 }
 
 .left { float: left; }
-
 .right { float: right; }
+
+.left_column { float: left; width: 159px; }
+.right_column { float: left; width: 831px; }
 
 .clearfix:after {
     content: ".";
@@ -209,10 +211,11 @@ ul {
 
 
 .content {min-height: 100%; margin: 0px auto -120px;}
+
 .middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
 .top_banner {cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url('images/transfer-banner.png'); opacity: 0.7;}
 
-.standardbox { font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; position: relative; z-index: 6; margin-left: 160px; margin-bottom: 10px; margin-top: -255px; }
+.standardbox { font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; position: relative; z-index: 6; margin-bottom: 10px; }
     /*Features list*/
     #feature_list { overflow: hidden; position: relative; width: 760px; height: 520px; }
     #content { width: 760px; height: 520px; }
@@ -491,6 +494,7 @@ ul {
         margin-right: 0px;
         margin-top: 445px;
         padding: 0px;
+        min-height: 100%;
     }
     .middle_placeholder { min-height: 250px; }
     .text input {

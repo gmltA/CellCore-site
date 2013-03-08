@@ -80,6 +80,7 @@ switch ($page)
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 <meta name="robots" content="index,follow"/>
 <meta name="keywords" content="Игровой сервер World Of Warcraft, бесплатный сервер вов, играть в вов, сервер вов, бесплатный сервер wow, поиграть в wow, играть в wow, сервер wow, wow 3.3.5., сервер wow 3.3.5, вов 3.3.5, wow wotlk, игровой сервер wotlk, CellCore, worlfowarcraft.by, riverrise.net, RiverRise"/>
 <meta name="description" content="RiverRise.net\WorldOfWarcraft.by - это лучший бесплатный сервер WoW WOTLK со множеством уникальных особенностей!"/>
@@ -135,7 +136,7 @@ window.oncontextmenu = function()
     return false;
 }
 </script>
-<head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>RiverRise.net - уникальный бесплатный сервер World of Warcraft</title>
 
@@ -165,10 +166,6 @@ $skin = 'riverrise';
 if ($forum_data['skin'] == '55')
 {
     $skin = 'master';
-}
-elseif  ($forum_data['skin'] == '21')
-{
-    $skin = 'riverrise';
 }
 
 ?>
@@ -235,6 +232,7 @@ elseif  ($forum_data['skin'] == '21')
 </div>-->
 <?php// else:?>
 <div class="wrapper">
+<div class="left_column">
 <div id="nav_buttons">
     <ul>
         <li>
@@ -254,6 +252,8 @@ elseif  ($forum_data['skin'] == '21')
         </li>
     </ul>
 </div>
+</div>
+<div class="right_column">
 <div class="standardbox">
     <div class="topbar">
         <div class="leftcorner"></div>
@@ -298,6 +298,8 @@ elseif  ($forum_data['skin'] == '21')
         <div class="shadow"></div>
     </div>
 </div>
+</div>
+<div class="clearfix" ></div>
 </div>
 </div>
     <?php include dirname(__FILE__) . '/footer.inc' ?>
