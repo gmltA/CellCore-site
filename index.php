@@ -161,18 +161,20 @@ else
 global $skin, $group;
 $group = 3;
 $group = $forum_data['member_group_id'];
-$skin = 'master';
-if ($forum_data['skin'] == '22')
+$skin = 'riverrise';
+if ($forum_data['skin'] == '55')
 {
-    $skin = 'wowteam';
+    $skin = 'master';
 }
 elseif  ($forum_data['skin'] == '21')
 {
     $skin = 'riverrise';
 }
+
 ?>
 <body class="<?php echo $skin?>">
 <div class="content">
+<header>
 <div id="header_bar" class="clearfix">
     <div class="main_width">
         <div class="info user"><?php echo $member_name?></div>
@@ -182,7 +184,7 @@ elseif  ($forum_data['skin'] == '21')
     <div class="main_width">
         <div id="logo">
             <a href='http://forum.riverrise.net' title='Перейти к списку форумов' rel="home" accesskey='1'>
-            <img src='http://forum.riverrise.net/public/style_images/<?php echo $skin?>/logo.png' alt='Логотип'/></a>
+            <img src='http://forum.riverrise.net/public/style_images/<?php echo ($skin == 'riverrise') ?  "CS" : $skin?>/logo.png' alt='Логотип'/></a>
         </div>
     </div>
 </div>
@@ -216,6 +218,7 @@ elseif  ($forum_data['skin'] == '21')
         </ul>
     </div>
 </div>
+</header>
 <a href="http://forum.riverrise.net/topic/45746/">
     <div class="top_banner"></div>
 </a>

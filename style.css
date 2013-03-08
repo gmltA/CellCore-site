@@ -1,9 +1,7 @@
 @charset "utf-8";
 
 div { display: block; }
-
 body, html {height: 100%}
-
 body {
     margin: 0;
     padding: 0;
@@ -21,9 +19,9 @@ body {
 a { color: #01b2f1; text-decoration: none; }
 a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 
-.content {min-height: 100%; margin: 0px auto -120px;}
+/* Skin-related styles */
 
-.middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
+body.riverrise { min-height: 680px; }
 
 .master #primary_nav {
 	background: #204066;
@@ -56,10 +54,10 @@ a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 	box-shadow: 0px 4px 10px #000000;
 	font-family: "Lato", "arial", serif;
 	font-size: 13px;
-	margin-bottom: 10px;
 	padding: 6px 7px;
 	position: relative;
 	text-shadow: -1px -1px 0px #000000;
+    z-index: 1;
 }
 
 .riverrise #primary_nav a {
@@ -89,7 +87,7 @@ color: #FFFFFF;
     height: 36px;
 }
 
-.riverrise #header_bar { background: none; }
+.riverrise #header_bar { background: none; display: none; }
 
 #header_bar .info {
     color: rgb(255, 255, 255);
@@ -126,8 +124,10 @@ color: #FFFFFF;
 }
 
 .riverrise #branding { height: 120px; }
+.riverrise header { background: url("http://forum.riverrise.net/public/style_images/CS/bg.jpg") 50% 0% no-repeat #010E16; }
 
 #logo { display: inline; }
+.riverrise #logo { position: absolute; top: 0px; }
 
 #branding, #header_bar, #primary_nav { min-width: 980px; }
 
@@ -141,6 +141,10 @@ color: #FFFFFF;
 }
 
 .riverrise #branding .main_width { width: 90% !important; }
+
+#nav_buttons ul { margin-top: 46px; }
+
+/* Main structure styles */
 
 .wrapper {
     margin-bottom: 0px;
@@ -176,9 +180,6 @@ ul {
     visibility: hidden;
 }
 
-#nav_buttons ul { margin-top: 160px; }
-.master #nav_buttons ul { margin-top: 46px; }
-
 .nbutton {
     position: relative;
     width: 159px;
@@ -206,6 +207,9 @@ ul {
 .nbutton.tools:hover, .nbutton.tools.active { background-position: 0px -385px; }
 .nbutton.tools.active                       { margin-left: 10px; }
 
+
+.content {min-height: 100%; margin: 0px auto -120px;}
+.middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
 .top_banner {cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url('images/transfer-banner.png'); opacity: 0.7;}
 
 .standardbox { font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; position: relative; z-index: 6; margin-left: 160px; margin-bottom: 10px; margin-top: -255px; }
