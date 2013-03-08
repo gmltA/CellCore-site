@@ -1,4 +1,28 @@
 @charset "utf-8";
+
+div { display: block; }
+
+body, html {height: 100%}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "helvetica", "arial", sans-serif;
+    background: url(images/games-bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #142431;
+    background-position: 50% 0px;
+	min-height: 650px;
+}
+
+a { color: #01b2f1; text-decoration: none; }
+a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
+
+.content {min-height: 100%; margin: 0px auto -120px;}
+
 #primary_nav.wowteam {
     background: #2b2b2b url(/images/pad.png) repeat-x;
     border-bottom: 1px solid #151515;
@@ -143,24 +167,6 @@ color: #FFFFFF;
 #logo { display: inline; }
 
 #branding, #header_bar, #primary_nav { min-width: 980px; }
-
-div { display: block; }
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "helvetica", "arial", sans-serif;
-    background: url(images/games-bg.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: #142431;
-    background-position: 50% 0px;
-}
-
-a { color: #01b2f1; text-decoration: none; }
-a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; }
 
 .main_width { 
     margin-bottom: 0px;
@@ -437,7 +443,7 @@ ul {
     .standardbox .shadowbar .shadow { width: 800px; height: 25px; background: url(/images/box-shad.png); margin: 0 auto; }
     .standardbox .middlebar .line { clear: both; margin:0 21px 0 14px; }
 
-    .landing-footer { clear: both; display: block; padding: 150px 0 60px 0; }
+    .landing-footer { clear: both; display: block; }
     .footer { clear: both; margin: 0; width: 980px; }
     .footer .logo-core { width: 108px; height: 58px; background-image:url(/images/core.png); background-repeat: no-repeat; display: block; float: left; }
     .footer .logo-wm { width: 108px; height: 58px; background-image:url(/images/logo-wm.png); background-repeat: no-repeat; display: block; float: right; }

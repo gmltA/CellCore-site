@@ -1,11 +1,12 @@
-    <footer class="landing-footer">
+<footer class="landing-footer">
+    <div class="wrapper">
         <div class="footer">
             <a href="/core/" class="logo-core"></a>
             <!--<div class="logo-dev"></div>-->
             <a href="http://www.webmoney.ru/" class="logo-wm"></a>
             <a href="https://passport.webmoney.ru/asp/certView.asp?wmid=217657406008" class="logo-attestat"></a>
-			<div class="ban-dev">
-			<!--LiveInternet counter--><script type="text/javascript"><!--
+            <div class="ban-dev">
+            <!--LiveInternet counter--><script type="text/javascript"><!--
             document.write("<a href='http://www.liveinternet.ru/click' "+
             "target=_blank><img src='//counter.yadro.ru/hit?t21.6;r"+
             escape(document.referrer)+((typeof(screen)=="undefined")?"":
@@ -36,4 +37,5 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>

@@ -173,6 +173,7 @@ elseif  ($forum_data['skin'] == '21')
 }
 
 ?>
+<div class="content">
 <div id="header_bar" class="clearfix <?php echo $skin?>">
     <div class="main_width">
         <div class="info user"><?php echo $member_name?></div>
@@ -295,8 +296,9 @@ elseif  ($forum_data['skin'] == '21')
         <div class="shadow"></div>
     </div>
 </div>
-    <?php include dirname(__FILE__) . '/footer.inc' ?>
 </div>
+</div>
+    <?php include dirname(__FILE__) . '/footer.inc' ?>
 </body>
 </html>
 <!-- Yandex.Metrika counter -->
