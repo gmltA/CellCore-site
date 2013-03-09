@@ -216,9 +216,6 @@ if ($forum_data['skin'] == '55')
     </div>
 </div>
 </header>
-<a href="http://forum.riverrise.net/topic/45746/">
-    <div class="top_banner"></div>
-</a>
 <!--<?php// if ($group == 0 || $group == 1 || $group == 3 || $group == 14):?>
 <div align="center" style="margin-top: 100px;">
 <div class="result_box" style="margin: 0; padding: 0;" >
@@ -254,6 +251,9 @@ if ($forum_data['skin'] == '55')
 </div>
 </div>
 <div class="right_column">
+    <a href="http://forum.riverrise.net/topic/45746/">
+        <div class="top_banner"></div>
+    </a>
 <div class="standardbox">
     <div class="topbar">
         <div class="leftcorner"></div>

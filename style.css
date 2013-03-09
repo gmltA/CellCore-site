@@ -142,7 +142,7 @@ color: #FFFFFF;
 
 .riverrise #branding .main_width { width: 90% !important; }
 
-#nav_buttons ul { margin-top: 46px; }
+#nav_buttons { margin-top: 127px; }
 
 /* Main structure styles */
 
@@ -172,7 +172,7 @@ ul {
 .right { float: right; }
 
 .left_column { float: left; width: 159px; }
-.right_column { float: left; width: 831px; }
+.right_column { float: left; width: 820px; }
 
 .clearfix:after {
     content: ".";
@@ -210,7 +210,7 @@ ul {
 .nbutton.tools.active                       { margin-left: 10px; }
 
 
-.content {min-height: 100%; margin: 0px auto -120px;}
+.content { min-height: 95%; }
 
 .middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
 .top_banner {cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url('images/transfer-banner.png'); opacity: 0.7;}
@@ -412,7 +412,7 @@ ul {
     .standardbox .shadowbar .shadow { width: 800px; height: 25px; background: url(/images/box-shad.png); margin: 0 auto; }
     .standardbox .middlebar .line { clear: both; margin:0 21px 0 14px; }
 
-    .landing-footer { clear: both; display: block; }
+    .landing-footer { clear: both; display: block; height: 100px; }
     .footer { clear: both; margin: 0; width: 980px; }
     .footer .logo-core { width: 108px; height: 58px; background-image:url(/images/core.png); background-repeat: no-repeat; display: block; float: left; }
     .footer .logo-wm { width: 108px; height: 58px; background-image:url(/images/logo-wm.png); background-repeat: no-repeat; display: block; float: right; }
