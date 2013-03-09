@@ -210,7 +210,7 @@ ul {
 .nbutton.tools.active                       { margin-left: 10px; }
 
 
-.content { min-height: 95%; }
+.content { min-height: 90%; }
 
 .middle_plate .content {min-height: 100%; margin: 0px auto 50px;}
 .top_banner {cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url('images/transfer-banner.png'); opacity: 0.7;}
@@ -412,7 +412,7 @@ ul {
     .standardbox .shadowbar .shadow { width: 800px; height: 25px; background: url(/images/box-shad.png); margin: 0 auto; }
     .standardbox .middlebar .line { clear: both; margin:0 21px 0 14px; }
 
-    .landing-footer { clear: both; display: block; height: 100px; }
+    .landing-footer { clear: both; display: block; height: 90px; }
     .footer { clear: both; margin: 0; width: 980px; }
     .footer .logo-core { width: 108px; height: 58px; background-image:url(/images/core.png); background-repeat: no-repeat; display: block; float: left; }
     .footer .logo-wm { width: 108px; height: 58px; background-image:url(/images/logo-wm.png); background-repeat: no-repeat; display: block; float: right; }
