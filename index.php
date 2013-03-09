@@ -233,19 +233,19 @@ if ($forum_data['skin'] == '55')
 <div id="nav_buttons">
     <ul>
         <li>
-            <a href="/"><div class="nbutton main <?php if ($pagen == "main") echo "active"?>"></div></a>
+            <a href="/"><div class="nbutton main <?php if ($pagen == "main") echo "active"?>" title="Главная страница"></div></a>
         </li>
         <li>
-            <a href="/registration/"><div class="nbutton reg <?php if ($pagen == "reg") echo "active"?>"></div></a>
+            <a href="/registration/"><div class="nbutton reg <?php if ($pagen == "reg") echo "active"?>" title="Регистрация пользователей"></div></a>
         </li>
         <li>
-            <a href="/stats/"><div class="nbutton stats <?php if ($pagen == "stats") echo "active"?>"></div></a>
+            <a href="/stats/"><div class="nbutton stats <?php if ($pagen == "stats") echo "active"?>" title="Состояние миров"></div></a>
         </li>
         <li>
-            <a href="/rules/"><div class="nbutton rules <?php if ($pagen == "rules") echo "active"?>"></div></a>
+            <a href="/rules/"><div class="nbutton rules <?php if ($pagen == "rules") echo "active"?>" title="Правила сервера"></div></a>
         </li>
         <li>
-            <a href="http://lk.riverrise.net/"><div class="nbutton tools <?php if ($pagen == "tools") echo "active"?>"></div></a>
+            <a href="http://lk.riverrise.net/"><div class="nbutton tools <?php if ($pagen == "tools") echo "active"?>" title="Личный кабинет"></div></a>
         </li>
     </ul>
 </div>
