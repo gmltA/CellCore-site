@@ -49,7 +49,7 @@ body.riverrise { min-height: 680px; }
 }
 
 .riverrise #primary_nav {
-	background: url("http://forum.riverrise.net/public/style_images/CS/_custom/navi.jpg") 50% 0% repeat-x transparent;
+	background: url(images/navi.jpg) 50% 0% repeat-x transparent;
 	border-radius: 5px;
 	box-shadow: 0px 4px 10px #000000;
 	font-family: "Lato", "arial", serif;
@@ -69,10 +69,10 @@ body.riverrise { min-height: 680px; }
     text-shadow: 0px 1px 1px #000000;
 }
 
-.riverrise #primary_nav .active a {
-background: rgba(0, 0, 0, 0.298);
-box-shadow: 0px 0px 5px #000000 inset;
-color: #FFFFFF;
+.riverrise #primary_nav .active a, .riverrise #primary_nav .active a:hover {
+    background: rgba(0, 0, 0, 0.298);
+    box-shadow: 0px 0px 5px #000000 inset;
+    color: #FFFFFF;
 }
 
 .riverrise #primary_nav a:hover, .riverrise #primary_nav a.menu_active {
@@ -247,30 +247,30 @@ ul {
     #output_container blockquote { text-shadow: 0px 0px 8px #0099FF; }
     /*#output_container li blockquote a { text-shadow: none; float: left; padding: 0; background: none; }
     #output_container li blockquote a:hover { color: #FFFFFF; text-shadow: 0px 0px 8px white; background: none; }*/
-    #tabs                                                      { left: 0; z-index: 2; width: 320px; }
-    #tabs li                                                   { font-size: 12px; font-family: Arial; display: block; padding: 0; margin-left: -9px; }
-    #tabs li a                                                { background: url(/images/tools_list.jpg); width: 349px; height: 43px; text-decoration: none;    display: block;}
-    #tabs li a.changerace                          { background-position: 0px 0px; }
-    #tabs li a.changefaction                    { background-position: 0px -43px; }
-    #tabs li a.customize                            { background-position: 0px -86px; }
-    #tabs li a.invite                                  { background-position: 0px -129px; }
-    #tabs li a.delinvite                            { background-position: 0px -172px; }
-    #tabs li a.charrestore                        { background-position: 0px -215px; }
-    #tabs li a.changepass                          { background-position: 0px -258px; }
-    #tabs li a.utilites                              { background-position: 0px -301px; }
-    #tabs li a.checkban                              { background-position: 0px -344px; height: 44px; }
-    #tabs li a.changerace.current          { background-position: 0px -389px; }
+    #tabs                               { left: 0; z-index: 2; width: 320px; }
+    #tabs li                            { font-size: 12px; font-family: Arial; display: block; padding: 0; margin-left: -9px; }
+    #tabs li a                          { background: url(/images/tools_list.jpg); width: 349px; height: 43px; text-decoration: none;    display: block;}
+    #tabs li a.changerace               { background-position: 0px 0px; }
+    #tabs li a.changefaction            { background-position: 0px -43px; }
+    #tabs li a.customize                { background-position: 0px -86px; }
+    #tabs li a.invite                   { background-position: 0px -129px; }
+    #tabs li a.delinvite                { background-position: 0px -172px; }
+    #tabs li a.charrestore              { background-position: 0px -215px; }
+    #tabs li a.changepass               { background-position: 0px -258px; }
+    #tabs li a.utilites                 { background-position: 0px -301px; }
+    #tabs li a.checkban                 { background-position: 0px -344px; height: 44px; }
+    #tabs li a.changerace.current       { background-position: 0px -389px; }
     #tabs li a.changefaction.current    { background-position: 0px -432px; }
-    #tabs li a.customize.current            { background-position: 0px -475px; }
-    #tabs li a.invite.current                  { background-position: 0px -518px; }
-    #tabs li a.delinvite.current            { background-position: 0px -561px; }
-    #tabs li a.charrestore.current        { background-position: 0px -604px; }
-    #tabs li a.changepass.current          { background-position: 0px -647px; }
-    #tabs li a.utilites.current              { background-position: 0px -690px; }
-    #tabs li a.checkban.current              { background-position: 0px -733px; height: 44px; }
-    #tabs li a.current                                { color: #FFF; }
-    #tabs li a.current:hover                    { cursor: default; }
-    #tabs li img                                            { padding: 5px; border: none; float: left; margin: 10px 10px 0 0; }
+    #tabs li a.customize.current        { background-position: 0px -475px; }
+    #tabs li a.invite.current           { background-position: 0px -518px; }
+    #tabs li a.delinvite.current        { background-position: 0px -561px; }
+    #tabs li a.charrestore.current      { background-position: 0px -604px; }
+    #tabs li a.changepass.current       { background-position: 0px -647px; }
+    #tabs li a.utilites.current         { background-position: 0px -690px; }
+    #tabs li a.checkban.current         { background-position: 0px -733px; height: 44px; }
+    #tabs li a.current                  { color: #FFF; }
+    #tabs li a.current:hover            { cursor: default; }
+    #tabs li img                        { padding: 5px; border: none; float: left; margin: 10px 10px 0 0; }
     #tabs #fid0.view .pcs-over {
         background-attachment: scroll;
         background-clip: border-box;

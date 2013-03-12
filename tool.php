@@ -27,29 +27,29 @@ switch ($page)
         exit;
         break;
     case 'tool/registration':
-        $file = dirname(__FILE__) . '/blocks/registration.php';
+        $file = dirname(__FILE__) . '/libs/registration.php';
         $title = 'Регистрация';
         //$logo = 'registration';
         break;
     case 'tool/activation':
-        $file = dirname(__FILE__) . '/blocks/activation.php';
+        $file = dirname(__FILE__) . '/libs/activation.php';
         $title = 'Активация';
         //$logo = 'registration';
         break;
     case 'tool/kompromat':
-        $file = dirname(__FILE__) . '/blocks/logs.php';
+        $file = dirname(__FILE__) . '/libs/logs.php';
         $title = 'Логи';
         break;
     case 'tool/verysreg':
-        $file = dirname(__FILE__) . '/blocks/adminsreg.php';
+        $file = dirname(__FILE__) . '/libs/adminsreg.php';
         $title = 'Упрощённая регистрация';
         break;
     /*case 'tool/forum_queue':
-        $file = dirname(__FILE__) . '/blocks/forum_queue.php';
+        $file = dirname(__FILE__) . '/libs/forum_queue.php';
         $title = 'Запрос на активацию форума';
         break;
     case 'tool/forum_activation':
-        $file = dirname(__FILE__) . '/blocks/forum_activation.php';
+        $file = dirname(__FILE__) . '/libs/forum_activation.php';
         $title = 'Активация форума';
         break;*/
 
@@ -88,8 +88,8 @@ switch ($page)
 <div class="right"></div>
 </div>
 <?php
-require_once dirname(__FILE__) . '/blocks/includes/config.php';
-require_once dirname(__FILE__) . '/blocks/includes/database.inc.php';
+require_once dirname(__FILE__) . '/libs/includes/config.php';
+require_once dirname(__FILE__) . '/libs/includes/database.inc.php';
 $member_id = $_COOKIE['member_id'];
 global $group;
 $group = 3;

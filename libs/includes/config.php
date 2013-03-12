@@ -59,4 +59,11 @@ conf_set('db_forum', array(
   'db' =>'forum',
 ));
 
+conf_set('db_site', array(
+  'server' => 'localhost',
+  'username' => 'web_site',
+  'password' => 'siteweb_73',
+  'db' => 'cabinet_db',
+));
+
 ?>

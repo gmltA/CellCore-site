@@ -12,49 +12,49 @@ switch ($page)
 {
     case 'registration':
     {
-        $filename = dirname(__FILE__) . '/blocks/registration.php';
+        $filename = dirname(__FILE__) . '/libs/registration.php';
         $title = "Регистрация нового пользователя";
         $pagen = "reg";
         break;
     }
     case 'stats':
     {
-        $filename = dirname(__FILE__) . '/blocks/stats.php';
+        $filename = dirname(__FILE__) . '/libs/stats.php';
         $title = "Статистика реалмов";
         $pagen = "stats";
         break;
     }
     case 'rules':
     {
-        $filename = dirname(__FILE__) . '/blocks/rules.txt';
+        $filename = dirname(__FILE__) . '/libs/rules.txt';
         $title = "Правила игры на сервере";
         $pagen = "rules";
         break;
     }
     case 'tools':
     {
-        $filename = dirname(__FILE__) . '/blocks/tools.php';
+        $filename = dirname(__FILE__) . '/libs/tools.php';
         $title = "Доступные функции";
         $pagen = "tools";
         break;
     }
     case 'dumpcopy':
     {
-        $filename = dirname(__FILE__) . '/blocks/dump_copy.php';
+        $filename = dirname(__FILE__) . '/libs/dump_copy.php';
         $title = "Доступные функции";
         $pagen = "tools";
         break;
     }
     case 'hideip':
     {
-        $filename = dirname(__FILE__) . '/blocks/hide_ip.php';
+        $filename = dirname(__FILE__) . '/libs/hide_ip.php';
         $title = "Доступные функции";
         $pagen = "tools";
         break;
     }
     case 'adminsreg':
     {
-        $filename = dirname(__FILE__) . '/blocks/adminsreg.php';
+        $filename = dirname(__FILE__) . '/libs/adminsreg.php';
         $title = "Доступные функции";
         $pagen = "tools";
         break;
@@ -62,7 +62,7 @@ switch ($page)
 
     case 'forum':
     {
-        $filename = dirname(__FILE__) . '/blocks/forum.php';
+        $filename = dirname(__FILE__) . '/libs/forum.php';
         $title = "Доступные функции";
         $pagen = "tools";
         break;
@@ -70,7 +70,7 @@ switch ($page)
 
     default:
     {
-        $filename = dirname(__FILE__) . '/blocks/main.txt';
+        $filename = dirname(__FILE__) . '/libs/main.txt';
         $title = "RiverRise.net | World of Warcraft.by";
         $pagen = "main";
         break;
@@ -104,17 +104,17 @@ function current()
     $(this).addClass('active');
     /*if ($(this).hasClass('stats'))
     {
-        $('#text_body').load('blocks/stats.php');
+        $('#text_body').load('libs/stats.php');
         $('#title_box').text("Статистика реалмов");
     }
     else if ($(this).hasClass('rules'))
     {
-        $('#text_body').load('blocks/rules.txt');
+        $('#text_body').load('libs/rules.txt');
         $('#title_box').text("Правила игры на сервере");
     }
     else if ($(this).hasClass('tools'))
     {
-        $('#text_body').load('blocks/tools.php');
+        $('#text_body').load('libs/tools.php');
         $('#title_box').text("Доступные функции");
         $('#bar').addClass('toolsbg');
     }*/
@@ -143,8 +143,8 @@ window.oncontextmenu = function()
 <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 <?php
-include dirname(__FILE__) . '/blocks/includes/config.php';
-include dirname(__FILE__) . '/blocks/includes/database.inc.php';
+include dirname(__FILE__) . '/libs/includes/config.php';
+include dirname(__FILE__) . '/libs/includes/database.inc.php';
 
 $member_id = $_COOKIE['member_id'];
 global $member_name;
@@ -254,50 +254,115 @@ if ($forum_data['skin'] == '55')
     <a href="http://forum.riverrise.net/topic/45746/">
         <div class="top_banner"></div>
     </a>
-<div class="standardbox">
-    <div class="topbar">
-        <div class="leftcorner"></div>
-        <div class="rightcorner"></div>
-        <div class="middle">
-            <div class="rightfade"></div>
-            <h1 class="title" id="title_box"><?php echo $title;?></h1>
-        </div>
-    </div>
-    <div class="middlebar <?php if ($pagen == "tools") echo "toolsbg"?>" id="bar">
-    <?php if ($pagen != "tools" && $pagen != "stats"):?>
-        <div class="backgroundhex main" id="hex_main">
-        <!-- Это прозрачный блок-->
-        </div>
-        <div class="backgroundhex reg" id="hex_reg">
-        <!-- Это прозрачный блок-->
-        </div>
-        <div class="backgroundhex stats" id="hex_stats">
-        <!-- Это прозрачный блок-->
-        </div>
-        <div class="backgroundhex rules" id="hex_rules">
-        <!-- Это прозрачный блок-->
-        </div>
-        <div class="backgroundhex tools" id="hex_tools">
-        <!-- Это прозрачный блок-->
-        </div>
-    <?php endif?>
-        <div class="line">
-            <div class="description" id="text_body">
-                <?php include $filename ?>
-            </div>
-        </div>
-    </div>
-    <div class="bottombar">
-        <div class="middle">
+    <div class="standardbox">
+        <div class="topbar">
             <div class="leftcorner"></div>
             <div class="rightcorner"></div>
+            <div class="middle">
+                <div class="rightfade"></div>
+                <h1 class="title" id="title_box" ><?php echo $title;?></h1>
+            </div>
+        </div>
+        <div class="middlebar <?php if ($pagen == "tools") echo "toolsbg"?>" id="bar">
+        <?php if ($pagen != "tools" && $pagen != "stats"):?>
+            <div class="backgroundhex main" id="hex_main">
+            <!-- Это прозрачный блок-->
+            </div>
+            <div class="backgroundhex reg" id="hex_reg">
+            <!-- Это прозрачный блок-->
+            </div>
+            <div class="backgroundhex stats" id="hex_stats">
+            <!-- Это прозрачный блок-->
+            </div>
+            <div class="backgroundhex rules" id="hex_rules">
+            <!-- Это прозрачный блок-->
+            </div>
+            <div class="backgroundhex tools" id="hex_tools">
+            <!-- Это прозрачный блок-->
+            </div>
+        <?php endif?>
+            <div class="line">
+                <div class="description" id="text_body">
+                    <?php include $filename ?>
+                </div>
+            </div>
+        </div>
+        <div class="bottombar">
+            <div class="middle">
+                <div class="leftcorner"></div>
+                <div class="rightcorner"></div>
+            </div>
+        </div>
+        <div class="shadowbar">
+            <div class="line"></div>
+            <div class="shadow"></div>
         </div>
     </div>
-    <div class="shadowbar">
-        <div class="line"></div>
-        <div class="shadow"></div>
-    </div>
-</div>
+    
+<?php
+if ($pagen == "main")
+{
+    require_once dirname(__FILE__) . '/libs/includes/DbSimple/Connect.php';
+
+    $DB = new DbSimple_Connect('mysql://web_site:siteweb_73@localhost/cabinet_db');
+
+    $DB->setErrorHandler('databaseErrorHandler');
+    $DB->setIdentPrefix('site_');
+
+    function databaseErrorHandler($message, $info)
+    {
+
+        // Если использовалась @, ничего не делать.
+        if (!error_reporting()) return;
+
+            header('HTTP/1.1 503 Service Temporarily Unavailable');
+            echo '<html><head><title>Страница временно недоступна</title></head><body><center>';
+            echo '<br><br><br><br><h1><font color="#444444">Ой.</font></h1>';
+            echo '<br><h2><font color="#444444">Страница, на которую вы пытаетесь попасть, временно недоступна.</font></h2>';
+            echo '<br><h2><font color="#444444">Попробуйте зайти немного позже.</font></h2>';
+            echo '<br><br><h3><font color="#444444">Код ошибки: '.$info['code'].'</font></h3>';
+            echo '</center></body></html>';
+
+        exit();
+    }
+
+    $newsList = $DB->select('SELECT id, title, content, date FROM site_news');
+
+    print_r(db_fetch_array($newsList));
+
+    foreach ($newsList as $key=>$newsEntry)
+    {
+        echo '<div class="standardbox">
+                <div class="topbar">
+                    <div class="leftcorner"></div>
+                    <div class="rightcorner"></div>
+                    <div class="middle">
+                        <div class="rightfade"></div>
+                        <h1 class="title" id="title_box" style="display: inline-block;">'.$newsEntry["title"].'</h1>
+                        <span style="display: inline-block; height: 44px; line-height: 40px; float: right; font-size: 11px; color: #5D91A3;">'.$newsEntry["date"].'</span>
+                    </div>
+                </div>
+                <div class="middlebar" id="bar">
+                    <div class="line">
+                        <div class="description" id="text_body">
+                            '.$newsEntry["content"].'
+                        </div>
+                    </div>
+                </div>
+                <div class="bottombar">
+                    <div class="middle">
+                        <div class="leftcorner"></div>
+                        <div class="rightcorner"></div>
+                    </div>
+                </div>
+                <div class="shadowbar">
+                    <div class="line"></div>
+                    <div class="shadow"></div>
+                </div>
+            </div>';
+    }
+}
+?>
 </div>
 <div class="clearfix" ></div>
 </div>
