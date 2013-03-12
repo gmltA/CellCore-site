@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__FILE__) . '/libs/includes/config.php';
 ob_start();
 function chk($v, $k, $d = NULL) {
   return isset($v[$k]) ? $v[$k] : $d;
@@ -88,10 +89,10 @@ switch ($page)
 <script src="/jquery.min.js" type="text/javascript"></script>
 <script src="/jquery.cellAPI.js" type="text/javascript"></script>
 <script language="JavaScript" type="text/javascript">
-$(init); 
+$(init);
 
-function init() { 
-    $('.nbutton').bind( 'click', current ); 
+function init() {
+    $('.nbutton').bind('click', current); 
 }
 
 function current()
@@ -143,31 +144,31 @@ window.oncontextmenu = function()
 <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 <?php
-include dirname(__FILE__) . '/libs/includes/config.php';
-include dirname(__FILE__) . '/libs/includes/database.inc.php';
+    require_once dirname(__FILE__) . '/libs/db.php';
+    global $fDB;
 
-$member_id = $_COOKIE['member_id'];
-global $member_name;
-if ($member_id != 0)
-{
-    db_set_active('_forum');
-    if ($forum_data = db_fetch_array(db_query('SELECT member_group_id, members_display_name, skin FROM ibf_members WHERE member_id=%s', $member_id)))
-        $member_name = "Logged in as <b>".$forum_data['members_display_name']."</b>";
-}
-else
-{
-    $member_name = "Hello, <b>Guest</b>";
-    $forum_data['skin'] = $_COOKIE['guestSkinChoice'];
-}
-global $skin, $group;
-$group = 3;
-$group = $forum_data['member_group_id'];
-$skin = 'riverrise';
-if ($forum_data['skin'] == '55')
-{
-    $skin = 'master';
-}
+    $member_id = $_COOKIE['member_id'];
+    global $member_name;
 
+    if ($member_id != 0)
+    {
+        $forum_data = $fDB->select('SELECT member_group_id, members_display_name, skin FROM ?_members WHERE member_id = ?d', $member_id);
+        if ($forum_data || isset($_SESSION['username']))
+            $member_name = "Logged in as <b>".$_SESSION['username']."</b>";
+    }
+    else
+    {
+        $member_name = "Hello, <b>Guest</b>";
+        $forum_data['skin'] = $_COOKIE['guestSkinChoice'];
+    }
+    global $skin, $group;
+    $group = 3;
+    $group = $forum_data['member_group_id'];
+    $skin = 'riverrise';
+    if ($forum_data['skin'] == '55')
+    {
+        $skin = 'master';
+    }
 ?>
 <body class="<?php echo $skin?>">
 <div class="content">
@@ -302,33 +303,8 @@ if ($forum_data['skin'] == '55')
 <?php
 if ($pagen == "main")
 {
-    require_once dirname(__FILE__) . '/libs/includes/DbSimple/Connect.php';
-
-    $DB = new DbSimple_Connect('mysql://web_site:siteweb_73@localhost/cabinet_db');
-
-    $DB->setErrorHandler('databaseErrorHandler');
-    $DB->setIdentPrefix('site_');
-
-    function databaseErrorHandler($message, $info)
-    {
-
-        // Если использовалась @, ничего не делать.
-        if (!error_reporting()) return;
-
-            header('HTTP/1.1 503 Service Temporarily Unavailable');
-            echo '<html><head><title>Страница временно недоступна</title></head><body><center>';
-            echo '<br><br><br><br><h1><font color="#444444">Ой.</font></h1>';
-            echo '<br><h2><font color="#444444">Страница, на которую вы пытаетесь попасть, временно недоступна.</font></h2>';
-            echo '<br><h2><font color="#444444">Попробуйте зайти немного позже.</font></h2>';
-            echo '<br><br><h3><font color="#444444">Код ошибки: '.$info['code'].'</font></h3>';
-            echo '</center></body></html>';
-
-        exit();
-    }
-
-    $newsList = $DB->select('SELECT id, title, content, date FROM site_news');
-
-    print_r(db_fetch_array($newsList));
+    global $DB;
+    $newsList = $DB->select('SELECT id, title, content, date FROM ?_news');
 
     foreach ($newsList as $key=>$newsEntry)
     {

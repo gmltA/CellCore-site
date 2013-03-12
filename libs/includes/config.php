@@ -66,4 +66,15 @@ conf_set('db_site', array(
   'db' => 'cabinet_db',
 ));
 
+global $config;
+
+$config['db']['host']                        = 'localhost';
+$config['db']['user']                        = 'web_site';
+$config['db']['password']                    = 'siteweb_73';
+$config['db']['db']                          = 'cabinet_db';
+$config['db']['prefix']                      = 'site_';
+$config['db']['forum_db']                    = 'forum';
+$config['db']['forum_prefix']                = 'ibf_';
+$config['db']['driver']['site']              = 'mysql'; //values: mysql, mypdo
+$config['db']['driver']['realm']             = 'mysql'; //values: mysql, mypdo
 ?>
