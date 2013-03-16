@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/includes/config.php';
+require_once dirname(__FILE__) . '/config.php';
 require_once dirname(__FILE__) . '/includes/DbSimple/Connect.php';
 
 global $config;
@@ -13,6 +13,21 @@ $fDB = new DbSimple_Connect($config['db']['driver']['site'].'://'.$config['db'][
 
 $fDB->setErrorHandler('databaseErrorHandler');
 $fDB->setIdentPrefix($config['db']['forum_prefix']);
+
+$rDB = array();
+$cDB = array();
+$wDB = array();
+foreach ($config['realms'] as $key=>$realm)
+{
+    $rDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['db_user'].':'.$realm['db_pass'].'@'.$realm['db_host'].'/'.$realm['db']);
+    $rDB[$key]->setErrorHandler('databaseErrorHandler');
+
+    $cDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['char_db_user'].':'.$realm['char_db_pass'].'@'.$realm['char_db_host'].'/'.$realm['char_db']);
+    $cDB[$key]->setErrorHandler('databaseErrorHandler');
+
+    $wDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['world_db_user'].':'.$realm['world_db_pass'].'@'.$realm['world_db_host'].'/'.$realm['world_db']);
+    $wDB[$key]->setErrorHandler('databaseErrorHandler');
+}
 
 function databaseErrorHandler($message, $info)
 {
