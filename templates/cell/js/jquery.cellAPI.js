@@ -1,17 +1,40 @@
 function openLogin()
 {
 	event.preventDefault();
+	if ($('.embed_login').html() == '')
+	{
+		$('.embed_login').html('<iframe src="http://lk1.riverrise.net/loginframe/" id="loginbox" frameborder="0"/>');
+	}
+
 	$('#loginbox').stop().fadeIn("fast").animate({'marginLeft' : '0px'}, "slow", "easeInOutCubic");
 	$('#blackout').stop().fadeIn("fast");
 }
 
 function closeLogin()
 {
-	$('#loginbox').stop().animate({'marginLeft' : '-500px'}, "slow", "easeInOutCubic").fadeOut("slow");
+	$('#loginbox').stop().fadeOut("slow").animate({'marginLeft' : '-500px'}, "fast", "easeInOutCubic");
 	$('#blackout').stop().fadeOut("fast");
 }
 
+function responceHandler(event)
+{
+	if (event.data == 'success')
+	{
+		closeLogin();
+		$('.embed_login').html('');
+		location.reload();
+	}
+	else
+	{
+		alert(event.data);
+	}
+}
+
 $(document).ready(function(){
+	// Responce from login iframe
+	window.addEventListener("message",
+        responceHandler,
+        false);
 	$(".nbutton").hover(
 		function ()
 			{
