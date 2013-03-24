@@ -128,7 +128,7 @@ NAV A { margin-right: 3px; }
     padding-right: 20px;
 }
 
-.riverrise .info.user .spacer { font-size: 13px; }
+.riverrise .info.user .spacer { font-size: 13px; padding: 0 5px 0 5px;}
 
 .header_bar .info.small_info { float: left; }
 .header_bar .info.small_info A { color: white; }
@@ -514,6 +514,7 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 .wrapper .content .sub { padding-left: 40px; }
 .wrapper .content h2 { color: #afdef9; text-align: center; }
 .wrapper .content .sub ul { list-style-type: none; }
+.wrapper .content ul, .wrapper .content .sub_ { line-height: 1.8em; }
 .wrapper .content ul, .wrapper .content .sub_ ul { display: block; list-style: disc outside; padding-left: 40px; }
 
 .about_logo { width: 200px; height: 32px; background-image: url(images/about_logo.png); }
