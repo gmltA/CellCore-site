@@ -12,4 +12,19 @@ if (!$server_ajax)
     die('<h1>403 Forbidden</h1>');
 }
 
-updateViewsCount($_REQUEST['newsEntryID']);
+if (isset($_POST['newsEntryID']))
+	NewsManager::getInstance()->updateViewsCount($_POST['newsEntryID']);
+elseif (isset($_POST['point']))
+{
+	global $config;
+	
+	$news = NewsManager::getInstance()->loadNews(5, $_POST['point']-5);
+	
+	$smarty = new Smarty_Studio($config['website']['template']);
+	
+	foreach ($news as $key => $newsEntry)
+	{
+		$smarty->assign('newsEntry', $newsEntry);
+		echo $smarty->fetch('bricks/news.tpl');
+	}
+}

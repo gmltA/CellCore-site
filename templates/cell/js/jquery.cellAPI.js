@@ -30,6 +30,15 @@ function responceHandler(event)
 	}
 }
 
+var k = 5;
+
+function next(f)
+{
+	$.post("/ajax/?", {'point':f}, function(data){
+		$(".right_column").append(data);
+	});
+}
+
 $(document).ready(function(){
 	// Responce from login iframe
 	window.addEventListener("message",
@@ -93,4 +102,12 @@ $(document).ready(function(){
 				closeLogin();
 			}
 	});
+	
+	$(window).scroll(function () {
+		if (($(window).scrollTop()) == ($(document).height() - $(window).height()))
+		{
+			k = k+5;
+			next(k);
+        };
+    });  
 });

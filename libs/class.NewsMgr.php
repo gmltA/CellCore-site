@@ -33,11 +33,11 @@ class NewsManager
 		return ($newsLink['0'] && is_numeric($newsLink['0'])) ? $newsLink['0'] : false;
 	}
 	
-	public function loadNews($size)
+	public function loadNews($count, $begin = 0)
 	{
 		global $DB;
 
-		$newsList = $DB->select('SELECT id, title, content, views, date FROM ?_news ORDER BY date DESC LIMIT ?d', $size);
+		$newsList = $DB->select('SELECT id, title, content, views, date FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
 		foreach ($newsList as $key=>$newsEntry)
 		{
 			$newsList[$key]['link'] = self::buildNewsURI($newsEntry);
