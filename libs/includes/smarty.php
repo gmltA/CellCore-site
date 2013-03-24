@@ -1,9 +1,9 @@
 <?php
-/*if (!defined('IS_IN_ENGINE'))
+if (!defined('IS_IN_ENGINE'))
 {
     header("HTTP/1.1 403 Forbidden");
     die('<h1>403 Forbidden</h1>');
-}*/
+}
 
 // Директория
 global $cwd;
@@ -12,7 +12,7 @@ global $config;
 $cwd = str_replace("\\", "/", getcwd());
 
 // загружаем библиотеку Smarty
-require_once('libs/smarty/Smarty.class.php');
+require_once dirname(__FILE__) . '/smarty/Smarty.class.php';
 
 class Smarty_Studio extends Smarty
 {
@@ -47,7 +47,7 @@ class Smarty_Studio extends Smarty
         $this->left_delimiter = '{';
         $this->right_delimiter = '}';
 
-        if ( !$this->debugging )
+        if (!$this->debugging)
         {
             $this->loadFilter('output', 'singlestring');
         }
@@ -58,8 +58,3 @@ class Smarty_Studio extends Smarty
         $this->append($name,$val);
     }
 }
-
-// Объект шаблонизатора
-$smarty = new Smarty_Studio($config['website']['template']);
-
-?>

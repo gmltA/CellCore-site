@@ -1,7 +1,32 @@
 <?php
+
 class AuthManager
 {
-    public function checkAuth()
+    protected static $instance;
+
+    private function __construct()
+	{
+	}
+	
+    private function __clone()
+	{
+	}
+	
+    private function __wakeup()
+	{
+	}
+	
+    public static function getInstance()
+	{
+        if (is_null(self::$instance))
+		{
+            self::$instance = new AuthManager();
+        }
+		
+        return self::$instance;
+    }
+	
+	public function checkAuth()
     {
         global $config;
 
@@ -25,4 +50,3 @@ class AuthManager
         return $user;
     }
 }
-?>

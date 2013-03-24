@@ -73,7 +73,7 @@ $(document).ready(function(){
 				}
 			});
 
-	$(".top_banner").live({
+	$(".lighter_fast").live({
 		mouseover:
 		function ()
 			{

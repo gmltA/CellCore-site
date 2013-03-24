@@ -1,6 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/config.php';
-require_once dirname(__FILE__) . '/includes/DbSimple/Connect.php';
+require_once dirname(__FILE__) . '/DbSimple/Connect.php';
 
 global $config;
 
@@ -44,4 +43,3 @@ function databaseErrorHandler($message, $info)
 
     exit();
 }
-?>

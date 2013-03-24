@@ -1,66 +1,57 @@
 <?php
-require_once ('libs/core.php');
+define('IS_IN_ENGINE', true);
 
-global $AuthMgr;
-$authMgr = new AuthManager();
-
-global $user;
-$user = $authMgr->checkAuth();
+require_once dirname(__FILE__) . '/libs/core.php';
 
 session_start();
 
-$page = explode('/', $_SERVER['REQUEST_URI']);
-
-global $smarty;
-global $skins;
+global $user;
 global $config;
+
+$page = explode('/', $_SERVER['REQUEST_URI']);
 
 switch ($page['1'])
 {
-    case 'news':
-		if ($page['2'] && is_numeric($page['2']))
+    case 'ajax':
+		include dirname(__FILE__) . '/libs/ajax.php';
+		exit;
+		
+	case 'news':
+		if (!$newsID = NewsManager::getNewsEntryID($page['2']))
 		{
-			$newsEntry = loadNewsEntry($page['2']);
-			//@todo: handle 404 error properly
-			if (!$newsEntry)
-			{
-				header('Location: '.$config['website']['main_url']);
-				exit;
-			}
-
-			$smarty->assign('forumSkin', $skins[$user->GetSkin()]);
-			$smarty->assign('user', $user);
-			$smarty->assign('userName', $user->GetDisplayName());
-			$smarty->assign('debug', '0');
-			$smarty->assign('newsEntry', $newsEntry);
-			$smarty->assign('title', $newsEntry['title']);
-			$smarty->assign('keywords', $newsEntry['keywords']);
-			$smarty->assign('description', "Description");
-			$smarty->assign('panelURL', $config['website']['panel_url']);
-			$template = 'main_news.tpl';
-		}
-		else  // All news
-		{
-			header('Location: '.$config['website']['main_url']);
+			header('Location: ' . $config['website']['main_url']);
 			exit;
 		}
+		
+		$newsEntry = NewsManager::getInstance()->loadNewsEntry($newsID);
+		
+		//@todo: handle 404 error properly
+		if (!$newsEntry)
+		{
+			header('Location: ' . $config['website']['main_url']);
+			exit;
+		}
+		
+		$layout = LayoutManager::buildPage(PAGE_NEWS_ENTRY, array('newsEntry' => $newsEntry, 'title' => $newsEntry['title'],
+																	'keywords' => $newsEntry['keywords'], 'description' => $newsEntry['description']));
+		
         break;
+		
 	case 'stats':
+		include dirname(__FILE__) . '/libs/stats.php';
+		
+		$layout = LayoutManager::buildPage(PAGE_STATS, array('realms' => GetRealmStats()));
+		
         break;
+		
     default:
-        $newsList = loadNews(5);
-
-        $smarty->assign('forumSkin', $skins[$user->GetSkin()]);
-        $smarty->assign('user', $user);
-        $smarty->assign('userName', $user->GetDisplayName());
-        $smarty->assign('debug', '0');
-        $smarty->assign('pagen', 'main');
-        $smarty->assign('title', 'Just a title');
-        $smarty->assign('newsList', $newsList);
-        $smarty->assign('panelURL', $config['website']['panel_url']);
-        $template = 'main.tpl';
+		$layout = LayoutManager::buildPage(PAGE_MAIN, array(
+		
+			'newsList' => NewsManager::getInstance()->loadNews(5)
+			
+			));
+		
         break;
 }
 
-echo $smarty->fetch($template);
-?>
+echo LayoutManager::render($layout);

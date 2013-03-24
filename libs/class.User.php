@@ -4,12 +4,12 @@ class User
 	protected $status;
 	protected $id;
 	protected $forumId;
-	protected $displayName = "Anonimous";
+	protected $displayName = "Anonymous";
 	protected $forumSkin;
 	
 	public function __construct($username, $sha_pass_hash, $realm = 0)
 	{
-        $authResponce = $this->ProcessAuth($username, $sha_pass_hash, $realm);
+        $authResponce = $this->processAuth($username, $sha_pass_hash, $realm);
         
 		if (!is_array($authResponce))
         {
@@ -18,13 +18,15 @@ class User
         else
         {
             $this->id = $authResponce['id'];
+            $this->displayName = $authResponce['username'];
             $this->status = USER_STATUS_LOGGEDIN;
         }
 
-        $data = $this->LoadForumData();
+        $data = $this->loadForumData();
 
         $this->forumSkin = $data['skin'];
-        $this->displayName = $data['members_display_name'];
+		if ($data['members_display_name'])
+			$this->displayName = $data['members_display_name'];
 
         if ($this->status != USER_STATUS_LOGGEDIN)
         {
@@ -33,7 +35,7 @@ class User
         }
 	}
 	
-	private function ProcessAuth($username, $sha_pass_hash, $realm)
+	private function processAuth($username, $sha_pass_hash, $realm)
 	{
 		global $rDB;
 		
@@ -48,7 +50,7 @@ class User
 			return USER_STATUS_FAIL;
 	}
 	
-	private function LoadForumData()
+	private function loadForumData()
 	{
 		global $fDB;
 		global $skins;
@@ -66,7 +68,7 @@ class User
                 $forumData = $fDB->selectRow('SELECT members_display_name, skin FROM ?_members WHERE member_id = ?d', $this->forumId);
                 if ($forumData)
                 {
-                    $forumData['members_display_name'] = 'ForumAuth:'.$forumData['members_display_name'];
+                    $forumData['members_display_name'] = 'ForumAuth:' . $forumData['members_display_name'];
                 }
             }
         }
@@ -79,24 +81,23 @@ class User
 		return $forumData;
 	}
 	
-	public function GetID()
+	public function getID()
 	{
 		return $this->id;
 	}
     
-    public function IsLoggedIn()
+    public function isLoggedIn()
     {
         return ($this->status == USER_STATUS_LOGGEDIN || $this->status == USER_STATUS_FORUM_DATA);
     }
 	
-	public function GetDisplayName()
+	public function getDisplayName()
 	{
 		return $this->displayName;
 	}
 	
-	public function GetSkin()
+	public function getSkin()
 	{
 		return $this->forumSkin;
 	}
 }
-?>

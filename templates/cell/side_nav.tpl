@@ -1,17 +1,17 @@
 <ul class="nav_buttons">
     <li>
-        <a href="/"><div class="nbutton main {if $pagen == "main"}active{/if}" title="Главная страница"></div></a>
+        <a href="/"><div class="nbutton main {if $pageName == "main"}active{/if}" title="Главная страница"></div></a>
     </li>
     <li>
-        <a href="/registration/"><div class="nbutton reg {if $pagen == "reg"}active{/if}" title="Регистрация пользователей"></div></a>
+        <a href="/registration/"><div class="nbutton reg {if $pageName == "registration"}active{/if}" title="Регистрация пользователей"></div></a>
     </li>
     <li>
-        <a href="/stats/"><div class="nbutton stats {if $pagen == "stats"}active{/if}" title="Состояние миров"></div></a>
+        <a href="/stats/"><div class="nbutton stats {if $pageName == "stats"}active{/if}" title="Состояние миров"></div></a>
     </li>
     <li>
-        <a href="/rules/"><div class="nbutton rules {if $pagen == "rules"}active{/if}" title="Правила сервера"></div></a>
+        <a href="/rules/"><div class="nbutton rules {if $pageName == "rules"}active{/if}" title="Правила сервера"></div></a>
     </li>
     <li>
-        <a href="http://lk.riverrise.net/"><div class="nbutton tools {if $pagen == "tools"}active{/if}" title="Личный кабинет"></div></a>
+        <a href="http://lk.riverrise.net/"><div class="nbutton tools {if $pageName == "tools"}active{/if}" title="Личный кабинет"></div></a>
     </li>
 </ul>
