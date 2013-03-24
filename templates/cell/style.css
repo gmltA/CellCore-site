@@ -212,9 +212,9 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .nbutton.main                               { border-radius: 5px 0 0 0; z-index: 5; }
 .nbutton.main:hover, .nbutton.main.active   { background-position: 0 -210px; }
 .nbutton.main.active                        { margin-left: 10px; }
-.nbutton.reg                                { z-index: 4; background-position: 0 -42px; }
-.nbutton.reg:hover , .nbutton.reg.active    { background-position: 0 -252px; }
-.nbutton.reg.active                         { margin-left: 10px; }
+.nbutton.news                               { z-index: 4; background-position: 0 -42px; }
+.nbutton.news:hover , .nbutton.news.active  { background-position: 0 -252px; }
+.nbutton.news.active                        { margin-left: 10px; }
 .nbutton.stats                              { z-index: 3; background-position: 0 -84px; }
 .nbutton.stats:hover, .nbutton.stats.active { background-position: 0 -294px; }
 .nbutton.stats.active                       { margin-left: 10px; }
@@ -289,12 +289,12 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
     top: 45px;
     background: url(images/hex_main.png);
 }
-.standardbox .middlebar .backgroundhex.reg
+.standardbox .middlebar .backgroundhex.news
 {
     width: 181px;
     height: 209px;
     top: 69px;
-    background: url(images/hex_reg.png);
+    background: url(images/hex_news.png);
 }
 .standardbox .middlebar .backgroundhex.stats
 {

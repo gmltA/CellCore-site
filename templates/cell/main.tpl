@@ -35,7 +35,7 @@
 					</div>
 					<div class="middlebar">
 						<div class="backgroundhex main" id="hex_main"></div>
-						<div class="backgroundhex reg" id="hex_reg"></div>
+						<div class="backgroundhex news" id="hex_news"></div>
 						<div class="backgroundhex stats" id="hex_stats"></div>
 						<div class="backgroundhex rules" id="hex_rules"></div>
 						<div class="backgroundhex tools" id="hex_tools"></div>

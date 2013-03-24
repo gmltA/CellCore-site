@@ -44,8 +44,8 @@ $(document).ready(function(){
 
 					if ($(this).hasClass("main"))
 						$('#hex_main').stop().animate({"opacity": "1"}, "fast");
-					else if ($(this).hasClass("reg"))
-						$('#hex_reg').stop().animate({"opacity": "1"}, "fast");
+					else if ($(this).hasClass("news"))
+						$('#hex_news').stop().animate({"opacity": "1"}, "fast");
 					else if ($(this).hasClass("stats"))
 						$('#hex_stats').stop().animate({"opacity": "1"}, "fast");
 					else if ($(this).hasClass("rules"))
@@ -62,8 +62,8 @@ $(document).ready(function(){
 
 					if ($(this).hasClass("main"))
 						$('#hex_main').stop().animate({"opacity": "0"}, "fast");
-					else if ($(this).hasClass("reg"))
-						$('#hex_reg').stop().animate({"opacity": "0"}, "fast");
+					else if ($(this).hasClass("news"))
+						$('#hex_news').stop().animate({"opacity": "0"}, "fast");
 					else if ($(this).hasClass("stats"))
 						$('#hex_stats').stop().animate({"opacity": "0"}, "fast");
 					else if ($(this).hasClass("rules"))
