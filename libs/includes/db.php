@@ -23,9 +23,6 @@ foreach ($config['realms'] as $key=>$realm)
 
     $cDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['char_db_user'].':'.$realm['char_db_pass'].'@'.$realm['char_db_host'].'/'.$realm['char_db']);
     $cDB[$key]->setErrorHandler('databaseErrorHandler');
-
-    $wDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['world_db_user'].':'.$realm['world_db_pass'].'@'.$realm['world_db_host'].'/'.$realm['world_db']);
-    $wDB[$key]->setErrorHandler('databaseErrorHandler');
 }
 
 function databaseErrorHandler($message, $info)
