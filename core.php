@@ -72,7 +72,7 @@
 				</div>
 			</div>
 		</div>
-	<footer class="wrapper">
+<footer class="wrapper">
     <a href="/core/" class="logo-core lighter_fast"></a>
     <!--<div class="logo-dev lighter_fast"></div>-->
     <a href="http://www.webmoney.ru/" class="logo-wm lighter_fast"></a>
