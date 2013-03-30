@@ -11,7 +11,7 @@
 		<meta name="description" content="{$description}"/>
 	{/if}
 	<script src="/{$MainTemplateDir}/js/jquery.min.js" type="text/javascript"></script>
-	<script src="/{$MainTemplateDir}/js/jquery.easing.1.3.js" type="text/javascript"></script>
+	<script src="/{$MainTemplateDir}/js/jquery.easing.min.js" type="text/javascript"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js" type="text/javascript"></script>
 	{if $pageName == "news"}
 		<script src="/{$MainTemplateDir}/js/news.js" type="text/javascript"></script>
