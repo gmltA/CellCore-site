@@ -346,6 +346,26 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 
 .standardbox .article_bottom .news_cut { float: right; background: url(images/arrow_sm.png) 100% 0 no-repeat; padding-right: 10px; }
 
+.content_loader
+{
+	display: table;
+	background: url(images/loader_bar.png) no-repeat;
+	height: 46px;
+	width: 816px;
+	border-radius: 6px;
+	box-shadow: 0 2px 10px black;
+	margin-bottom: 20px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	float: right;
+	margin-right: 12px;
+}
+.content_loader A { vertical-align: middle; display: table-cell; }
+.content_loader A.bar { display: table-cell; height: 11px; width: 43px; background: url(images/loading.gif) 50% 50% no-repeat; content: ""; }
+
 FOOTER { clear: both; height: 90px; margin: 0; width: 980px; }
 FOOTER .logo-core { width: 108px; height: 58px; background: url(images/core.png) no-repeat; display: block; float: left; }
 FOOTER .logo-wm { width: 108px; height: 58px; background: url(images/logo-wm.png) no-repeat; display: block; float: right; }

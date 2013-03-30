@@ -40,6 +40,39 @@ function updateViewsCount()
 	});
 }
 
+var page = 1;
+
+function nextPage()
+{
+	event.preventDefault();
+	if ($('#loader').is(':visible'))
+	{
+		page = page + 1;
+		$.ajax({
+			type: "POST",
+			url: "/ajax/?",
+			data: 'point=' + page,
+			beforeSend: function()
+			{
+				$('#loader > A').addClass('bar');
+			},
+			success: function(responce)
+			{
+				$('#loader > A').removeClass('bar');
+				if (responce == 'empty')
+				{
+					$('#loader').slideUp('fast');
+				}
+				else
+				{
+					$(".right_column").append(responce);
+					$('#loader > A').attr('href', '/news/page/' + (page+1));
+				}
+			}
+		});
+	}
+}
+
 $(function()
 {
 	if (isLocalStorageAvailable())
@@ -56,4 +89,11 @@ $(function()
 			localStorage.setItem('Cell.visitedArticles', articleList+','+$('article').attr('id'));
 		}
 	}
+	
+	$(window).scroll(function () {
+		if (($(window).scrollTop()) == ($(document).height() - $(window).height()))
+		{
+			nextPage();
+        };
+    });  
 });

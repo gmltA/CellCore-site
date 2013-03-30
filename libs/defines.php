@@ -14,12 +14,12 @@ define('USER_STATUS_FAIL', 			3);
 
 // Pages
 
-define('PAGE_MAIN', 		0);
-define('PAGE_STATS', 		1);
-define('PAGE_REGISTRATION', 2);
-define('PAGE_RULES', 		3);
-define('PAGE_NEWS', 		4);
-define('PAGE_NEWS_ENTRY', 	5);
+define('PAGE_MAIN', 		'main');
+define('PAGE_STATS', 		'stats');
+define('PAGE_RULES', 		'rules');
+define('PAGE_NEWS', 		'news');
+define('PAGE_NEWS_PART', 	'news_page');
+define('PAGE_NEWS_ENTRY', 	'news_entry');
 
 // Forum skins
 global $skins;

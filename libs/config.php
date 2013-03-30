@@ -3,7 +3,7 @@ global $config;
 
 $config['db']['host']                        = 'localhost';
 $config['db']['user']                        = 'root';
-$config['db']['password']                    = 'root';
+$config['db']['password']                    = '';
 $config['db']['db']                          = 'cabinet_db';
 $config['db']['prefix']                      = 'site_';
 $config['db']['forum_db']                    = 'forum';
@@ -35,13 +35,13 @@ $config['realms'][] = array(
                     //auth database settings
                     'db_host'		=>	'localhost',
                     'db_user'		=>	'root',
-                    'db_pass'		=>	'root',
+                    'db_pass'		=>	'',
                     'db'			=>	'auth',
 
                     //characters database settings
                     'char_db_host'	=>	'localhost',
                     'char_db_user'	=>	'root',
-                    'char_db_pass'	=>	'root',
+                    'char_db_pass'	=>	'',
                     'char_db'		=>	'characters',
 );
 

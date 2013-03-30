@@ -38,6 +38,12 @@ class NewsManager
 		global $DB;
 
 		$newsList = $DB->select('SELECT id, title, content, views, date FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
+		
+		if (!$newsList)
+		{
+			return false;
+		}
+		
 		foreach ($newsList as $key=>$newsEntry)
 		{
 			$newsList[$key]['link'] = self::buildNewsURI($newsEntry);
@@ -51,6 +57,12 @@ class NewsManager
 		global $DB;
 		
 		$newsEntry = $DB->selectRow('SELECT id, title, content, keywords, views, date FROM ?_news WHERE id = ?d LIMIT 1', $id);
+		
+		if (!$newsEntry)
+		{
+			return false;
+		}
+
 		$newsEntry['description'] = self::buildDescription($newsEntry['content']);
 		
 		return $newsEntry;

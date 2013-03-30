@@ -3,7 +3,7 @@
         <a href="/"><div class="nbutton main {if $pageName == "main"}active{/if}" title="Главная страница"></div></a>
     </li>
     <li>
-        <a href="/news/"><div class="nbutton news {if $pageName == "news"}active{/if}" title="Все новости проекта"></div></a>
+        <a href="/news/"><div class="nbutton news {if $pageName == "news" || $pageName == "news_page"}active{/if}" title="Все новости проекта"></div></a>
     </li>
     <li>
         <a href="/stats/"><div class="nbutton stats {if $pageName == "stats"}active{/if}" title="Состояние миров"></div></a>

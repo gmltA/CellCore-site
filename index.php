@@ -17,10 +17,47 @@ switch ($page['1'])
 		exit;
 		
 	case 'news':
-		if (!$newsID = NewsManager::getNewsEntryID($page['2']))
+		if (!$page['2'])
 		{
-			header('Location: ' . $config['website']['main_url']);
-			exit;
+			$layout = LayoutManager::buildPage(PAGE_NEWS, array(
+
+				'newsList' => NewsManager::getInstance()->loadNews(5)
+
+			));
+			break;
+		}
+		
+		if ($page['2'] == 'page')
+		{
+			if (!is_numeric($page['3']))
+			{
+				header('Location: ' . $config['website']['main_url'] . 'news/');
+				break;
+			}
+		
+			if ($newsPage = NewsManager::getInstance()->loadNews(5, $page['3']*5-5))
+			{
+				$layout = LayoutManager::buildPage(PAGE_NEWS_PART, array(
+
+					'newsList' => $newsPage,
+					'nextPage' => $page['3']+1
+
+				));
+				break;
+			}
+			else
+			{
+				header('Location: ' . $config['website']['main_url'] . 'news/');
+				break;
+			}
+		}
+		
+		$newsID = NewsManager::getNewsEntryID($page['2']);
+		
+		if (!$newsID && $page['2'])
+		{
+			header('Location: ' . $config['website']['main_url'] . 'news/');
+			break;
 		}
 		
 		$newsEntry = NewsManager::getInstance()->loadNewsEntry($newsID);
@@ -28,7 +65,7 @@ switch ($page['1'])
 		//@todo: handle 404 error properly
 		if (!$newsEntry)
 		{
-			header('Location: ' . $config['website']['main_url']);
+			header('Location: ' . $config['website']['main_url'] . '404/');
 			exit;
 		}
 		
@@ -43,11 +80,16 @@ switch ($page['1'])
 		$layout = LayoutManager::buildPage(PAGE_STATS, array('realms' => GetRealmStats()));
 		
         break;
+
+	case 'rules':
+		$layout = LayoutManager::buildPage(PAGE_RULES);
+		
+        break;
 		
     default:
 		$layout = LayoutManager::buildPage(PAGE_MAIN, array(
 		
-			'newsList' => NewsManager::getInstance()->loadNews(5)
+			'newsList' => NewsManager::getInstance()->loadNews(3)
 			
 			));
 		

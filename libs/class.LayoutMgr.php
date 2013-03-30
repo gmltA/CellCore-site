@@ -46,17 +46,26 @@ class LayoutManager extends Smarty_Studio
 		switch ($page)
 		{
 			case PAGE_STATS:
-				$layout = new self($page, 'static', 'main', 'stats');
+				$layout = new self($page, 'dynamic', 'main', 'stats');
+				$vars['title'] = 'Статус серверов';
 				break;
 				
 			case PAGE_REGISTRATION:
 				break;
 				
 			case PAGE_NEWS:
+			case PAGE_NEWS_PART:
+				$layout = new self($page, 'dynamic', 'main');
+				$vars['title'] = 'Новости проекта';
 				break;
 				
 			case PAGE_NEWS_ENTRY:
 				$layout = new self($page, 'dynamic', 'news');
+				break;
+
+			case PAGE_RULES:
+				$layout = new self($page, 'dynamic', 'main', 'static/rules');
+				$vars['title'] = 'Правила сервера';
 				break;
 				
 			case PAGE_MAIN:
@@ -108,26 +117,6 @@ class LayoutManager extends Smarty_Studio
 	
 	public function getPageID()
 	{
-		switch ($this->pageID)
-		{
-			case PAGE_STATS:
-				return 'stats';
-				
-			case PAGE_REGISTRATION:
-				return 'registration';
-				
-			case PAGE_NEWS:
-				return 'news';
-				
-			case PAGE_NEWS_ENTRY:
-				return 'news_entry';
-				
-			case PAGE_STATS:
-				return 'stats';
-				
-			case PAGE_MAIN:
-			default:
-				return 'main';
-		}
+		return $this->pageID;
 	}
 }

@@ -13,14 +13,22 @@ if (!$server_ajax)
 }
 
 if (isset($_POST['newsEntryID']))
+{
 	NewsManager::getInstance()->updateViewsCount($_POST['newsEntryID']);
+}
 elseif (isset($_POST['point']))
 {
 	global $config;
 	
-	$news = NewsManager::getInstance()->loadNews(5, $_POST['point']-5);
+	$news = NewsManager::getInstance()->loadNews(5, $_POST['point']*5-5);
 	
 	$smarty = new Smarty_Studio($config['website']['template']);
+	
+	if (!$news)
+	{
+		echo 'empty';
+		exit;
+	}
 	
 	foreach ($news as $key => $newsEntry)
 	{
