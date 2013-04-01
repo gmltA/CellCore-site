@@ -148,7 +148,9 @@ NAV A { margin-right: 3px; }
 	overflow: auto;
 }
 
-.search_dropdown > DIV { height: 60px; padding: 10px; background: url(images/search_dropdown.jpg) top center; }
+.search_dropdown > DIV { height: 60px; padding: 10px; background: url(images/search_dropdown.jpg) no-repeat top center; cursor: pointer; }
+.search_dropdown > DIV:hover { background-position: bottom center; }
+.search_dropdown > DIV:hover A { color: #FFFFFF; text-shadow: 0 0 8px white; }
 .search_dropdown P { text-align: left; color: #8CB0BB; }
 
 .riverrise .info.user .spacer { font-size: 13px; padding: 0 5px 0 5px; }
