@@ -75,7 +75,7 @@ function nextPage()
 
 $(function()
 {
-	if (isLocalStorageAvailable())
+	if (isLocalStorageAvailable() && $('article').attr('id') != 0)
 	{
 		var articleList = localStorage.getItem('Cell.visitedArticles');
 		if (!articleList)

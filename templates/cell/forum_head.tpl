@@ -2,14 +2,18 @@
 	<div class="branding">
 		<div class="header_bar clearfix">
 			<div class="main_width">
-				<div class="info user">
-					{if $user->isLoggedIn() != true}
+				<div style="display: inline-block;">
+					<input type="text" id="search" placeholder="Поиск">
+					<div class="info user">
+						{if $user->isLoggedIn() != true}
+							<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
+							<span class="spacer">|</span>
+						{/if}
 						<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
-						<span class="spacer">|</span>
-					{/if}
-					<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
-						<span class="spacer">|</span>
-					{$user->getDisplayName()}
+							<span class="spacer">|</span>
+						{$user->getDisplayName()}
+					</div>
+					<div class="search_dropdown" id="search_result"></div>
 				</div>
 			</div>
 		</div>

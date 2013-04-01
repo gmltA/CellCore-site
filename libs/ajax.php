@@ -36,3 +36,19 @@ elseif (isset($_POST['point']))
 		echo $smarty->fetch('bricks/news.tpl');
 	}
 }
+elseif (isset($_POST['search']))
+{
+	global $DB;
+	global $config;
+	
+	$result = $DB->select('SELECT id, title, content FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) LIMIT 5', '+' . $_POST['search']);
+	$smarty = new Smarty_Studio($config['website']['template']);
+	
+	foreach ($result as $key => $newsEntry)
+	{
+		$newsEntry['link'] = $config['website']['main_url'].'news/' . $newsEntry['id'] . '-' . url_slug($newsEntry['title'], array('transliterate' => true)) . '/';
+		$newsEntry['short'] = substr(preg_replace('/\<.+\>/', '', $newsEntry['content']), 0, 100) . '...';;
+		$smarty->assign('newsEntry', $newsEntry);
+		echo $smarty->fetch('bricks/news_search.tpl');
+	}
+}

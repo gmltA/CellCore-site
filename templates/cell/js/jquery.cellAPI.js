@@ -30,13 +30,50 @@ function responceHandler(event)
 	}
 }
 
+function processSearch()
+{
+	var search = $("#search").val();
+	$.ajax({
+		type: "POST",
+		url: "/ajax/?",
+		data: {"search": search},
+		cache: false,                                 
+		success: function(response){
+			if ($('#search_result').is(':hidden') && response != '')
+			{
+				$("#search_result").html(response);
+				$('#search_result').slideDown('fast');
+			}
+			else if ($('#search_result').is(':visible') && response == '')
+			{
+				$('#search_result').slideUp('fast');
+			}
+		}
+	});
+}
 
 
 $(document).ready(function(){
 	// Responce from login iframe
-	window.addEventListener("message",
-        responceHandler,
-        false);
+	window.addEventListener("message", responceHandler, false);
+	
+	$("#search").keyup(function(){
+		processSearch();
+		return true;
+	});
+		
+	$('#search').focus(function() {
+		if ($("#search").val() != '')
+			processSearch();
+		return true;
+	});
+
+	$(document).click(function(event) {
+		var target = $(event.target);
+		if (target.attr('id') != 'search' && target.closest('#search_result').length != 1)
+			$('#search_result').slideUp('fast');
+	});
+	
 	$(".nbutton").hover(
 		function ()
 			{
