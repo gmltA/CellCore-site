@@ -87,11 +87,19 @@ switch ($page['1'])
         break;
 		
     default:
-		$layout = LayoutManager::buildPage(PAGE_MAIN, array(
-		
-			'newsList' => NewsManager::getInstance()->loadNews(3)
-			
-			));
+		$newsList = NewsManager::getInstance()->loadNews(3);
+		if ($newsList)
+		{
+			$layout = LayoutManager::buildPage(PAGE_MAIN, array(
+				
+				'newsList' => NewsManager::getInstance()->loadNews(3)
+				
+				));
+		}
+		else
+		{
+			$layout = LayoutManager::buildPage(PAGE_MAIN, array());
+		}
 		
         break;
 }
