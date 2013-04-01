@@ -136,7 +136,6 @@ NAV A { margin-right: 3px; }
 {
 	color: white;
 	margin: 50px 165px 0 0 ;
-	background: url(images/search_dropdown.jpg) top center;
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0px 3px 10px 0px #000000;
@@ -145,9 +144,11 @@ NAV A { margin-right: 3px; }
 	font-size: 12px;
 	max-width: 416px;
 	display: none;
+	max-height: 400px;
+	overflow: auto;
 }
 
-.search_dropdown > DIV { height: 60px; padding: 10px; }
+.search_dropdown > DIV { height: 60px; padding: 10px; background: url(images/search_dropdown.jpg) top center; }
 .search_dropdown P { text-align: left; color: #8CB0BB; }
 
 .riverrise .info.user .spacer { font-size: 13px; padding: 0 5px 0 5px; }
