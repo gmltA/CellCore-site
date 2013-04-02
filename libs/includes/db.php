@@ -15,7 +15,7 @@ $fDB->setIdentPrefix($config['db']['forum_prefix']);
 
 $rDB = array();
 $cDB = array();
-$wDB = array();
+
 foreach ($config['realms'] as $key=>$realm)
 {
     $rDB[$key] = new DbSimple_Connect($config['db']['driver']['realm'].'://'.$realm['db_user'].':'.$realm['db_pass'].'@'.$realm['db_host'].'/'.$realm['db']);
