@@ -120,7 +120,7 @@ NAV A { margin-right: 3px; }
 {
     position: relative;
     top: 46px;
-    background: url(images/topbar_sprite.png) no-repeat 0% 10% rgba(0, 0, 0, 0.600);
+    background: url(images/topbar_sprite.png) no-repeat 0 10% rgba(0, 0, 0, 0.600);
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.600) inset;
@@ -135,9 +135,9 @@ NAV A { margin-right: 3px; }
 	margin-right: 15px;
 	padding: 0 10px 0 10px;
 	color: rgb(255, 255, 255);
-	background-position: 0% 90%;
+	background-position: 0 90%;
 }
-.riverrise .main_width #search:focus { box-shadow: 0px 0px 8px rgba(82, 168, 236, 0.600), 0 1px 4px rgba(0, 0, 0, 0.600) inset; }
+.riverrise .main_width #search:focus { box-shadow: 0 0 8px rgba(82, 168, 236, 0.600), 0 1px 4px rgba(0, 0, 0, 0.600) inset; }
 
 .search_dropdown
 {
@@ -145,7 +145,7 @@ NAV A { margin-right: 3px; }
 	margin: 50px 165px 0 0 ;
 	border: 1px solid rgba(0, 0, 0, 0.6);
 	border-radius: 5px;
-	box-shadow: 0px 3px 10px 0px #000000;
+	box-shadow: 0 3px 10px 0 #000000;
 	position: relative;
 	z-index: 9;
 	font-size: 12px;
@@ -282,7 +282,7 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .standardbox .topbar { height: 44px; width: 100%; }
 .standardbox .topbar .leftcorner { width: 6px; height: 44px; background: url(images/box-corn.png) #074053; float: left; border-radius: 5px 0 0 0; }
 .standardbox .topbar .rightcorner { width: 6px; height: 44px; background: url(images/box-coro.png) #074053; float: right; border-radius: 0 5px 0 0; }
-.standardbox .topbar .title { display: inline-block; line-height: 44px; font-size: 14px; margin: 0; font-weight: normal; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0px 0px 8px #0091ff; }
+.standardbox .topbar .title { display: inline-block; line-height: 44px; font-size: 14px; margin: 0; font-weight: normal; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0 0 8px #0091ff; }
 .standardbox .topbar .title .longertextposition {position: absolute; width: 200px; height: 50px;}
 .standardbox .topbar .title.breadcrumb { margin-top: 6px; text-transform: none; text-shadow: none; }
 .standardbox .topbar .middle { background: url(images/box-top.jpg) #074053; margin: 0 6px 0 6px; }
@@ -396,7 +396,7 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 	margin-right: 12px;
 }
 .content_loader A { vertical-align: middle; display: table-cell; }
-.content_loader A.bar { display: table-cell; height: 11px; width: 43px; background: url(images/loading.gif) 50% 50% no-repeat; content: ""; }
+.content_loader A.bar { height: 11px; width: 43px; background: url(images/loading.gif) 50% 50% no-repeat; content: ""; }
 
 FOOTER { clear: both; height: 90px; margin: 0; width: 980px; }
 FOOTER .logo-core { width: 108px; height: 58px; background: url(images/core.png) no-repeat; display: block; float: left; }
@@ -435,7 +435,7 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
     letter-spacing: 1px;
     line-height: 1.2;
     color: rgb(255, 255, 255);
-    font-family: "Century Gothic", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans";
+    font-family: "Century Gothic", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
     font-size: 16px;
     margin: 13px 0 10px;
 }
@@ -461,20 +461,8 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
     background: transparent no-repeat scroll 0 0;
     padding-bottom: 0;
     padding-top: 0;
-    border-bottom-color: currentColor;
-    border-bottom-style: none;
-    border-bottom-width: medium;
-    border-left-color: currentColor;
-    border-left-style: none;
-    border-left-width: medium;
-    border-right-color: currentColor;
-    border-right-style: none;
-    border-right-width: medium;
-    border-top-color: currentColor;
-    border-top-style: none;
-    border-top-width: medium;
-    outline-style: none;
-    outline-width: medium;
+    border: medium none currentColor;
+    outline: none medium;
     height: 32px;
     color: rgb(130, 184, 203);
 }
@@ -612,7 +600,7 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 }
 
 #loginbox input { color: #BABABA; padding-top: 0; padding-bottom: 0; }
-#loginbox .input_default { background: url(images/input.png) top center no-repeat; padding-left: 4px; padding-right: 4px; width: 258px; height: 33px; line-height: 30px; border: 0px none; font-size: 16px; text-align: center;}
+#loginbox .input_default { background: url(images/input.png) top center no-repeat; padding-left: 4px; padding-right: 4px; width: 258px; height: 33px; line-height: 30px; border: 0 none; font-size: 16px; text-align: center;}
 #loginbox .input_default:focus {color: #7097b5; background: url(images/input.png) bottom center no-repeat;}
 #loginbox .input_default:hover {color: #7097b5; background: url(images/input.png) bottom center no-repeat;}
 
