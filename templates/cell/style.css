@@ -120,7 +120,7 @@ NAV A { margin-right: 3px; }
 {
     position: relative;
     top: 46px;
-    background: rgba(0, 0, 0, 0.600);
+    background: url(images/topbar_sprite.png) no-repeat 0% 10% rgba(0, 0, 0, 0.600);
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.600) inset;
@@ -129,7 +129,14 @@ NAV A { margin-right: 3px; }
 	margin: 0;
 }
 
-.riverrise .main_width #search { height: 36px; margin-right: 15px; padding: 0 10px 0 10px; color: rgb(255, 255, 255); }
+.riverrise .main_width #search
+{
+	height: 36px;
+	margin-right: 15px;
+	padding: 0 10px 0 10px;
+	color: rgb(255, 255, 255);
+	background-position: 0% 90%;
+}
 .riverrise .main_width #search:focus { box-shadow: 0px 0px 8px rgba(82, 168, 236, 0.600), 0 1px 4px rgba(0, 0, 0, 0.600) inset; }
 
 .search_dropdown

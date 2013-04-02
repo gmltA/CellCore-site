@@ -8,7 +8,7 @@
 	<meta name="description" content="RiverRise.net\WorldOfWarcraft.by - это лучший бесплатный сервер WoW WOTLK со множеством уникальных особенностей!"/>
 	<script src="/{$MainTemplateDir}/js/jquery.min.js"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.easing.min.js"></script>
-	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js""></script>
+	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
