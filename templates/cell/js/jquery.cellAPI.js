@@ -39,14 +39,15 @@ function processSearch()
 		data: {"search": search},
 		cache: false,                                 
 		success: function(response){
-			if ($('#search_result').is(':hidden') && response != '')
+			if ($('.search_dropdown').is(':hidden') && response != '')
 			{
-				$("#search_result").html(response);
-				$('#search_result').slideDown('fast');
+				$('.search_dropdown').html(response);
+				$('.search_dropdown').slideDown('fast');
+				$('.all_search_results > A').attr('href', '/search/' + $("#search").val());
 			}
-			else if ($('#search_result').is(':visible') && response == '')
+			else if ($('.search_dropdown').is(':visible') && response == '')
 			{
-				$('#search_result').slideUp('fast');
+				$('.search_dropdown').slideUp('fast');
 			}
 		}
 	});
@@ -70,8 +71,8 @@ $(document).ready(function(){
 
 	$(document).click(function(event) {
 		var target = $(event.target);
-		if (target.attr('id') != 'search' && target.closest('#search_result').length != 1)
-			$('#search_result').slideUp('fast');
+		if (target.attr('id') != 'search' && target.closest('.search_dropdown').length != 1)
+			$('.search_dropdown').slideUp('fast');
 	});
 	
 	$(".nbutton").hover(

@@ -13,7 +13,8 @@
 							<span class="spacer">|</span>
 						{$user->getDisplayName()}
 					</div>
-					<div class="search_dropdown" id="search_result"></div>
+					<div class="search_dropdown">
+					</div>
 				</div>
 			</div>
 		</div>

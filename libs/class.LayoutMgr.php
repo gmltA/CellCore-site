@@ -50,9 +50,6 @@ class LayoutManager extends Smarty_Studio
 				$vars['title'] = 'Статус серверов';
 				break;
 				
-			case PAGE_REGISTRATION:
-				break;
-				
 			case PAGE_NEWS:
 			case PAGE_NEWS_PART:
 				$layout = new self($page, 'dynamic', 'main');

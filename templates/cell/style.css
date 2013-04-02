@@ -151,14 +151,26 @@ NAV A { margin-right: 3px; }
 	font-size: 12px;
 	max-width: 416px;
 	display: none;
-	max-height: 400px;
+	max-height: 440px;
 	overflow: auto;
+	background-color: rgb(0, 17, 24);
 }
 
-.search_dropdown > DIV { height: 60px; padding: 10px; background: url(images/search_dropdown.jpg) no-repeat top center; cursor: pointer; }
-.search_dropdown > DIV:hover { background-position: bottom center; }
-.search_dropdown > DIV:hover A { color: #FFFFFF; text-shadow: 0 0 8px white; }
-.search_dropdown P { text-align: left; color: #8CB0BB; }
+.search_dropdown SECTION
+{
+	text-align: right;
+	height: 60px;
+	padding: 10px;
+	background: url(images/search_dropdown.jpg) no-repeat top center;
+	cursor: pointer;
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.7);
+}
+.search_dropdown SECTION:hover { background-position: bottom center; }
+.search_dropdown SECTION:hover A { color: #FFFFFF; text-shadow: 0 0 8px white; }
+.search_dropdown SECTION P { text-align: left; color: #8CB0BB; }
+.search_dropdown SECTION:hover P { text-shadow: none; }
+.search_dropdown .all_search_results { text-align: center; height: 40px; }
+.search_dropdown .all_search_results A { line-height: 40px; }
 
 .riverrise .info.user .spacer { font-size: 13px; padding: 0 5px 0 5px; }
 
