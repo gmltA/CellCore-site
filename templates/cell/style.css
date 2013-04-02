@@ -136,9 +136,9 @@ NAV A { margin-right: 3px; }
 {
 	color: white;
 	margin: 50px 165px 0 0 ;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    box-shadow: 0px 3px 10px 0px #000000;
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+	box-shadow: 0px 3px 10px 0px #000000;
 	position: relative;
 	z-index: 9;
 	font-size: 12px;
@@ -275,13 +275,13 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .standardbox .topbar { height: 44px; width: 100%; }
 .standardbox .topbar .leftcorner { width: 6px; height: 44px; background: url(images/box-corn.png) #074053; float: left; border-radius: 5px 0 0 0; }
 .standardbox .topbar .rightcorner { width: 6px; height: 44px; background: url(images/box-coro.png) #074053; float: right; border-radius: 0 5px 0 0; }
-.standardbox .topbar .title { display: inline-block; line-height: 40px; font-size: 14px; margin: 0; font-weight: normal; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0px 0px 8px #0091ff; }
+.standardbox .topbar .title { display: inline-block; line-height: 44px; font-size: 14px; margin: 0; font-weight: normal; color: #50B8DA; text-transform: uppercase; padding: 0 0 0 21px; height: 44px; position:relative; text-shadow: 0px 0px 8px #0091ff; }
 .standardbox .topbar .title .longertextposition {position: absolute; width: 200px; height: 50px;}
 .standardbox .topbar .title.breadcrumb { margin-top: 6px; text-transform: none; text-shadow: none; }
 .standardbox .topbar .middle { background: url(images/box-top.jpg) #074053; margin: 0 6px 0 6px; }
 .standardbox .topbar .middle A:hover H2 { color: #FFFFFF; text-shadow: 0 0 8px white; }
 .standardbox .topbar .middle .rightfade {height: 44px; width: 100px; background: url(images/box-top-.png); float: right;}
-.standardbox .topbar .date {display: inline-block; height: 44px; line-height: 40px; float: right; font-size: 11px; color: #5D91A3;}
+.standardbox .topbar .date {display: inline-block; height: 44px; line-height: 44px; float: right; font-size: 11px; color: #5D91A3;}
 .standardbox .middlebar { background:url(images/box-body.gif) repeat-x #001821; min-height: 100px; }
 .standardbox .middlebar .backgroundhex
 {
