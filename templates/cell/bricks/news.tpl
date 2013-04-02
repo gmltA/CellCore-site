@@ -7,7 +7,7 @@
 			<a href="{$newsEntry.link}">
 				<h2 class="title">{$newsEntry.title}</h2>
 			</a>
-			<span class="date">{$newsEntry.date}</span>
+			<time class="date">{$newsEntry.date}</time>
 		</div>
 	</div>
 	<div class="middlebar">

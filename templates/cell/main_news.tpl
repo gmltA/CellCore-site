@@ -42,7 +42,7 @@
 								</div>
 								<div class="right"></div>
 							</div>
-							<span class="date">{$newsEntry.date}</span>
+							<time class="date">{$newsEntry.date}</time>
 						</div>
 					</div>
 					<div class="middlebar">
