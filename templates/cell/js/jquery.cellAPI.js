@@ -8,6 +8,7 @@ function openLogin()
 
 	$('#loginbox').stop().fadeIn("fast").animate({'marginLeft' : '0px'}, "slow", "easeInOutCubic");
 	$('#blackout').stop().fadeIn("fast");
+	$(window).resize();
 }
 
 function closeLogin()
@@ -26,7 +27,12 @@ function responceHandler(event)
 	}
 	else
 	{
-		alert(event.data);
+		$("#login_errors").html(event.data);
+		$("#login_errors").stop().animate({opacity: 1.0}, "fast");
+		setTimeout(function()
+		{
+			$("#login_errors").stop().animate({opacity: 0.0}, "slow");
+		}, 5000);
 	}
 }
 
@@ -133,4 +139,13 @@ $(document).ready(function(){
 				closeLogin();
 			}
 	});
+
+	$(window).resize(function(){
+		$('.login_errors_box').css({
+			position: 'fixed',
+			left: ($(window).width() - $('.login_errors_box').outerWidth())/2,
+			top: ($(window).height() - $('.login_errors_box').outerHeight())/4
+		});
+	});
+
 });

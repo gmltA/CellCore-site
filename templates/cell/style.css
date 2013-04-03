@@ -618,3 +618,7 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 
 #loginbox .login_inputs {margin: 0 auto; width: 265px;}
 #loginbox .login_inputs {margin: 0 auto; width: 265px;}
+
+.login_errors_box { height: 85px; width: 450px; color: #7097B5; z-index: 9003; position: fixed; }
+.login_errors { box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); border: 1px solid #172936; background-color: #4a5868; background-image: -o-linear-gradient(#335a77, #091d2c); background-image: -ms-linear-gradient(#335a77, #091d2c); background-image: -moz-linear-gradient(#335a77, #091d2c); background-image: -webkit-linear-gradient(#335a77, #091d2c); repeat; width: 430px; padding: 10px; border-radius: 8px; font-size: 13px; behavior: url(templates/main/PIE.htc); }
+.login_errors UL { list-style-type: none; background-color: rgba(0, 0, 0, 0.3); box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5); border-radius: 5px; padding: 10px; font-size: 12px; }

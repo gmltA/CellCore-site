@@ -76,6 +76,7 @@
 	</div>
 	{include file='footer.tpl'}
 	<div id="blackout"></div>
+	<div class="login_errors_box" id="login_errors"></div>
 	<div class="embed_login"></div>
 </body>
 </html>
