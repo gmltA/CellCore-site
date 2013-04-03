@@ -13,7 +13,7 @@
 	<script src="/{$MainTemplateDir}/js/jquery.min.js" type="text/javascript"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.easing.min.js" type="text/javascript"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js" type="text/javascript"></script>
-	{if $pageName == "news"}
+	{if $pageName == "news" || $pageName == "news_entry"}
 		<script src="/{$MainTemplateDir}/js/news.js" type="text/javascript"></script>
 	{/if}
 	<!--[if lt IE 9]>
