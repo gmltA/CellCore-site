@@ -41,7 +41,14 @@ elseif (isset($_POST['search']))
 	global $DB;
 	global $config;
 	
-	$result = $DB->select('SELECT id, title, content FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) LIMIT 5', '+' . $_POST['search']);
+	$query = explode(' ', $_POST['search']);
+	$resultQuery = '';
+	foreach($query as $key => $sub)
+	{
+		$resultQuery = $resultQuery . ' +' . $sub;
+	}
+
+	$result = $DB->select('SELECT id, title, content FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) LIMIT 5', $resultQuery);
 	$smarty = new Smarty_Studio($config['website']['template']);
 	
 	foreach ($result as $key => $newsEntry)

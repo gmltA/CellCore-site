@@ -45,7 +45,7 @@ function processSearch()
 		data: {"search": search},
 		cache: false,                                 
 		success: function(response){
-			if ($('.search_dropdown').is(':hidden') && response != '')
+			if (response != '')
 			{
 				$('.search_dropdown').html(response);
 				$('.search_dropdown').slideDown('fast');
