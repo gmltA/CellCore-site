@@ -4,18 +4,6 @@
 	<div class="content">
 		{include file="forum_head.tpl"}
 
-		{if $debug == '1'}
-			<div align="center" style="margin-top: 100px;">
-				<div class="result_box" style="margin: 0; padding: 0;" >
-					<div class="result_content">
-						<h3 style="color: red;">Access denied!</h3>
-						<table width="100%" style="margin-top: 50px;">
-							<tr><td colspan="2" style="color: red; text-shadow: 0px 0px 8px red;">Либо вам запрещён сюда доступ, либо очистите cookies и авторизируйтесь на форуме!</td></tr>
-						</table>
-					</div>
-				</div>
-			</div>
-		{/if}
 		<div class="wrapper">
 			<aside>
 				{include file="side_nav.tpl"}

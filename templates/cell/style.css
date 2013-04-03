@@ -422,35 +422,6 @@ FOOTER SECTION .links { font-family: "Lucida Sans Unicode", "Lucida Grande", san
 FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; line-height: 14px; margin: 0; }
 
 /*Blocks styles*/
-.result_box
-{
-    background-clip: border-box;
-    background-origin: padding-box;
-    background: transparent url(images/result_box.png) repeat scroll 0 0;
-    background-size: auto;
-    height: 168px;
-    margin-left: 280px;
-    width: 407px;
-    box-shadow: 0 0 15px black;
-    border-radius: 9px
-}
-
-.standardbox .result_box { margin-left: 160px; font-size: 15px; }
-
-.result_content { line-height: 14px; color: rgb(177, 195, 210); padding: 4px 35px 18px; }
-
-.result_content H3, .tool_desc H3
-{
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    color: rgb(255, 255, 255);
-    font-family: "Century Gothic", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
-    font-size: 16px;
-    margin: 13px 0 10px;
-}
 
 .middle_plate
 {
