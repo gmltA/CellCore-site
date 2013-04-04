@@ -3,18 +3,23 @@
 		<div class="header_bar clearfix">
 			<div class="main_width">
 				<div style="display: inline-block;">
-					<input type="text" id="search" placeholder="Поиск">
+					<div class="search_dropdown">
+					</div>
 					<div class="info user">
 						{if $user->isLoggedIn() != true}
 							<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
 							<span class="spacer">|</span>
 						{/if}
 						<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
-							<span class="spacer">|</span>
+						<span class="spacer">|</span>
 						{$user->getDisplayName()}
 					</div>
-					<div class="search_dropdown">
-					</div>
+					<form action="/search/" method="post" id="search_form">
+						<span class="search_wrapper">
+							<input type="text" id="search" name="search_query" placeholder="Поиск">
+							<input type="submit" value="">
+						</span>
+					</form>
 				</div>
 			</div>
 		</div>

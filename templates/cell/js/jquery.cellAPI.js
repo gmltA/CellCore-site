@@ -43,7 +43,7 @@ function processSearch()
 		type: "POST",
 		url: "/ajax/?",
 		data: {"search": search},
-		cache: false,                                 
+		cache: false,
 		success: function(response){
 			if (response != '')
 			{
@@ -63,12 +63,12 @@ function processSearch()
 $(document).ready(function(){
 	// Responce from login iframe
 	window.addEventListener("message", responceHandler, false);
-	
+
 	$("#search").keyup(function(){
 		processSearch();
 		return true;
 	});
-		
+
 	$('#search').focus(function() {
 		if ($("#search").val() != '')
 			processSearch();
@@ -77,10 +77,10 @@ $(document).ready(function(){
 
 	$(document).click(function(event) {
 		var target = $(event.target);
-		if (target.attr('id') != 'search' && target.closest('.search_dropdown').length != 1)
+		if (target.closest('.search_wrapper').length != 1 && target.closest('.search_dropdown').length != 1)
 			$('.search_dropdown').slideUp('fast');
 	});
-	
+
 	$(".nbutton").hover(
 		function ()
 			{
@@ -146,6 +146,11 @@ $(document).ready(function(){
 			left: ($(window).width() - $('.login_errors_box').outerWidth())/2,
 			top: ($(window).height() - $('.login_errors_box').outerHeight())/4
 		});
+	});
+
+	$("#search_form").submit(function() {
+		event.preventDefault();
+		return false;
 	});
 
 });

@@ -105,7 +105,7 @@ NAV A { margin-right: 3px; }
 
 .header_bar .info
 {
-    color: rgb(255, 255, 255);
+    color: white;
     display: inline-block;
     font-size: 12px;
     height: 36px;
@@ -115,8 +115,8 @@ NAV A { margin-right: 3px; }
     padding: 0 12px;
 }
 
-.header_bar .info.user { float: right; position: relative; top: 46px; }
-.riverrise .info.user, .riverrise .main_width #search
+.header_bar .info.user { float: right; position: relative; }
+.riverrise .info.user, .riverrise .main_width .search_wrapper
 {
     position: relative;
     top: 46px;
@@ -127,26 +127,36 @@ NAV A { margin-right: 3px; }
     font-size: 11px;
     padding-right: 20px;
 	margin: 0;
+	float: right;
 }
 
-.riverrise .main_width #search
+.riverrise .main_width .search_wrapper
 {
 	height: 36px;
 	margin-right: 15px;
 	padding: 0 10px 0 10px;
 	color: rgb(255, 255, 255);
 	background-position: 0 90%;
+	line-height: 36px;
 }
-.riverrise .main_width #search:focus { box-shadow: 0 0 8px rgba(82, 168, 236, 0.600), 0 1px 4px rgba(0, 0, 0, 0.600) inset; }
 
-.search_dropdown
+.riverrise .main_width .search_wrapper INPUT { background: none; border: none; }
+.riverrise .main_width .search_wrapper INPUT[type=text] { width: 200px; color: white; }
+.riverrise .main_width .search_wrapper INPUT[type=submit]
+{
+	background: url(images/search_icon.png) 50% 50% no-repeat transparent;
+	width: 26px;
+	cursor: pointer;
+}
+
+.riverrise .search_dropdown
 {
 	color: white;
-	margin: 50px 165px 0 0 ;
+	margin: 100px 165px 0 0 ;
 	border: 1px solid rgba(0, 0, 0, 0.6);
 	border-radius: 5px;
 	box-shadow: 0 3px 10px 0 #000000;
-	position: relative;
+	position: absolute;
 	z-index: 9;
 	font-size: 12px;
 	max-width: 416px;
@@ -407,8 +417,9 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 	float: right;
 	margin-right: 12px;
 }
-.content_loader A { vertical-align: middle; display: table-cell; }
-.content_loader A.bar { height: 11px; width: 43px; background: url(images/loading.gif) 50% 50% no-repeat; content: ""; }
+.content_loader > A, .pagination { vertical-align: middle; display: table-cell; }
+.content_loader > A.bar { height: 11px; width: 43px; background: url(images/loading.gif) 50% 50% no-repeat; content: ""; }
+.pagination { color: white; }
 
 FOOTER { clear: both; height: 90px; margin: 0; width: 980px; }
 FOOTER .logo-core { width: 108px; height: 58px; background: url(images/core.png) no-repeat; display: block; float: left; }

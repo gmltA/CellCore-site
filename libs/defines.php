@@ -20,6 +20,7 @@ define('PAGE_RULES', 		'rules');
 define('PAGE_NEWS', 		'news');
 define('PAGE_NEWS_PART', 	'news_page');
 define('PAGE_NEWS_ENTRY', 	'news_entry');
+define('PAGE_NEWS_SEARCH', 	'news_search');
 
 // Forum skins
 global $skins;
