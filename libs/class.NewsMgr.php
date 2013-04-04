@@ -80,7 +80,14 @@ class NewsManager
 			$resultQuery = $resultQuery . ' +' . $sub;
 		}
 
-		$matchedNews = $DB->select('SELECT id, title, content, views, date FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC LIMIT ?d', $resultQuery, $limit);
+		if ($limit == 0)
+		{
+			$matchedNews = $DB->select('SELECT id, title, content, views, date FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC', $resultQuery);
+		}
+		else
+		{
+			$matchedNews = $DB->select('SELECT id, title, content, views, date FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC LIMIT ?d', $resultQuery, $limit);
+		}
 
 		foreach ($matchedNews as $key=>$newsEntry)
 		{
