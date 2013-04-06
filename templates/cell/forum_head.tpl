@@ -25,7 +25,7 @@
 		</div>
 		<div class="main_width">
 			<div class="logo">
-				<a href='http://forum.riverrise.net/' title='Перейти к списку форумов' rel="forum">
+				<a href='http://forum.riverrise.net/' title='Перейти к списку форумов'>
 					<img src='http://forum.riverrise.net/public/style_images/{if $forumSkin == "riverrise"}CS{else}{$forumSkin}{/if}/logo.png' alt='Логотип'/>
 				</a>
 			</div>
@@ -37,7 +37,7 @@
 	<nav class="clearfix">
 		<div class="main_width">
 			<a href="{$site.main_url}" title="Перейти на сайт" rel="home" class="left active">RiverRise.net</a>
-			<a href="http://forum.riverrise.net/" title="Перейти к списку форумов" rel="forum" class="left">Форумы</a>
+			<a href="http://forum.riverrise.net/" title="Перейти к списку форумов" class="left">Форумы</a>
 			<a href="http://forum.riverrise.net/index.php?app=members" title="Перейти к списку пользователей" class="left">Пользователи</a>
 			<a href="http://forum.riverrise.net/index.php?app=tracker" title="Перейти к BugTracker'у" class="left">Ошибки</a>
 			<a href="http://forum.riverrise.net/index.php?app=gallery" title="Перейти к галереи" class="left">Галерея</a>
