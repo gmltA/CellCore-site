@@ -16,6 +16,8 @@ $config['website']['template']               = 'cell'; // шаблон
 $config['website']['main_url']               = 'http://localhost:81/';
 $config['website']['panel_url']              = 'http://lk1.riverrise.net/';
 
+$config['website']['banner_top']             = '1';
+
 $config['website']['app_descr']              = 'RiverRise.net | World of Warcraft.by';
 
 $config['realms'] = array();

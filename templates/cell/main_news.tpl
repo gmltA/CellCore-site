@@ -5,10 +5,12 @@
 		{include file="forum_head.tpl"}
 
 		<div class="wrapper">
-			<div class="right_column">
-				<a href="http://forum.riverrise.net/topic/45746/">
+			{if $site.banner_top}
+				<a href="http://forum.riverrise.net/topic/45746/" class="banner_link">
 					<div class="top_banner lighter_fast"></div>
 				</a>
+			{/if}
+			<div class="right_column">
 				<div class="standardbox">
 					<div class="topbar">
 						<div class="leftcorner"></div>

@@ -291,9 +291,9 @@ UL
 
 ASIDE { float: left; width: 159px; margin-top: 126px; }
 .search ASIDE { margin-top: 250px; }
-.right_column { float: left; width: 820px; }
+.right_column { float: left; width: 820px; margin-top: 81px; }
 
-.news .right_column { float: none; margin: auto; }
+.news .right_column { float: none; margin: 81px auto auto; }
 
 .clearfix:after
 {
@@ -338,6 +338,8 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .content { min-height: 90%; }
 
 .middle_plate .content { min-height: 100%; margin: 0 auto 50px; }
+.banner_link { float: left; position: absolute; width: 820px; }
+.news .banner_link { margin: auto; width: 990px; float: none; }
 .top_banner { cursor: pointer; height: 81px; width: 361px; margin: auto; background-image: url(images/transfer-banner.png); }
 
 .lighter_fast { opacity: 0.7; }
