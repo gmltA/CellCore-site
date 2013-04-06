@@ -29,7 +29,7 @@
         <p class="dark">
             Все товарные знаки являются собственностью соответствующих владельцев. 
             <br/>
-            © riverrise.net \ worldofwarcraft.by 2008–100500 г. Все права защищены. 
+            © riverrise.net \ worldofwarcraft.by 2008–{$smarty.now|date_format:"%Y"} г. Все права защищены.
         </p>
     </section>
 </footer>
