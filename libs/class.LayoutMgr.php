@@ -24,13 +24,17 @@ class LayoutManager extends Smarty_Studio
 			$this->headerFile = 'header.tpl';
 		}
 
-		if ($body == 'main')
+		if ($body == 'news')
 		{
-			$this->bodyFile = 'main.tpl';
+			$this->bodyFile = 'main_news.tpl';
+		}
+		elseif ($body == 'search')
+		{
+			$this->bodyFile = 'main_search.tpl';
 		}
 		else
 		{
-			$this->bodyFile = 'main_news.tpl';
+			$this->bodyFile = 'main.tpl';
 		}
 
 		if ($body_content)
@@ -61,7 +65,7 @@ class LayoutManager extends Smarty_Studio
 				break;
 
 			case PAGE_NEWS_SEARCH:
-				$layout = new self($page, 'dynamic', 'main');
+				$layout = new self($page, 'dynamic', 'search');
 				$vars['title'] = 'Поиск новостей';
 				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;

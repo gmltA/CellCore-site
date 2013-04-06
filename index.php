@@ -93,7 +93,8 @@ switch ($page['1'])
 
 		$layout = LayoutManager::buildPage(PAGE_NEWS_SEARCH, array(
 
-				'newsList' => NewsManager::getInstance()->searchNews($query)
+				'newsList' 	=> NewsManager::getInstance()->searchNews($query),
+				'query' 	=> preg_replace ('/\+/', ' ', $query)
 
 		));
 		break;

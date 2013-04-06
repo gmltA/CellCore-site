@@ -38,7 +38,7 @@ function responceHandler(event)
 
 function processSearch()
 {
-	var search = $("#search").val();
+	var search = encodeURIComponent($("#search").val()).replace('%20', '+');
 	$.ajax({
 		type: "POST",
 		url: "/ajax/?",
@@ -49,7 +49,7 @@ function processSearch()
 			{
 				$('.search_dropdown').html(response);
 				$('.search_dropdown').slideDown('fast');
-				$('.all_search_results > A').attr('href', '/search/' + $("#search").val());
+				$('.all_search_results > A').attr('href', '/search/' + search);
 			}
 			else if ($('.search_dropdown').is(':visible') && response == '')
 			{
@@ -64,7 +64,12 @@ $(document).ready(function(){
 	// Responce from login iframe
 	window.addEventListener("message", responceHandler, false);
 
-	$("#search").keyup(function(){
+	$("#search").keyup(function(key){
+		if (key.keyCode == '13')
+		{
+			$('#search_form').submit();
+			return false;
+		}
 		processSearch();
 		return true;
 	});
@@ -146,11 +151,6 @@ $(document).ready(function(){
 			left: ($(window).width() - $('.login_errors_box').outerWidth())/2,
 			top: ($(window).height() - $('.login_errors_box').outerHeight())/4
 		});
-	});
-
-	$("#search_form").submit(function() {
-		event.preventDefault();
-		return false;
 	});
 
 });

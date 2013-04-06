@@ -1,19 +1,19 @@
 {if !empty($newsList)}
 	<div id="search_result">
 		{foreach from=$newsList item=newsEntry}
-		<a href="{$newsEntry.link}">
-		<section>
-			<span>{$newsEntry.title}</span>
-			<p>
-				{$newsEntry.short}
-			</p>
-		</section>
-		</a>
+			<a href="{$newsEntry.link}">
+			<section>
+				<span>{$newsEntry.title}</span>
+				<p>
+					{$newsEntry.short}
+				</p>
+			</section>
+			</a>
 		{/foreach}
 	</div>
 	{if $newsList|@sizeof >= 5}
 		<div class="all_search_results">
-			<a>Остальные новости</a>
+			<a rel="search">Остальные новости</a>
 		</div>
 	{/if}
 {/if}

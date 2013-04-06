@@ -72,7 +72,7 @@ class NewsManager
 	{
 		global $DB;
 
-		$query = explode(' ', $query);
+		$query = explode('+', $query);
 
 		$resultQuery = '';
 		foreach ($query as $key => $sub)
