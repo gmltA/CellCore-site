@@ -10,6 +10,7 @@
 	{if $keywords}
 		<meta name="description" content="{$description}"/>
 	{/if}
+	<meta name="generator" content="{$site.app_name} {$app_version}"/>
 	<script src="/{$MainTemplateDir}/js/jquery.min.js" type="text/javascript"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.easing.min.js" type="text/javascript"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js" type="text/javascript"></script>

@@ -103,8 +103,10 @@ class LayoutManager extends Smarty_Studio
 		global $skins;
 		global $config;
 		global $user;
+		global $app_version;
 
 		$layout->assign('site', $config['website']);
+		$layout->assign('app_version', $app_version);
 		$layout->assign('forumSkin', $skins[$user->getSkin()]);
 		$layout->assign('user', $user);
 		$layout->assign('debug', $config['debug']);

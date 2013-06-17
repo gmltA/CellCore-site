@@ -2,6 +2,7 @@
 define('IS_IN_ENGINE', true);
 
 require_once dirname(__FILE__) . '/libs/core.php';
+require_once dirname(__FILE__) . '/revision_n';
 
 session_start();
 
