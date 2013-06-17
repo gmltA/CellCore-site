@@ -4,12 +4,14 @@
 	<div class="content">
 		{include file="forum_head.tpl"}
 
-		<div class="wrapper">
-			{if $site.banner_top}
+		{if $site.banner_top}
+			<div class="wrapper">
 				<a href="http://forum.riverrise.net/topic/45746/" class="banner_link">
 					<div class="top_banner lighter_fast"></div>
 				</a>
-			{/if}
+			</div>
+		{/if}
+		<div class="wrapper">
 			<div class="right_column">
 				<div class="standardbox">
 					<div class="topbar">
