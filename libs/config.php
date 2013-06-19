@@ -18,6 +18,7 @@ $config['website']['panel_url']              = 'http://lk1.riverrise.net/';
 
 $config['website']['banner_top']             = '1';
 
+$config['website']['app_name']               = 'CellCore-site';
 $config['website']['app_descr']              = 'RiverRise.net | World of Warcraft.by';
 
 $config['realms'] = array();

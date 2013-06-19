@@ -8,6 +8,7 @@ function openLogin()
 
 	$('#loginbox').stop().fadeIn("fast").animate({'marginLeft' : '0px'}, "slow", "easeInOutCubic");
 	$('#blackout').stop().fadeIn("fast");
+	$('#login_errors').stop().fadeIn("fast");
 	$(window).resize();
 }
 
@@ -15,6 +16,7 @@ function closeLogin()
 {
 	$('#loginbox').stop().fadeOut("slow").animate({'marginLeft' : '-500px'}, "fast", "easeInOutCubic");
 	$('#blackout').stop().fadeOut("fast");
+	$('#login_errors').stop().fadeOut("fast");
 }
 
 function responceHandler(event)
