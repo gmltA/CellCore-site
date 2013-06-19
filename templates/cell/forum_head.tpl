@@ -14,7 +14,7 @@
 						<span class="spacer">|</span>
 						{$user->getDisplayName()}
 					</div>
-					<form action="/search/"  enctype="application/x-www-form-urlencoded" method="post" id="search_form">
+					<form action="/search/"  enctype="application/x-www-form-urlencoded" method="post" id="search_form" class="right clearfix">
 						<span class="search_wrapper">
 							<input type="text" id="search" name="search_query" placeholder="Поиск">
 							<input type="submit" value="">

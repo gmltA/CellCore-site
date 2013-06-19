@@ -68,7 +68,7 @@ class User
                 $forumData = $fDB->selectRow('SELECT members_display_name, skin FROM ?_members WHERE member_id = ?d', $this->forumId);
                 if ($forumData)
                 {
-                    $forumData['members_display_name'] = 'ForumAuth:' . $forumData['members_display_name'];
+                    $forumData['members_display_name'] = $forumData['members_display_name'];
                 }
             }
         }
