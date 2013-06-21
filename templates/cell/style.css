@@ -348,9 +348,9 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .standardbox ARTICLE { z-index: 8; position: relative; font-size: 11px; clear: both; padding: 11px 15px 15px 15px; color: #5d91a3; width: 760px; min-height: 200px; }
 .standardbox.search ARTICLE { min-height: 0; }
 .standardbox ARTICLE .statbox { position: absolute; z-index: 8; background: url(images/statbox-bg.png); width: 750px; height: 100px; }
-.standardbox ARTICLE .statbox .state { margin: 6px 7px 0 0; float: right; width: 28px; height: 28px; }
-.standardbox ARTICLE .statbox .state.online { background: url(images/online.png); }
-.standardbox ARTICLE .statbox .state.offline { background: url(images/offline.png); }
+.standardbox ARTICLE .statbox .state { background: url(images/status.png) no-repeat; margin: 6px 7px 0 0; float: right; width: 28px; height: 28px; }
+.standardbox ARTICLE .statbox .state.online { background-position: top center; }
+.standardbox ARTICLE .statbox .state.offline { background-position: bottom center; }
 .standardbox ARTICLE .statbox .realmname.x4 { background: url(images/stats_x4.png); }
 .standardbox ARTICLE .statbox .realmname.x1 { background: url(images/stats_at.png); }
 .standardbox ARTICLE .statbox .realmname.x100 { background: url(images/stats_x100.png); }
