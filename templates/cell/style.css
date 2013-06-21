@@ -190,15 +190,17 @@ NAV A { margin-right: 3px; }
 	color: rgb(255, 255, 255);
 	background-position: 0 90%;
 	line-height: 36px;
+	width: 226px;
 }
 
-.riverrise .main_width .search_wrapper INPUT { background: none; border: none; }
-.riverrise .main_width .search_wrapper INPUT[type=text] { width: 200px; color: white; }
+.riverrise .main_width .search_wrapper INPUT { background: none; border: none; position: absolute; top: 9px; margin: 0; }
+.riverrise .main_width .search_wrapper INPUT[type=text] { width: 200px; color: white; left: 10px; }
 .riverrise .main_width .search_wrapper INPUT[type=submit]
 {
 	background: url(images/search_icon.png) 50% 50% no-repeat transparent;
 	width: 26px;
 	cursor: pointer;
+	left: 210px;
 }
 
 .search_dropdown
