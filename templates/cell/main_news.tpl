@@ -6,9 +6,7 @@
 
 		{if $site.banner_top}
 			<div class="wrapper">
-				<a href="http://forum.riverrise.net/topic/45746/" class="banner_link">
-					<div class="top_banner lighter_fast"></div>
-				</a>
+				{include file="bricks/banner.tpl"}
 			</div>
 		{/if}
 		<div class="wrapper">

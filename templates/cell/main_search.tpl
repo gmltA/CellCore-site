@@ -9,9 +9,7 @@
 				{include file="side_nav.tpl"}
 			</aside>
 			{if $site.banner_top}
-				<a href="http://forum.riverrise.net/topic/45746/" class="banner_link">
-					<div class="top_banner lighter_fast"></div>
-				</a>
+				{include file="bricks/banner.tpl"}
 			{/if}
 			<div class="right_column">
 				<div class="standardbox search">
