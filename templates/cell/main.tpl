@@ -38,5 +38,6 @@
 	<div id="blackout"></div>
 	<div class="login_errors_box" id="login_errors"></div>
 	<div class="embed_login"></div>
+	<div class="scroll_manager"><span id="to_top">▲ Наверх</span><span id="to_bottom">▼ Назад</span></div>
 </body>
 </html>
