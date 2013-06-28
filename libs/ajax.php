@@ -56,7 +56,7 @@ elseif (isset($_POST['search']))
 }
 elseif (isset($_POST['body']))
 {
-	NewsCommentManager::getInstance()->postComment($_POST['newsId'], $_POST['body'], $_POST['subject']);
+	NewsCommentManager::getInstance()->postComment($_POST['newsId'], $_POST['body'], $_POST['subject'], $_POST['topic']);
 	$comments = NewsCommentManager::getInstance()->loadComments($_POST['newsId']);
 	$newsEntry = array();
 	$newsEntry['comments'] = $comments;

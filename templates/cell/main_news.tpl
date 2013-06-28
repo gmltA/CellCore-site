@@ -76,6 +76,7 @@
 						{if $user->isLoggedIn()}
 							<span class="new_comment_header">Новый комментарий</span>
 							<section class="comment new">
+								<input type="hidden" id="topicId" value="0">
 								<div id="progressbar">
 									<div class="loading_text">Отправка комментария</div>
 									<div class="loading"></div>

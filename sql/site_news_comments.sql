@@ -7,7 +7,8 @@ CREATE TABLE `site_news_comments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique comment indetificator',
   `newsId` bigint(32) unsigned NOT NULL COMMENT 'News entry ID comment belongs to',
   `authorId` int(10) unsigned NOT NULL COMMENT 'User ID - author of the comment',
-  `subjectId` int(10) unsigned DEFAULT '0' COMMENT 'Subject comment ID (if defined)',
+  `topicId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Upper comment (topic) ID',
+  `subjectId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Subject user ID of the comment (if defined)',
   `date` datetime NOT NULL COMMENT 'Comment date and time',
   `body` text NOT NULL COMMENT 'Comment message text',
   PRIMARY KEY (`id`)

@@ -1,4 +1,4 @@
-<section class="comment" id="comment_{$comment.id}">
+<section class="comment{if $comment.topicId != 0} reply{/if}" id="comment_{$comment.id}" topicId="{$comment.topicId}">
 	<div class="header">
 		<h3>{$comment.authorName}</h3>
 		{if $comment.subjectId != 0}

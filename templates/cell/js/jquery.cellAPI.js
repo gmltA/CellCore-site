@@ -64,12 +64,13 @@ function processSearch()
 function postComment()
 {
 	var subject = $('.comment.new .subject A:first').attr('href').substr(9);
+	var topic = $('#topicId').val();
 	var body = $('.comment.new .body').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br />');
 	var newsId = $('article').attr('id');
 	$.ajax({
 		type: "POST",
 		url: "/ajax/?",
-		data: "newsId="+newsId+"&body="+encodeURIComponent(body)+"&subject="+subject,
+		data: "newsId="+newsId+"&body="+encodeURIComponent(body)+"&subject="+subject+"&topic="+topic,
 		cache: false,
 		beforeSend: function()
 		{
@@ -228,6 +229,14 @@ $(document).ready(function(){
 				$('.comment.new .header .subject B').text($(this).text());
 				$('.comment.new .header .subject').show();
 				$('html, body').animate({scrollTop: $('.comment.new').offset().top}, 200);
+				if ($(this).parent().parent().attr('topicId') == 0)
+				{
+					$('#topicId').val($(this).parent().parent().attr('id').substr(8));
+				}
+				else
+				{
+					$('#topicId').val($(this).parent().parent().attr('topicId'));
+				}
 			}
 	});
 
@@ -238,6 +247,7 @@ $(document).ready(function(){
 				$('.comment.new .header .subject').hide();
 				$('.comment.new .header .subject A').attr('href', '');
 				$('.comment.new .header .subject B').text('');
+				$('#topicId').val(0);
 			}
 	});
 

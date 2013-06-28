@@ -30,27 +30,41 @@ class NewsCommentManager
 	{
 		global $DB;
 
-		$comments = $DB->select('SELECT id AS ARRAY_KEY, id, authorId, subjectId, date, body FROM ?_news_comments WHERE newsId = ?d ORDER BY id ASC', $newsEntryId);
+		$firstLevel = $DB->select('SELECT id AS ARRAY_KEY, id, authorId, topicId, subjectId, date, body FROM ?_news_comments WHERE newsId = ?d AND topicId = 0 ORDER BY id ASC', $newsEntryId);
 
-		if (!$comments)
+		if (!$firstLevel)
 		{
 			return false;
 		}
-		
-		foreach ($comments as $key => $comment)
+
+		$comments = array();
+		$id = array();
+
+		foreach ($firstLevel as $key => $comment)
 		{
-			$comments[$key]['authorName'] = User::getNameById($comment['authorId']);
-			//if ($comment['subjectId'])
+			$firstLevel[$key]['authorName'] = User::getNameById($comment['authorId']);
+			//if ($comments['subjectId'])
 				//$comments[$key]['subjectName'] = User::getNameById($comment['subjectId']);
+			$id[] = $comment['id'];
+
+			$secondLevel = $DB->select('SELECT id AS ARRAY_KEY, id, authorId, topicId, subjectId, date, body FROM ?_news_comments WHERE newsId = ?d AND topicId = ?d ORDER BY id ASC', $newsEntryId, $comment['id']);
+			$comments[] = $firstLevel[$key];
+			foreach($secondLevel as $k2 => $com)
+			{
+				$com['authorName'] = User::getNameById($com['authorId']);
+				$id[] = $com['id'];
+				$comments[] = $com;
+			}
 		}
+		$comments = array_combine($id, $comments);
 		return $comments;
 	}
 
-	public function postComment($newsEntryId, $body, $subject = 0)
+	public function postComment($newsEntryId, $body, $subject = 0, $topic = 0)
 	{
 		global $user;
 		global $DB;
-		
-		$DB->query('INSERT INTO ?_news_comments SET newsId = ?d, authorId = ?d, subjectId = ?d, date = now(), body = ?', $newsEntryId, $user->getID(), $subject, $body);
+
+		$DB->query('INSERT INTO ?_news_comments SET newsId = ?d, authorId = ?d, subjectId = ?d, topicId = ?d, date = now(), body = ?', $newsEntryId, $user->getID(), $subject, $topic, $body);
 	}
 }
