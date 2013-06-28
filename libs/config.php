@@ -14,6 +14,7 @@ $config['db']['driver']['realm']             = 'mysql'; //values: mysql, mypdo
 $config['website']['template']               = 'cell'; // шаблон
 
 $config['website']['main_url']               = 'http://localhost:81/';
+$config['website']['session_domain']         = '.riverrise.net';
 $config['website']['panel_url']              = 'http://lk1.riverrise.net/';
 
 $config['website']['banner_top']             = '1';

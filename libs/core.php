@@ -15,6 +15,11 @@ require_once dirname(__FILE__) . '/class.NewsMgr.php';
 require_once dirname(__FILE__) . '/class.NewsCommentMgr.php';
 require_once dirname(__FILE__) . '/class.LayoutMgr.php';
 
+global $config;
+session_set_cookie_params(0, '/', $config['website']['session_domain']);
+session_name('cell_session');
+session_start();
+
 global $user;
 $user = AuthManager::getInstance()->checkAuth();
 

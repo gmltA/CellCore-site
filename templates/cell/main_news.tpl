@@ -56,7 +56,6 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
-				{if $newsEntry.comments|@sizeof > 0}
 				<div class="standardbox">
 					<div class="topbar">
 						<div class="leftcorner"></div>
@@ -104,7 +103,6 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
-				{/if}
 			</div>
 			<div class="clearfix" ></div>
 		</div>

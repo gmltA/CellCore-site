@@ -103,7 +103,7 @@ class User
 
 	public function isLoggedIn()
 	{
-		return ($this->status == USER_STATUS_LOGGEDIN || $this->status == USER_STATUS_FORUM_DATA);
+		return $this->status == USER_STATUS_LOGGEDIN;
 	}
 
 	public function getDisplayName()

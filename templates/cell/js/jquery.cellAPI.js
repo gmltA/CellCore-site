@@ -70,7 +70,7 @@ function postComment()
 	$.ajax({
 		type: "POST",
 		url: "/ajax/?",
-		data: "action=post_comment" + "&newsId=" + newsId + "&body=" + encodeURIComponent(body) + "&subject=" + subject+"&topic=" + topic,
+		data: "action=post_comment" + "&newsId=" + newsId + "&body=" + encodeURIComponent(body) + "&subject=" + subject + "&topic=" + topic,
 		cache: false,
 		beforeSend: function()
 		{
