@@ -12,36 +12,46 @@ if (!$server_ajax)
     die('<h1>403 Forbidden</h1>');
 }
 
-if (isset($_POST['newsEntryID']))
+function updateViewsCount($newsEntryId)
 {
-	NewsManager::getInstance()->updateViewsCount($_POST['newsEntryID']);
+	if (!$newsEntryId)
+	{
+		return false;
+	}
+
+	NewsManager::getInstance()->updateViewsCount($newsEntryId);
 }
-elseif (isset($_POST['point']))
+
+function loadNews($currentPoint)
 {
 	global $config;
 
-	$news = NewsManager::getInstance()->loadNews(5, $_POST['point']*5-5);
+	$news = NewsManager::getInstance()->loadNews(5, $currentPoint*5-5);
 
 	$smarty = new Smarty_Studio($config['website']['template']);
 
 	if (!$news)
 	{
-		echo 'empty';
-		exit;
+		return 'empty';
 	}
+
+	$newsRender = "";
 
 	foreach ($news as $key => $newsEntry)
 	{
 		$smarty->assign('newsEntry', $newsEntry);
-		echo $smarty->fetch('bricks/news.tpl');
+		$newsRender = $newsRender . $smarty->fetch('bricks/news.tpl');
 	}
+
+	return $newsRender;
 }
-elseif (isset($_POST['search']))
+
+function searchNews($searchPattern)
 {
 	global $DB;
 	global $config;
 
-	$result = NewsManager::getInstance()->searchNews($_POST['search'], 5);
+	$result = NewsManager::getInstance()->searchNews($searchPattern, 5);
 
 	$smarty = new Smarty_Studio($config['website']['template']);
 
@@ -52,17 +62,37 @@ elseif (isset($_POST['search']))
 	}
 
 	$smarty->assign('newsList', $result);
-	echo $smarty->fetch('bricks/news_search.tpl');
+	return $smarty->fetch('bricks/news_search.tpl');
 }
-elseif (isset($_POST['body']))
+
+function postComment($newsEntryId, $commentBody, $commentSubject, $commentTopic)
 {
-	NewsCommentManager::getInstance()->postComment($_POST['newsId'], $_POST['body'], $_POST['subject'], $_POST['topic']);
-	$comments = NewsCommentManager::getInstance()->loadComments($_POST['newsId']);
+	NewsCommentManager::getInstance()->postComment($newsEntryId, $commentBody, $commentSubject, $commentTopic);
+	$comments = NewsCommentManager::getInstance()->loadComments($newsEntryId);
 	$newsEntry = array();
 	$newsEntry['comments'] = $comments;
 
 	$smarty = new Smarty_Studio($config['website']['template']);
 	$smarty->assign('newsEntry', $newsEntry);
 
-	echo $smarty->fetch('bricks/news_comment_list.tpl');
+	return $smarty->fetch('bricks/news_comment_list.tpl');
 }
+
+$action = $_REQUEST['action'];
+switch ($action)
+{
+    case 'update_views':
+        echo updateViewsCount($_REQUEST['newsEntryID']);
+        break;
+	case 'load_news':
+        echo loadNews($_REQUEST['point']);
+        break;
+	case 'search':
+        echo searchNews($_REQUEST['search']);
+        break;
+	case 'post_comment':
+        echo postComment($_REQUEST['newsId'], $_REQUEST['body'], $_REQUEST['subject'], $_REQUEST['topic']);
+        break;
+}
+
+exit;

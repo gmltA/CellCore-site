@@ -22,9 +22,9 @@ Array.prototype.in_array = function(p_val)
 function updateViewsCount()
 {
 	$.ajax({
+		type: 'POST',
 		url: '/ajax/?',
-		type: "POST",
-		data: "newsEntryID=" + $('article').attr('id'),
+		data: 'action=update_views' + '&newsEntryID=' + $('article').attr('id'),
 		cache: false,
 		beforeSend: function()
 		{
@@ -49,9 +49,9 @@ function nextPage()
 	{
 		page = page + 1;
 		$.ajax({
-			type: "POST",
-			url: "/ajax/?",
-			data: 'point=' + page,
+			type: 'POST',
+			url: '/ajax/?',
+			data: 'action=load_news' + '&point=' + page,
 			beforeSend: function()
 			{
 				$('#loader > A').addClass('bar');

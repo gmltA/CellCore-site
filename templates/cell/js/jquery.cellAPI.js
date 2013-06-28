@@ -44,7 +44,7 @@ function processSearch()
 	$.ajax({
 		type: "POST",
 		url: "/ajax/?",
-		data: {"search": search},
+		data: "action=search" + "&search=" + search,
 		cache: false,
 		success: function(response){
 			if (response != '')
@@ -70,7 +70,7 @@ function postComment()
 	$.ajax({
 		type: "POST",
 		url: "/ajax/?",
-		data: "newsId="+newsId+"&body="+encodeURIComponent(body)+"&subject="+subject+"&topic="+topic,
+		data: "action=post_comment" + "&newsId=" + newsId + "&body=" + encodeURIComponent(body) + "&subject=" + subject+"&topic=" + topic,
 		cache: false,
 		beforeSend: function()
 		{
