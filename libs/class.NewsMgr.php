@@ -64,6 +64,9 @@ class NewsManager
 		}
 
 		$newsEntry['description'] = self::buildDescription($newsEntry['content']);
+		$newsEntry['comments'] = array();
+		if ($comments = NewsCommentManager::getInstance()->loadComments($id))
+			$newsEntry['comments'] = $comments;
 
 		return $newsEntry;
 	}

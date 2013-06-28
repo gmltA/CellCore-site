@@ -12,6 +12,7 @@ require_once dirname(__FILE__) . '/includes/db.php';
 require_once dirname(__FILE__) . '/class.User.php';
 require_once dirname(__FILE__) . '/class.AuthMgr.php';
 require_once dirname(__FILE__) . '/class.NewsMgr.php';
+require_once dirname(__FILE__) . '/class.NewsCommentMgr.php';
 require_once dirname(__FILE__) . '/class.LayoutMgr.php';
 
 global $user;
@@ -126,10 +127,11 @@ function url_slug($str, $options = array())
 
 function get_time($t)
 {
-  list($h, $m, $s) = explode(':', $t);
-  $d = $h > 24 ? floor($h / 24) . ' д.' : '';
+	list($h, $m, $s) = explode(':', $t);
+	$d = $h > 24 ? floor($h / 24) . ' д.' : '';
   
-  if ($d)  $h -= 24*$d;
+	if ($d)
+		$h -= 24*$d;
   
-  return "{$d} {$h} ч. {$m} мин.";
+	return "{$d} {$h} ч. {$m} мин.";
 }

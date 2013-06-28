@@ -6,12 +6,10 @@
 					<div class="search_dropdown">
 					</div>
 					<div class="info user">
-						{if $user->isLoggedIn() != true}
+						{if !$user->isLoggedIn()}
 							<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
 							<span class="spacer">|</span>
 						{/if}
-						<a href="{$site.panel_url}" onclick="openLogin()">Авторизация</a>
-						<span class="spacer">|</span>
 						{$user->getDisplayName()}
 					</div>
 					<form action="/search/"  enctype="application/x-www-form-urlencoded" method="post" id="search_form" class="right clearfix">

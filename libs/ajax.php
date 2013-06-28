@@ -54,3 +54,15 @@ elseif (isset($_POST['search']))
 	$smarty->assign('newsList', $result);
 	echo $smarty->fetch('bricks/news_search.tpl');
 }
+elseif (isset($_POST['body']))
+{
+	NewsCommentManager::getInstance()->postComment($_POST['newsId'], $_POST['body'], $_POST['subject']);
+	$comments = NewsCommentManager::getInstance()->loadComments($_POST['newsId']);
+	$newsEntry = array();
+	$newsEntry['comments'] = $comments;
+
+	$smarty = new Smarty_Studio($config['website']['template']);
+	$smarty->assign('newsEntry', $newsEntry);
+
+	echo $smarty->fetch('bricks/news_comment_list.tpl');
+}

@@ -56,6 +56,54 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
+				{if $newsEntry.comments|@sizeof > 0}
+				<div class="standardbox">
+					<div class="topbar">
+						<div class="leftcorner"></div>
+						<div class="rightcorner"></div>
+						<div class="middle">
+							<div class="rightfade"></div>
+							<h2 class="title">Комментарии ({$newsEntry.comments|@sizeof})</h2>
+						</div>
+					</div>
+					<div class="middlebar">
+						<div class="line" style="
+							padding: 10px 0 10px 0;
+						">
+						<div id="comments_container">
+							{include file="bricks/news_comment_list.tpl"}
+						</div>
+						{if $user->isLoggedIn()}
+							<span class="new_comment_header">Новый комментарий</span>
+							<section class="comment new">
+								<div id="progressbar">
+									<div class="loading_text">Отправка комментария</div>
+									<div class="loading"></div>
+								</div>
+								<div class="header">
+									<h3>{$user->getDisplayName()}</h3>
+									<span class="subject" hidden>to <a href="#comment_{$subjId}"><b></b></a><span class="subject_clear">×</span></span>
+								</div>
+								<div class="body editor" contenteditable="true">
+								</div>
+							</section>
+							<span class="button" id="post_comment">Оставить комментарий</span>
+							<span class="button" id="preview_comment">Предпросмотр</span>
+						{/if}
+						</div>
+					</div>
+					<div class="bottombar">
+						<div class="middle">
+							<div class="leftcorner"></div>
+							<div class="rightcorner"></div>
+						</div>
+					</div>
+					<div class="shadowbar">
+						<div class="line"></div>
+						<div class="shadow"></div>
+					</div>
+				</div>
+				{/if}
 			</div>
 			<div class="clearfix" ></div>
 		</div>

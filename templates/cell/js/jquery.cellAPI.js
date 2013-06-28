@@ -19,7 +19,7 @@ function closeLogin()
 	$('#login_errors').stop().fadeOut("fast");
 }
 
-function responceHandler(event)
+function responseHandler(event)
 {
 	if (event.data == 'success')
 	{
@@ -61,11 +61,37 @@ function processSearch()
 	});
 }
 
+function postComment()
+{
+	var subject = $('.comment.new .subject A:first').attr('href').substr(9);
+	var body = $('.comment.new .body').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br />');
+	var newsId = $('article').attr('id');
+	$.ajax({
+		type: "POST",
+		url: "/ajax/?",
+		data: "newsId="+newsId+"&body="+encodeURIComponent(body)+"&subject="+subject,
+		cache: false,
+		beforeSend: function()
+		{
+			$('#progressbar').slideDown();
+			$('.comment.new .header').slideUp();
+			$('.comment.new .body').slideUp();
+		},
+		success: function(response)
+		{
+			$('#progressbar').slideUp();
+			$('.comment.new .header').slideDown();
+			$('.comment.new .body').html('').slideDown();
+			$('#comments_container').html(response);
+		}
+	});
+}
+
 var scrollPosition = 0;
 
 $(document).ready(function(){
-	// Responce from login iframe
-	window.addEventListener("message", responceHandler, false);
+	// Response from login iframe
+	window.addEventListener("message", responseHandler, false);
 
 	$("#search").keyup(function(key){
 		if (key.keyCode == '13')
@@ -190,11 +216,51 @@ $(document).ready(function(){
 			}
 		})
 	});
+	
+	$('.comment H3').live({
+		click:
+		function ()
+			{
+				if ($(this).parent().parent().hasClass('new'))
+					return false;
+
+				$('.comment.new .header .subject A').attr('href', '#' + $(this).parent().parent().attr('id'));
+				$('.comment.new .header .subject B').text($(this).text());
+				$('.comment.new .header .subject').show();
+				$('html, body').animate({scrollTop: $('.comment.new').offset().top}, 200);
+			}
+	});
+
+	$('.comment.new .subject_clear').live({
+		click:
+		function ()
+			{
+				$('.comment.new .header .subject').hide();
+				$('.comment.new .header .subject A').attr('href', '');
+				$('.comment.new .header .subject B').text('');
+			}
+	});
+
+	$('.comment.new .body.editor').live({
+		click:
+		function ()
+			{
+				$(this).focus();
+			}
+	});
+
+	$('#post_comment').live({
+		click:
+		function ()
+			{
+				postComment();
+			}
+	});
 });
 
 $(window).scroll(function()
 {
-	if ($(window).scrollTop() > 560)
+	if ($(window).scrollTop() > 100)
 	{
 		if ($(".scroll_manager").css('display') == 'none')
 			$(".scroll_manager").show().animate({opacity: 0.3}, "fast");
