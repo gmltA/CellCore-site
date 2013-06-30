@@ -65,6 +65,8 @@ class NewsCommentManager
 		global $user;
 		global $DB;
 
+		$body = strip_tags($body, '<br/>');
+
 		$DB->query('INSERT INTO ?_news_comments SET newsId = ?d, authorId = ?d, subjectId = ?d, topicId = ?d, date = now(), body = ?', $newsEntryId, $user->getID(), $subject, $topic, $body);
 	}
 }

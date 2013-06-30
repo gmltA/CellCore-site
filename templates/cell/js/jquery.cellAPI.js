@@ -65,7 +65,8 @@ function postComment()
 {
 	var subject = $('.comment.new .subject A:first').attr('href').substr(9);
 	var topic = $('#topicId').val();
-	var body = $('.comment.new .body').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br />');
+	var body = $('.comment.new .body').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br/>').replace(/\<div\>/g, '<br/>').replace(/\<\/div\>/g, '');
+	alert(body);
 	var newsId = $('article').attr('id');
 	$.ajax({
 		type: "POST",
