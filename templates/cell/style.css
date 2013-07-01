@@ -531,14 +531,10 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 {
     font-family: "Arial", "Helvetica", sans-serif, sans-serif;
     font-size: 11px;
+    padding: 30px 0 40px;
 }
 
 .breadcrumb H2 {font-size: 11px; font-weight: normal; line-height: 32px; margin: 0;}
-
-.breadcrumbsub
-{
-    padding: 30px 0 40px;
-}
 
 .breadcrumb .left
 {

@@ -17,14 +17,22 @@
 						<div class="rightcorner"></div>
 						<div class="middle">
 							<div class="rightfade"></div>
-							<div class="title breadcrumb breadcrumbsub">
+							<div class="title breadcrumb">
 								<div class="left"></div>
 								<div class="center">
 									<div class="ref">
 										<div class="contents">
-											<div class="link"><a href="/">Главная</a></div>
+											<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
+												<a href="/" itemprop="url">
+													<span itemprop="title">Главная</span>
+												</a>
+											</div>
 											<div class="arrowsm"></div>
-											<div class="link"><a href="/news/">Новости</a></div>
+											<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
+												<a href="/news/" itemprop="url">
+													<span itemprop="title">Новости</span>
+												</a>
+											</div>
 											<div class="arrowsm"></div>
 											<div class="text"><h2>{$newsEntry.title}</h2></div>
 										</div>
