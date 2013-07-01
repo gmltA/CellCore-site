@@ -56,13 +56,14 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
+				{if $newsEntry.commentsEnabled}
 				<div class="standardbox">
 					<div class="topbar">
 						<div class="leftcorner"></div>
 						<div class="rightcorner"></div>
 						<div class="middle">
 							<div class="rightfade"></div>
-							<h2 class="title">Комментарии ({$newsEntry.comments|@sizeof})</h2>
+								<h2 class="title">Комментарии ({$newsEntry.comments|@sizeof})</h2>
 						</div>
 					</div>
 					<div class="middlebar">
@@ -102,6 +103,7 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
+				{/if}
 			</div>
 			<div class="clearfix" ></div>
 		</div>

@@ -16,7 +16,7 @@
 				{$newsEntry.content}
 			</article>
 			<div class="article_bottom">
-				Просмотров: {$newsEntry.views} | Комментарии: {$newsEntry.commentsNumber}
+				Просмотров: {$newsEntry.views}{if $newsEntry.commentsEnabled} | Комментарии: {$newsEntry.commentsNumber}{/if}
 				<a href="{$newsEntry.link}" class="news_cut clearfix">
 					Новость целиком
 				</a>

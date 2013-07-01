@@ -37,7 +37,7 @@ class NewsManager
 	{
 		global $DB;
 
-		$newsList = $DB->select('SELECT id, title, content, views, date FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
+		$newsList = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
 
 		if (!$newsList)
 		{
@@ -57,7 +57,7 @@ class NewsManager
 	{
 		global $DB;
 
-		$newsEntry = $DB->selectRow('SELECT id, title, content, keywords, views, date FROM ?_news WHERE id = ?d LIMIT 1', $id);
+		$newsEntry = $DB->selectRow('SELECT id, title, content, keywords, views, date, commentsEnabled FROM ?_news WHERE id = ?d LIMIT 1', $id);
 
 		if (!$newsEntry)
 		{
@@ -86,11 +86,11 @@ class NewsManager
 
 		if ($limit == 0)
 		{
-			$matchedNews = $DB->select('SELECT id, title, content, views, date FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC', $resultQuery);
+			$matchedNews = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC', $resultQuery);
 		}
 		else
 		{
-			$matchedNews = $DB->select('SELECT id, title, content, views, date FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC LIMIT ?d', $resultQuery, $limit);
+			$matchedNews = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC LIMIT ?d', $resultQuery, $limit);
 		}
 
 		foreach ($matchedNews as $key=>$newsEntry)
@@ -130,7 +130,6 @@ class NewsManager
 		if ($page + 2 <= $total) $page2right = ' | <a href= ./'. ($page + 2) .'>'. ($page + 2) .'</a>';
 		if ($page + 1 <= $total) $page1right = ' | <a href= ./'. ($page + 1) .'>'. ($page + 1) .'</a>';
 
-		// Вывод меню
 		return $pervpage.$page2left.$page1left.'<b>'.$page.'</b>'.$page1right.$page2right.$nextpage;
 	}
 

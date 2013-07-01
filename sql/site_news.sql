@@ -10,5 +10,6 @@ CREATE TABLE `site_news` (
   `keywords` text,
   `views` bigint(10) unsigned NOT NULL DEFAULT '0',
   `date` datetime NOT NULL,
+  `commentsEnabled` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 ,
   FULLTEXT (title,content,keywords)
 ) ENGINE=MYISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
