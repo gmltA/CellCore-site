@@ -43,11 +43,13 @@ class NewsCommentManager
 		foreach ($firstLevel as $key => $comment)
 		{
 			$firstLevel[$key]['authorName'] = User::getNameById($comment['authorId']);
-			//if ($comments['subjectId'])
-				//$comments[$key]['subjectName'] = User::getNameById($comment['subjectId']);
 			$id[] = $comment['id'];
 
-			$secondLevel = $DB->select('SELECT id AS ARRAY_KEY, id, authorId, topicId, subjectId, date, body FROM ?_news_comments WHERE newsId = ?d AND topicId = ?d ORDER BY id ASC', $newsEntryId, $comment['id']);
+			$secondLevel = $DB->select('SELECT id AS ARRAY_KEY, id, authorId, topicId, subjectId, date, body '
+										. 'FROM ?_news_comments '
+										. 'WHERE newsId = ?d AND topicId = ?d '
+										. 'ORDER BY id ASC', $newsEntryId, $comment['id']);
+
 			$comments[] = $firstLevel[$key];
 			foreach($secondLevel as $k2 => $com)
 			{
@@ -67,6 +69,13 @@ class NewsCommentManager
 
 		$body = strip_tags($body, '<br/>');
 
-		$DB->query('INSERT INTO ?_news_comments SET newsId = ?d, authorId = ?d, subjectId = ?d, topicId = ?d, date = now(), body = ?', $newsEntryId, $user->getID(), $subject, $topic, $body);
+		$DB->query('INSERT INTO ?_news_comments SET '
+					. 'newsId = ?d, '
+					. 'authorId = ?d, '
+					. 'subjectId = ?d, '
+					. 'topicId = ?d, '
+					. 'date = now(), '
+					. 'ip = ?, '
+					. 'body = ?', $newsEntryId, $user->getID(), $subject, $topic, $user->getCurrentIP(), $body);
 	}
 }

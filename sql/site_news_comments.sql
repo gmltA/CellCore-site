@@ -11,5 +11,6 @@ CREATE TABLE `site_news_comments` (
   `subjectId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Subject user ID of the comment (if defined)',
   `date` datetime NOT NULL COMMENT 'Comment date and time',
   `body` text NOT NULL COMMENT 'Comment message text',
+  `ip`  varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '127.0.0.1' ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

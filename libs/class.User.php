@@ -7,9 +7,12 @@ class User
 	protected $displayName = "Anonymous";
 	protected $forumSkin;
 
+	protected $currentIP;
+
 	public function __construct($username, $sha_pass_hash, $realm = 0)
 	{
 		$authResponce = $this->processAuth($username, $sha_pass_hash, $realm);
+		$this->currentIP = $_SERVER['REMOTE_ADDR'];
 
 		if (!is_array($authResponce))
 		{
@@ -18,7 +21,7 @@ class User
 		else
 		{
 			$this->id = $authResponce['id'];
-			$this->displayName = $authResponce['username'];
+			$this->displayName = ($authResponce['display_name']) ? $authResponce['display_name'] : $authResponce['username'];
 			$this->status = USER_STATUS_LOGGEDIN;
 		}
 
@@ -32,11 +35,12 @@ class User
 		}
 
 		$this->forumSkin = $data['skin'];
-		if ($data['members_display_name'])
-			$this->displayName = $data['members_display_name'];
 
 		if ($this->status != USER_STATUS_LOGGEDIN)
 		{
+			if ($data['members_display_name'])
+				$this->displayName = $data['members_display_name'];
+
 			$this->id = 0;
 			$this->status = USER_STATUS_FORUM_DATA;
 		}
@@ -50,6 +54,7 @@ class User
 			return USER_STATUS_FAIL;
 
 		$result = $rDB[$realm]->selectRow('SELECT id, username FROM account WHERE username = ?', $username);
+		$result['display_name'] = $rDB[$realm]->selectCell('SELECT display_name FROM accounts_extra WHERE login = ?', $username);
 
 		if (is_array($result))
 			return $result;
@@ -114,6 +119,11 @@ class User
 	public function getSkin()
 	{
 		return $this->forumSkin;
+	}
+
+	public function getCurrentIP()
+	{
+		return $this->currentIP;
 	}
 
 	public static function getNameById($userId)

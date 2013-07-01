@@ -84,8 +84,7 @@
 									<h3>{$user->getDisplayName()}</h3>
 									<span class="subject" hidden>to <a href="#comment_{$subjId}"><b></b></a><span class="subject_clear">×</span></span>
 								</div>
-								<div class="body editor" contenteditable="true">
-								</div>
+								<div class="body editor" contenteditable="true"></div>
 							</section>
 							<span class="button" id="post_comment">Оставить комментарий</span>
 							<span class="button" id="preview_comment">Предпросмотр</span>

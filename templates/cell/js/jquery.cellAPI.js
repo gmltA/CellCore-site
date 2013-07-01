@@ -65,8 +65,7 @@ function postComment()
 {
 	var subject = $('.comment.new .subject A:first').attr('href').substr(9);
 	var topic = $('#topicId').val();
-	var body = $('.comment.new .body').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br/>').replace(/\<div\>/g, '<br/>').replace(/\<\/div\>/g, '');
-	alert(body);
+	var body = $('.comment.new .editor').html().replace(/\<p\>/g, '').replace(/\<\/p\>/g, '<br/>').replace(/\<div\>/g, '<br/>').replace(/\<\/div\>/g, '');
 	var newsId = $('article').attr('id');
 	$.ajax({
 		type: "POST",
@@ -77,16 +76,35 @@ function postComment()
 		{
 			$('#progressbar').slideDown();
 			$('.comment.new .header').slideUp();
-			$('.comment.new .body').slideUp();
+			$('.comment.new .editor').slideUp();
 		},
 		success: function(response)
 		{
 			$('#progressbar').slideUp();
+			$('.comment.new .header .subject').hide();
+			$('.comment.new .header .subject A').attr('href', '');
+			$('.comment.new .header .subject B').text('');
+			$('#topicId').val(0);
 			$('.comment.new .header').slideDown();
-			$('.comment.new .body').html('').slideDown();
+			$('.comment.new .editor').html('').slideDown();
 			$('#comments_container').html(response);
 		}
 	});
+}
+
+function previewComment()
+{
+	if ($('.comment.new .editor').attr('contenteditable') == "false")
+	{
+
+		$('#preview_comment').text('Предпросмотр');
+		$('.comment.new .editor').attr('contenteditable', true);
+	}
+	else
+	{
+		$('#preview_comment').text('Редактирование');
+		$('.comment.new .editor').attr('contenteditable', false);
+	}
 }
 
 var scrollPosition = 0;
@@ -252,7 +270,7 @@ $(document).ready(function(){
 			}
 	});
 
-	$('.comment.new .body.editor').live({
+	$('.comment.new .editor').live({
 		click:
 		function ()
 			{
@@ -265,6 +283,14 @@ $(document).ready(function(){
 		function ()
 			{
 				postComment();
+			}
+	});
+
+	$('#preview_comment').live({
+		click:
+		function ()
+			{
+				previewComment();
 			}
 	});
 });

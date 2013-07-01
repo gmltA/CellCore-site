@@ -46,6 +46,7 @@ class NewsManager
 
 		foreach ($newsList as $key=>$newsEntry)
 		{
+			$newsList[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
 			$newsList[$key]['link'] = self::buildNewsURI($newsEntry);
 		}
 
@@ -94,6 +95,7 @@ class NewsManager
 
 		foreach ($matchedNews as $key=>$newsEntry)
 		{
+			$matchedNews[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
 			$matchedNews[$key]['link'] = self::buildNewsURI($newsEntry);
 		}
 
@@ -149,5 +151,12 @@ class NewsManager
 		global $config;
 
 		return $config['website']['main_url'].'news/' . $newsEntry['id'] . '-' . url_slug($newsEntry['title'], array('transliterate' => true)) . '/';
+	}
+
+	private static function loadCommentsNumber($newsEntryId)
+	{
+		global $DB;
+
+		return $DB->selectCell('SELECT COUNT(id) FROM ?_news_comments WHERE newsId = ?d', $newsEntryId);
 	}
 }
