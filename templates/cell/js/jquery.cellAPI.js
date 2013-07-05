@@ -97,12 +97,14 @@ function previewComment()
 	if ($('.comment.new .editor').attr('contenteditable') == "false")
 	{
 
-		$('#preview_comment').text('Предпросмотр');
+		$('#preview_caption').show();
+		$('#edit_caption').hide();
 		$('.comment.new .editor').attr('contenteditable', true);
 	}
 	else
 	{
-		$('#preview_comment').text('Редактирование');
+		$('#preview_caption').hide();
+		$('#edit_caption').show();
 		$('.comment.new .editor').attr('contenteditable', false);
 	}
 }

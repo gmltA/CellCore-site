@@ -1,6 +1,6 @@
 {include file="$header"}
 
-<body class="{$forumSkin}" lang="ru">
+<body class="{$forumSkin}" lang="ru" dir="ltr">
 	<div class="content">
 		{include file="forum_head.tpl"}
 

@@ -1,6 +1,6 @@
 {include file="$header"}
 
-<body class="{$forumSkin} news" lang="ru">
+<body class="{$forumSkin} news" lang="ru" dir="ltr">
 	<div class="content">
 		{include file="forum_head.tpl"}
 
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				{if $newsEntry.commentsEnabled}
-				<div class="standardbox">
+				<div class="standardbox" id="comments">
 					<div class="topbar">
 						<div class="leftcorner"></div>
 						<div class="rightcorner"></div>
@@ -96,7 +96,10 @@
 								<div class="body editor" contenteditable="true"></div>
 							</section>
 							<span class="button" id="post_comment">Оставить комментарий</span>
-							<span class="button" id="preview_comment">Предпросмотр</span>
+							<span class="button" id="preview_comment">
+								<span id="preview_caption">Предпросмотр</span>
+								<span id="edit_caption" hidden>Редактирование</span>
+							</span>
 						{/if}
 						</div>
 					</div>
