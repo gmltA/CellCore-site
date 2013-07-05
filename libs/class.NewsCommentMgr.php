@@ -68,7 +68,7 @@ class NewsCommentManager
 		global $DB;
 
 		$body = trim($body, '<br/>');
-		$body = strip_tags($body, '<br>');
+		$body = strip_tags($body, '<br><br/><br />');
 
 		$DB->query('INSERT INTO ?_news_comments SET '
 					. 'newsId = ?d, '
