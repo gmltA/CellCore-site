@@ -21,6 +21,7 @@ define('PAGE_NEWS', 		'news');
 define('PAGE_NEWS_PART', 	'news_page');
 define('PAGE_NEWS_ENTRY', 	'news_entry');
 define('PAGE_NEWS_SEARCH', 	'news_search');
+define('PAGE_ERROR_404', 	'error');
 
 // Forum skins
 global $skins;

@@ -61,11 +61,10 @@ switch ($page['1'])
 
 		$newsEntry = NewsManager::getInstance()->loadNewsEntry($newsID);
 
-		//@todo: handle 404 error properly
 		if (!$newsEntry)
 		{
-			header('Location: ' . $config['website']['main_url'] . '404/');
-			exit;
+			$layout = LayoutManager::buildPage(PAGE_ERROR_404);
+			break;
 		}
 
 		$layout = LayoutManager::buildPage(PAGE_NEWS_ENTRY, array('newsEntry' => $newsEntry, 'title' => $newsEntry['title'],

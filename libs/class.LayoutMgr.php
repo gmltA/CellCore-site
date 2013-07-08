@@ -32,6 +32,10 @@ class LayoutManager extends Smarty_Studio
 		{
 			$this->bodyFile = 'main_search.tpl';
 		}
+		elseif ($body == 'error')
+		{
+			$this->bodyFile = 'error.tpl';
+		}
 		else
 		{
 			$this->bodyFile = 'main.tpl';
@@ -81,6 +85,12 @@ class LayoutManager extends Smarty_Studio
 				$vars['title'] = 'Правила сервера';
 				$vars['mainBlock'] = true;
 				$vars['newsLoader'] = false;
+				break;
+
+			case PAGE_ERROR_404:
+				$layout = new self($page, 'static', 'error');
+				$vars['errorTitle'] = '404 - Страница не найдена';
+				$vars['errorClass'] = 'error404';
 				break;
 
 			case PAGE_MAIN:
