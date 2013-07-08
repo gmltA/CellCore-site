@@ -9,9 +9,11 @@
 	<meta name="generator" content="{$site.app_name} {$app_version}"/>
 	<script src="/{$MainTemplateDir}/js/jquery.min.js"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.easing.min.js"></script>
+	<script src="/{$MainTemplateDir}/js/jquery.nivo.slider.pack.js"></script>
 	<script src="/{$MainTemplateDir}/js/jquery.cellAPI.js"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href="/{$MainTemplateDir}/style.css" rel="stylesheet" type="text/css" />
+	<link href="/{$MainTemplateDir}/nivo-slider.css" rel="stylesheet" type="text/css" />
 </head>

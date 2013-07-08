@@ -17,7 +17,7 @@ $config['website']['main_url']               = 'http://localhost:81/';
 $config['website']['session_domain']         = '.riverrise.net';
 $config['website']['panel_url']              = 'http://lk1.riverrise.net/';
 
-$config['website']['banner_top']             = '1';
+$config['website']['content_dir']            = 'content'; // CMS content directory (e.g. /content/...)
 
 $config['website']['app_name']               = 'CellCore-site';
 $config['website']['app_descr']              = 'RiverRise.net | World of Warcraft.by';
@@ -48,6 +48,9 @@ $config['realms'][] = array(
                     'char_db_pass'	=>	'',
                     'char_db'		=>	'characters',
 );
+
+$config['website']['banner_top']             = '1';
+$config['website']['main_block']             = '2'; // 0 - static welcome block; 1 - slider/block; 2 - slider only
 
 $config['local']                             = '1';
 $config['debug']                             = '0';

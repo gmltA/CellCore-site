@@ -47,6 +47,7 @@ class LayoutManager extends Smarty_Studio
 
 	public static function buildPage($page = PAGE_MAIN, $vars = array())
 	{
+		global $config;
 		switch ($page)
 		{
 			case PAGE_STATS:
@@ -84,7 +85,23 @@ class LayoutManager extends Smarty_Studio
 
 			case PAGE_MAIN:
 			default:
-				$layout = new self($page, 'static', 'main', 'static/main');
+				$content = 'static/main';
+				if ($config['website']['main_block'])
+				{
+					//@todo: WTF?
+					if (rand(0,1) || $config['website']['main_block'] == 2)
+					{
+						$sliderContent = self::loadSliderContent();
+						if ($sliderContent)
+						{
+							$content = 'slider';
+							$vars['sliderContent'] = $sliderContent;
+						}
+					}
+				}
+
+				$layout = new self($page, 'static', 'main', $content);
+
 				$vars['mainBlock'] = true;
 				$vars['newsLoader'] = true;
 				break;
@@ -115,7 +132,21 @@ class LayoutManager extends Smarty_Studio
 		$layout->assign('bodyContent', $layout->getBodyContent());
 		$layout->assign('pageName', $layout->getPageID());
 
+		$layout->assign('contentDir', $config['website']['content_dir']);
+
 		return $layout->fetch($layout->getBody());
+	}
+
+	public static function loadSliderContent()
+	{
+		global $config;
+		global $DB;
+
+		if (!$config['website']['main_block'])
+			return false;
+
+		$content = $DB->select('SELECT id, contentImage, description, link FROM ?_slider_content ORDER BY id DESC LIMIT 5');
+		return $content;
 	}
 
 	public function getHeader()

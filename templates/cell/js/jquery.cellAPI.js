@@ -238,7 +238,7 @@ $(document).ready(function(){
 			}
 		})
 	});
-	
+
 	$('.comment H3').live({
 		click:
 		function ()
@@ -295,6 +295,25 @@ $(document).ready(function(){
 				previewComment();
 			}
 	});
+
+	$('#slider').nivoSlider({
+        effect: 'sliceDown', // Задаётся как: 'fold, fade, sliceDown'
+        slices: 35,
+        animSpeed: 200,
+        pauseTime: 3000,
+        startSlide: 0, // Задаётся начало прокрутки  (0 index)
+        directionNav: true, // Вперёд/Назад
+        directionNavHide: true, // Показывать только при наведении
+        controlNav: true, // 1,2,3 ...
+        controlNavThumbs: false, // Использование картинок для Control Nav
+		controlNavThumbsFromRel: false, // Use image rel for thumbs
+        controlNavThumbsSearch: '.jpg', // заменить на..
+        controlNavThumbsReplace: '_thumb.jpg', //... это ярлык для Image src
+        keyboardNav: false, // использовать стрелки влево и вправо.
+        pauseOnHover: true, // при наведении анимация останавливается.
+        manualAdvance: false, // Форсированный ручной переход
+        captionOpacity: 0.8 // Прозрачность подписи
+    });
 });
 
 $(window).scroll(function()
