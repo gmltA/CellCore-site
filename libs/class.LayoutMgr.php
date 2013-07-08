@@ -89,8 +89,10 @@ class LayoutManager extends Smarty_Studio
 
 			case PAGE_ERROR_404:
 				$layout = new self($page, 'static', 'error');
-				$vars['errorTitle'] = '404 - Страница не найдена';
-				$vars['errorClass'] = 'error404';
+				$vars['error']['title'] = '404 - Страница не найдена';
+				$vars['error']['description'] = 'Страница не найдена. Либо она была удалена, либо никогда не существовала.';
+				$vars['error']['class'] = 'error404';
+				$vars['error']['referer'] = $_SERVER['HTTP_REFERER'];
 				break;
 
 			case PAGE_MAIN:

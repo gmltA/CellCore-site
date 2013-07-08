@@ -23,7 +23,7 @@
 												</a>
 											</div>
 											<div class="arrowsm"></div>
-											<div class="text"><h2>{$errorTitle}</h2></div>
+											<div class="text"><h2>{$error.title}</h2></div>
 										</div>
 									</div>
 								</div>
@@ -33,8 +33,14 @@
 					</div>
 					<div class="middlebar">
 						<div class="line">
-							<article class="{$errorClass}">
+							<article class="{$error.class}">
+								{$error.description}
 							</article>
+							{if $error.referer}
+								<div class="article_bottom {$error.class}">
+									Попробуйте <a href="{$error.referer}">вернуться</a> на предыдущую страницу и исправить ошибку.
+								</div>
+							{/if}
 						</div>
 					</div>
 					<div class="bottombar">
