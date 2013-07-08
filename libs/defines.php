@@ -28,3 +28,6 @@ $skins = array(
     '42'	=>	'riverrise',
     '55'	=>	'master'
 );
+
+// CMS
+define('CUT_DELIMITER', '{cut}');

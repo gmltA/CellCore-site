@@ -1,4 +1,4 @@
 <?php
 global $app_version;
-$app_version = 'v1.7-27-g6704683';
+$app_version = 'v1.7-28-g9559102';
 ?>

@@ -46,6 +46,7 @@ class NewsManager
 
 		foreach ($newsList as $key=>$newsEntry)
 		{
+			$newsList[$key]['content'] = self::buildCutContent($newsEntry['content']);
 			$newsList[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
 			$newsList[$key]['link'] = self::buildNewsURI($newsEntry);
 		}
@@ -63,6 +64,8 @@ class NewsManager
 		{
 			return false;
 		}
+
+		$newsEntry['content'] = self::removeCutDelimiter($newsEntry['content']);
 
 		$newsEntry['description'] = self::buildDescription($newsEntry['content']);
 		$newsEntry['comments'] = array();
@@ -95,6 +98,7 @@ class NewsManager
 
 		foreach ($matchedNews as $key=>$newsEntry)
 		{
+			$matchedNews[$key]['content'] = self::removeCutDelimiter($newsEntry['content']);
 			$matchedNews[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
 			$matchedNews[$key]['link'] = self::buildNewsURI($newsEntry);
 		}
@@ -138,6 +142,16 @@ class NewsManager
 		global $DB;
 
 		$newsList = $DB->query('UPDATE ?_news SET views = views + 1 WHERE id = ?d', $id);
+	}
+
+	private static function buildCutContent($content)
+	{
+		return current(explode(CUT_DELIMITER, $content));
+	}
+
+	private static function removeCutDelimiter($content)
+	{
+		return str_replace(CUT_DELIMITER, '', $content);
 	}
 
 	private static function buildDescription($content)
