@@ -16,3 +16,26 @@
 		</div>
 	{/foreach}
 </div>
+
+{literal}
+<script type="text/javascript">
+$('#slider').nivoSlider({
+		effect: 'sliceDown',
+		slices: 35,
+		animSpeed: 200,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		directionNavHide: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		controlNavThumbsFromRel: false,
+		controlNavThumbsSearch: '.jpg',
+		controlNavThumbsReplace: '_thumb.jpg',
+		keyboardNav: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		captionOpacity: 0.8
+	});
+</script>
+{/literal}
