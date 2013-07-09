@@ -13,7 +13,7 @@
 
 #slider-wrapper {
 	width:760px;
-	height:280px;
+	height:290px;
 	margin:0 auto;
 }
 
@@ -25,7 +25,7 @@
 .nivoSlider {
 	position:relative;
 	width:760px;
-	height:246px;
+	height:276px;
 	margin: auto;
 	background:url(images/loading.gif) no-repeat 50% 50%;
 }
@@ -104,7 +104,7 @@ a.nivo-prevNav {
 .nivo-controlNav {
 	position:absolute;
 	left: 340px;
-	bottom: -30px;
+	bottom: -20px;
 }
 
 .nivo-controlNav a {
