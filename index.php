@@ -11,7 +11,7 @@ $page = explode('/', $_SERVER['REQUEST_URI']);
 
 switch ($page['1'])
 {
-    case 'ajax':
+	case 'ajax':
 		include dirname(__FILE__) . '/libs/ajax.php';
 		exit;
 
@@ -70,7 +70,7 @@ switch ($page['1'])
 		$layout = LayoutManager::buildPage(PAGE_NEWS_ENTRY, array('newsEntry' => $newsEntry, 'title' => $newsEntry['title'],
 																	'keywords' => $newsEntry['keywords'], 'description' => $newsEntry['description']));
 
-        break;
+		break;
 
 	case 'search':
 		$query = '';
@@ -101,14 +101,26 @@ switch ($page['1'])
 
 		$layout = LayoutManager::buildPage(PAGE_STATS, array('realms' => GetRealmStats()));
 
-        break;
+		break;
 
 	case 'rules':
 		$layout = LayoutManager::buildPage(PAGE_RULES);
 
-        break;
+		break;
 
-    default:
+	case 'core':
+		$layout = LayoutManager::buildPage(PAGE_CORE);
+
+		break;
+
+	case 'about':
+		$layout = LayoutManager::buildPage(PAGE_ABOUT);
+
+		break;
+
+
+	case '':
+	case 'main':
 		$newsList = NewsManager::getInstance()->loadNews(3);
 		if ($newsList)
 		{
@@ -123,7 +135,12 @@ switch ($page['1'])
 			$layout = LayoutManager::buildPage(PAGE_MAIN, array());
 		}
 
-        break;
+		break;
+
+	default:
+		$layout = LayoutManager::buildPage(PAGE_ERROR_404);
+
+		break;
 }
 
 echo LayoutManager::render($layout);

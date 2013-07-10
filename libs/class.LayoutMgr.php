@@ -24,21 +24,32 @@ class LayoutManager extends Smarty_Studio
 			$this->headerFile = 'header.tpl';
 		}
 
-		if ($body == 'news')
+		switch ($body)
 		{
-			$this->bodyFile = 'main_news.tpl';
-		}
-		elseif ($body == 'search')
-		{
-			$this->bodyFile = 'main_search.tpl';
-		}
-		elseif ($body == 'error')
-		{
-			$this->bodyFile = 'error.tpl';
-		}
-		else
-		{
-			$this->bodyFile = 'main.tpl';
+			case 'news':
+				$this->bodyFile = 'main_news.tpl';
+				break;
+
+			case 'search':
+				$this->bodyFile = 'main_search.tpl';
+				break;
+
+			case 'error':
+				$this->bodyFile = 'error.tpl';
+				break;
+
+			case 'core':
+				$this->bodyFile = 'core.tpl';
+				break;
+
+			case 'about':
+				$this->bodyFile = 'about.tpl';
+				break;
+
+			case 'main':
+			default:
+				$this->bodyFile = 'main.tpl';
+				break;
 		}
 
 		if ($body_content)
@@ -87,8 +98,19 @@ class LayoutManager extends Smarty_Studio
 				$vars['newsLoader'] = false;
 				break;
 
+			case PAGE_CORE:
+				$layout = new self($page, 'dynamic', 'core');
+				$vars['title'] = 'О ядре';
+				break;
+
+			case PAGE_ABOUT:
+				$layout = new self($page, 'dynamic', 'about');
+				$vars['title'] = 'Обновление сайта';
+				break;
+
 			case PAGE_ERROR_404:
-				$layout = new self($page, 'static', 'error');
+				$layout = new self($page, 'dynamic', 'error');
+				$vars['title'] = '404 - Страница не найдена';
 				$vars['error']['title'] = '404 - Страница не найдена';
 				$vars['error']['description'] = 'Страница не найдена. Либо она была удалена, либо никогда не существовала.';
 				$vars['error']['class'] = 'error404';

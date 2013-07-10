@@ -15,13 +15,15 @@ define('USER_STATUS_FAIL', 			3);
 // Pages
 
 define('PAGE_MAIN', 		'main');
+define('PAGE_NEWS', 		'news');
+define('PAGE_CORE', 		'core');
+define('PAGE_ABOUT', 		'about');
 define('PAGE_STATS', 		'stats');
 define('PAGE_RULES', 		'rules');
-define('PAGE_NEWS', 		'news');
+define('PAGE_ERROR_404', 	'error');
 define('PAGE_NEWS_PART', 	'news_page');
 define('PAGE_NEWS_ENTRY', 	'news_entry');
 define('PAGE_NEWS_SEARCH', 	'news_search');
-define('PAGE_ERROR_404', 	'error');
 
 // Forum skins
 global $skins;
