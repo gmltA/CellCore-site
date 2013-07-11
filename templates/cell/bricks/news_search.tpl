@@ -13,7 +13,7 @@
 	</div>
 	{if $newsList|@sizeof >= 5}
 		<div class="all_search_results">
-			<a rel="search">Остальные новости</a>
+			<a rel="search">{$lang.other_news}</a>
 		</div>
 	{/if}
 {/if}

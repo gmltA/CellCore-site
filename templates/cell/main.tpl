@@ -26,7 +26,7 @@
 						<div class="pagination">{$pagination}</div>
 					{else}
 						<a href="/news/{if $pageName != "main"}page/{if $nextPage}{$nextPage}{else}2{/if}{/if}" onclick="nextPage()">
-							<span>&#8595;</span> Остальные новости <span>&#8595;</span>
+							<span>&#8595;</span> {$lang.other_news} <span>&#8595;</span>
 						</a>
 					{/if}
 				</div>
@@ -38,6 +38,6 @@
 	<div id="blackout"></div>
 	<div class="login_errors_box" id="login_errors"></div>
 	<div class="embed_login"></div>
-	<div class="scroll_manager"><span id="to_top">▲ Наверх</span><span id="to_bottom">▼ Назад</span></div>
+	<div class="scroll_manager"><span id="to_top">▲ {$lang.nav_up}</span><span id="to_bottom">▼ {$lang.nav_back}</span></div>
 </body>
 </html>

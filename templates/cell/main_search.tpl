@@ -18,14 +18,14 @@
 						<div class="rightcorner"></div>
 						<div class="middle">
 							<div class="rightfade"></div>
-								<h2 class="title">Поиск</h2>
+								<h2 class="title">{$lang.search}</h2>
 							<time class="date">{$newsEntry.date}</time>
 						</div>
 					</div>
 					<div class="middlebar">
 						<div class="line">
 							<article>
-								По запросу <i>'{$query}'</i> найдено <b>{$newsList|sizeof}</b> {$newsList|sizeof|declension:'запись;записи;записей':false:ru}
+								{$lang.search_result_1} <i>'{$query}'</i> {$lang.search_result_2} <b>{$newsList|sizeof}</b> {$newsList|sizeof|declension:$lang.records:false:ru}
 							</article>
 						</div>
 					</div>

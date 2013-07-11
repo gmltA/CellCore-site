@@ -4,13 +4,16 @@ class User
 	protected $status;
 	protected $id;
 	protected $forumId;
-	protected $displayName = "Anonymous";
+	protected $displayName;
 	protected $forumSkin;
 
 	protected $currentIP;
 
 	public function __construct($username, $sha_pass_hash, $realm = 0)
 	{
+		global $lang;
+		$this->displayName = $lang['anonymous'];
+
 		$authResponce = $this->processAuth($username, $sha_pass_hash, $realm);
 		$this->currentIP = $_SERVER['REMOTE_ADDR'];
 

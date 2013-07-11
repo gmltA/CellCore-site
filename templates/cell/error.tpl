@@ -19,7 +19,7 @@
 										<div class="contents">
 											<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
 												<a href="/" itemprop="url">
-													<span itemprop="title">Главная</span>
+													<span itemprop="title">{$lang.main_page}</span>
 												</a>
 											</div>
 											<div class="arrowsm"></div>

@@ -24,13 +24,13 @@
 										<div class="contents">
 											<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
 												<a href="/" itemprop="url">
-													<span itemprop="title">Главная</span>
+													<span itemprop="title">{$lang.main_page}</span>
 												</a>
 											</div>
 											<div class="arrowsm"></div>
 											<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
 												<a href="/news/" itemprop="url">
-													<span itemprop="title">Новости</span>
+													<span itemprop="title">{$lang.news_page}</span>
 												</a>
 											</div>
 											<div class="arrowsm"></div>
@@ -49,7 +49,7 @@
 								{$newsEntry.content}
 							</article>
 							<div class="article_bottom">
-								Просмотров: <span id="views">{$newsEntry.views}</span>
+								{$lang.views}: <span id="views">{$newsEntry.views}</span>
 							</div>
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 						<div class="rightcorner"></div>
 						<div class="middle">
 							<div class="rightfade"></div>
-								<h2 class="title">Комментарии ({$newsEntry.comments|@sizeof})</h2>
+								<h2 class="title">{$lang.comments} ({$newsEntry.comments|@sizeof})</h2>
 						</div>
 					</div>
 					<div class="middlebar">
@@ -82,11 +82,11 @@
 							{include file="bricks/news_comment_list.tpl"}
 						</div>
 						{if $user->isLoggedIn()}
-							<span class="new_comment_header">Новый комментарий</span>
+							<span class="new_comment_header">{$lang.new_comment}</span>
 							<section class="comment new">
 								<input type="hidden" id="topicId" value="0">
 								<div id="progressbar">
-									<div class="loading_text">Отправка комментария</div>
+									<div class="loading_text">{$lang.posting_comment}</div>
 									<div class="loading"></div>
 								</div>
 								<div class="header">
@@ -95,10 +95,10 @@
 								</div>
 								<div class="body editor" contenteditable="true"></div>
 							</section>
-							<span class="button" id="post_comment">Оставить комментарий</span>
+							<span class="button" id="post_comment">{$lang.post_comment}</span>
 							<span class="button" id="preview_comment">
-								<span id="preview_caption">Предпросмотр</span>
-								<span id="edit_caption" hidden>Редактирование</span>
+								<span id="preview_caption">{$lang.preview_comment}</span>
+								<span id="edit_caption" hidden>{$lang.edit_comment}</span>
 							</span>
 						{/if}
 						</div>

@@ -23,7 +23,7 @@ $('#slider').nivoSlider({
 		effect: 'sliceDown',
 		slices: 35,
 		animSpeed: 200,
-		pauseTime: 3000,
+		pauseTime: 5000,
 		startSlide: 0,
 		directionNav: true,
 		directionNavHide: true,

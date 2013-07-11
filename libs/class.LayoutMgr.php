@@ -63,11 +63,12 @@ class LayoutManager extends Smarty_Studio
 	public static function buildPage($page = PAGE_MAIN, $vars = array())
 	{
 		global $config;
+		global $lang;
 		switch ($page)
 		{
 			case PAGE_STATS:
 				$layout = new self($page, 'dynamic', 'main', 'stats');
-				$vars['title'] = 'Статус серверов';
+				$vars['title'] = $lang['title_stats'];
 				$vars['mainBlock'] = true;
 				$vars['newsLoader'] = false;
 				break;
@@ -75,14 +76,14 @@ class LayoutManager extends Smarty_Studio
 			case PAGE_NEWS:
 			case PAGE_NEWS_PART:
 				$layout = new self($page, 'dynamic', 'main');
-				$vars['title'] = 'Новости проекта';
+				$vars['title'] = $lang['title_news'];
 				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = true;
 				break;
 
 			case PAGE_NEWS_SEARCH:
 				$layout = new self($page, 'dynamic', 'search');
-				$vars['title'] = 'Поиск новостей';
+				$vars['title'] = $lang['title_search'];
 				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
@@ -93,26 +94,25 @@ class LayoutManager extends Smarty_Studio
 
 			case PAGE_RULES:
 				$layout = new self($page, 'dynamic', 'main', 'static/rules');
-				$vars['title'] = 'Правила сервера';
+				$vars['title'] = $lang['title_rules'];
 				$vars['mainBlock'] = true;
 				$vars['newsLoader'] = false;
 				break;
 
 			case PAGE_CORE:
 				$layout = new self($page, 'dynamic', 'core');
-				$vars['title'] = 'О ядре';
+				$vars['title'] = $lang['title_core'];
 				break;
 
 			case PAGE_ABOUT:
 				$layout = new self($page, 'dynamic', 'about');
-				$vars['title'] = 'Обновление сайта';
+				$vars['title'] = $lang['title_about'];
 				break;
 
 			case PAGE_ERROR_404:
 				$layout = new self($page, 'dynamic', 'error');
-				$vars['title'] = '404 - Страница не найдена';
-				$vars['error']['title'] = '404 - Страница не найдена';
-				$vars['error']['description'] = 'Страница не найдена. Либо она была удалена, либо никогда не существовала.';
+				$vars['title'] = $vars['error']['title'] = $lang['404_title'];
+				$vars['error']['description'] = $lang['404_description'];
 				$vars['error']['class'] = 'error404';
 				$vars['error']['referer'] = $_SERVER['HTTP_REFERER'];
 				break;
@@ -154,8 +154,11 @@ class LayoutManager extends Smarty_Studio
 		global $skins;
 		global $config;
 		global $user;
+		global $lang;
 		global $app_version;
 
+		$layout->assign('lang', $lang);
+		$layout->assign('locale', $config['website']['locale']);
 		$layout->assign('site', $config['website']);
 		$layout->assign('app_version', $app_version);
 		$layout->assign('forumSkin', $skins[$user->getSkin()]);

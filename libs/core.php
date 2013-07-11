@@ -9,6 +9,7 @@ if (!defined('IS_IN_ENGINE'))
 require_once dirname(__FILE__) . '/config.php';
 require_once dirname(__FILE__) . '/defines.php';
 require_once dirname(__FILE__) . '/includes/db.php';
+require_once dirname(__FILE__) . '/locale/' . $config['website']['locale'] . '.php';
 require_once dirname(__FILE__) . '/class.User.php';
 require_once dirname(__FILE__) . '/class.AuthMgr.php';
 require_once dirname(__FILE__) . '/class.NewsMgr.php';
@@ -132,11 +133,13 @@ function url_slug($str, $options = array())
 
 function get_time($t)
 {
+	global $lang;
+
 	list($h, $m, $s) = explode(':', $t);
 	$d = $h > 24 ? floor($h / 24) . ' д.' : '';
   
 	if ($d)
 		$h -= 24*$d;
   
-	return "{$d} {$h} ч. {$m} мин.";
+	return $d . $h . ' ' . $lang['hours'] . ' ' .  $m . ' ' .  $lang['minutes'];
 }

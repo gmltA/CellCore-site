@@ -22,6 +22,8 @@ $config['website']['content_dir']            = 'content'; // CMS content directo
 $config['website']['app_name']               = 'CellCore-site';
 $config['website']['app_descr']              = 'RiverRise.net | World of Warcraft.by';
 
+$config['website']['locale']             	 = 'ru';
+
 $config['realms'] = array();
 
 $config['realms'][] = array(
