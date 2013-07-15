@@ -68,6 +68,7 @@ class NewsCommentManager
 		global $DB;
 
 		$body = trim($body, '<br/>');
+		$body = preg_replace('/((\<br\>)|(\<br\/\>)|(\<br \/\>))+/m', '<br/>', $body);
 		$body = strip_tags($body, '<br><br/><br />');
 
 		$DB->query('INSERT INTO ?_news_comments SET '
