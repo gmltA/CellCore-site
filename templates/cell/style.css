@@ -746,3 +746,21 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 #progressbar {display: none;}
 .loading_text {text-align: center; color: #50B8DA;}
 .loading {background: url('images/loading.gif') center center no-repeat; height: 50px;}
+
+.core_logo
+{
+	background-image: url(images/corelogo.png);
+	display: block;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	width: 1000px;
+}
+
+.tweeter_container
+{
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px black;
+	float: right;
+	height: 302px;
+}
