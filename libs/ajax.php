@@ -58,7 +58,7 @@ function searchNews($searchPattern)
 	foreach ($result as $key => $newsEntry)
 	{
 		$result[$key]['link'] = $config['website']['main_url'].'news/' . $newsEntry['id'] . '-' . url_slug($newsEntry['title'], array('transliterate' => true)) . '/';
-		$result[$key]['short'] = substr(preg_replace('/\<.+\>/', '', $newsEntry['content']), 0, 100) . '...';;
+		$result[$key]['short'] = cut_string(preg_replace('/\<.+\>/', '', $newsEntry['content']), 200) . '...';
 	}
 
 	$smarty->assign('newsList', $result);

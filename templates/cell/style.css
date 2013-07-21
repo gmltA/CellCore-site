@@ -287,7 +287,7 @@ NAV A { margin-right: 3px; }
     width: 990px;
 }
 
-UL
+.nav_buttons
 {
     list-style: none outside none;
     margin: 0;
@@ -367,7 +367,13 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .standardbox ARTICLE .statbox .realmname { float: left; width: 138px; height: 75px; margin: 16px 0 0 15px; background-position: top center; }
 .standardbox ARTICLE .statbox .realmname:hover { cursor: pointer; background-position: bottom center; }
 .standardbox ARTICLE .statbox .stats { display: block; position: absolute; float: left; margin: 30px 0 0 165px; font-size: 12px; color: #50B8DA; width: 585px; }
-.standardbox ARTICLE IMG { display: block; }
+.standardbox ARTICLE IMG { display: block; border-radius: 0px 0px 5px 5px; box-shadow: 0px 2px 5px black; }
+.standardbox ARTICLE IMG.thumb { display: inline-block; border: 1px solid black; border-radius: 5px; box-shadow: 0 0 10px black; }
+.standardbox ARTICLE IMG.inline { display: inline-block; width: 200px; }
+.standardbox ARTICLE .body { display: inline-block; vertical-align: top; }
+.standardbox ARTICLE .body.left, .standardbox ARTICLE .body.right { max-width: 538px; float: none; }
+.standardbox ARTICLE .body.left { margin-right: 20px; min-width: 538px; }
+.standardbox ARTICLE .body.right { margin-left: 20px; }
 .standardbox .topbar { height: 44px; width: 100%; }
 .standardbox .topbar .leftcorner { width: 6px; height: 44px; background: url(images/box-corn.png) #074053; float: left; border-radius: 5px 0 0 0; }
 .standardbox .topbar .rightcorner { width: 6px; height: 44px; background: url(images/box-coro.png) #074053; float: right; border-radius: 0 5px 0 0; }

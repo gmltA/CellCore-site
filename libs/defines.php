@@ -34,3 +34,6 @@ $skins = array(
 
 // CMS
 define('CUT_DELIMITER', '{cut}');
+define('NOCUT_START', '{nocut}');
+define('NOCUT_END', '{/nocut}');
+define('NOCUT_END_R', '{\/nocut}');

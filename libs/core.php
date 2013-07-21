@@ -143,3 +143,15 @@ function get_time($t)
   
 	return $d . $h . ' ' . $lang['hours'] . ' ' .  $m . ' ' .  $lang['minutes'];
 }
+
+function cut_string($string, $length = 200)
+{
+	if ($length && strlen($string) > $length)
+	{
+		$str = strip_tags($string);
+		$str = substr($str, 0, $length);
+		$pos = strrpos($str, ' ');
+		return substr($str, 0, $pos);
+	}
+	return $string;
+}

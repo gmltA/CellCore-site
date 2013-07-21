@@ -37,7 +37,7 @@ class NewsManager
 	{
 		global $DB;
 
-		$newsList = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
+		$newsList = $DB->select('SELECT id, title, thumbnail, content, views, date, commentsEnabled FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $begin + $count);
 
 		if (!$newsList)
 		{
@@ -146,17 +146,19 @@ class NewsManager
 
 	private static function buildCutContent($content)
 	{
+		$content = preg_replace('/' . NOCUT_START . '(\w||\W)+' . NOCUT_END_R . '/', '', $content);
 		return current(explode(CUT_DELIMITER, $content));
 	}
 
 	private static function removeCutDelimiter($content)
 	{
-		return str_replace(CUT_DELIMITER, '', $content);
+		$target = array(CUT_DELIMITER, NOCUT_START, NOCUT_END);
+		return str_replace($target, '', $content);
 	}
 
 	private static function buildDescription($content)
 	{
-		return substr(preg_replace('/\<.+\>/', '', $content), 0, 200) . '...';
+		return cut_string(preg_replace('/\<.+\>/', ' ', $content), 200) . '...';
 	}
 
 	private static function buildNewsURI($newsEntry)

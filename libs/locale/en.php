@@ -60,6 +60,7 @@ $lang = array(
 	// news
 	'views'				=>	'Views',
 	'comments'			=>	'Comments',
+	'tags'				=>	'Tags',
 	'full_news'			=>	'Full text',
 
 	// comments

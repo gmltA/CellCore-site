@@ -7,7 +7,7 @@
 	{if $keywords}
 		<meta name="keywords" content="{$keywords}"/>
 	{/if}
-	{if $keywords}
+	{if $description}
 		<meta name="description" content="{$description}"/>
 	{/if}
 	<meta name="generator" content="{$site.app_name} {$app_version}"/>

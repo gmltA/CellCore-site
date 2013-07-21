@@ -13,7 +13,16 @@
 	<div class="middlebar">
 		<div class="line">
 			<article>
-				{$newsEntry.content}
+				{if $newsEntry.thumbnail != ""}
+				<noindex>
+					<a rel="nofollow" href="{$newsEntry.link}">
+						<img src="/content/images/{$newsEntry.thumbnail}" title="{$newsEntry.title}" alt="{$newsEntry.title}" class="thumb" width="200"></img>
+					</a>
+				</noindex>
+				{/if}
+				<p class="body {if $newsEntry.thumbnail != ""}right{/if}">
+					{$newsEntry.content}
+				</p>
 			</article>
 			<div class="article_bottom">
 				{$lang.views}: {$newsEntry.views}{if $newsEntry.commentsEnabled} | <a href="{$newsEntry.link}#comments">{$lang.comments}: {$newsEntry.commentsNumber}</a>{/if}

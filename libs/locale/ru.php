@@ -60,6 +60,7 @@ $lang = array(
 	// news
 	'views'				=>	'Просмотров',
 	'comments'			=>	'Комментарии',
+	'tags'				=>	'Метки',
 	'full_news'			=>	'Новость целиком',
 
 	// comments
