@@ -20,7 +20,7 @@
 					{include file="bricks/news.tpl"}
 				{/foreach}
 			</div>
-			{if $newsLoader}
+			{if $newsLoader && $newsList|@sizeof > 2}
 				<div id="loader" class="content_loader">
 					{if $pagination}
 						<div class="pagination">{$pagination}</div>
