@@ -64,7 +64,7 @@
 						<div class="shadow"></div>
 					</div>
 				</div>
-				{if $newsEntry.commentsEnabled}
+				{if $newsEntry.commentsEnabled && ($newsEntry.comments|@sizeof > 0 || $user->isLoggedIn())}
 				<div class="standardbox" id="comments">
 					<div class="topbar">
 						<div class="leftcorner"></div>
