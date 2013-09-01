@@ -25,6 +25,7 @@ function GetRealmStats()
 		$state = ($fp) ? 'online' : 'offline';
 		$stats[] = array(
 			'class_name' 		=> 	$realm['rates'],
+			'stat_link' 		=> 	$realm['stat_link'],
 			'online' 			=> 	$online,
 			'alliance_online' 	=> 	$alliance_online,
 			'horde_online'		=>	$horde_online,

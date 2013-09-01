@@ -353,17 +353,17 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .lighter_fast { opacity: 0.7; }
 
 .standardbox { border-radius: 5px; box-shadow: 0 2px 10px black; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; position: relative; z-index: 6; margin-bottom: 30px; max-width: 820px; }
-.standardbox ARTICLE { z-index: 8; position: relative; font-size: 11px; clear: both; padding: 11px 15px 15px 15px; color: #5d91a3; width: 760px; min-height: 200px; }
+.standardbox ARTICLE { z-index: 10; position: relative; font-size: 11px; clear: both; padding: 11px 15px 15px 15px; color: #5d91a3; width: 760px; min-height: 200px; }
 .standardbox ARTICLE.error404 { background: url(images/404.png) center no-repeat; text-align: center; }
 .standardbox.search ARTICLE { min-height: 0; }
-.standardbox ARTICLE .statbox { position: absolute; z-index: 8; background: url(images/statbox-bg.png); width: 750px; height: 100px; }
+.standardbox ARTICLE .statbox { position: absolute; z-index: 8; background: url(images/statbox-bg.png); width: 750px; height: 100px; line-height: 15px; }
 .standardbox ARTICLE .statbox .state { background: url(images/status.png) no-repeat; margin: 6px 7px 0 0; float: right; width: 28px; height: 28px; }
 .standardbox ARTICLE .statbox .state.online { background-position: top center; }
 .standardbox ARTICLE .statbox .state.offline { background-position: bottom center; }
 .standardbox ARTICLE .statbox .realmname.x4 { background: url(images/stats_x4.png); }
-.standardbox ARTICLE .statbox .realmname.x1 { background: url(images/stats_at.png); }
+.standardbox ARTICLE .statbox .realmname.x1 { background: url(images/stats_x1.png); }
 .standardbox ARTICLE .statbox .realmname.x100 { background: url(images/stats_x100.png); }
-.standardbox ARTICLE .statbox .realmname.fun { background: url(images/stats_x1.png); }
+.standardbox ARTICLE .statbox .realmname.fun { background: url(images/stats_at.png); }
 .standardbox ARTICLE .statbox .realmname { float: left; width: 138px; height: 75px; margin: 16px 0 0 15px; background-position: top center; }
 .standardbox ARTICLE .statbox .realmname:hover { cursor: pointer; background-position: bottom center; }
 .standardbox ARTICLE .statbox .stats { display: block; position: absolute; float: left; margin: 30px 0 0 165px; font-size: 12px; color: #50B8DA; width: 585px; }
@@ -390,7 +390,7 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 {
     position: absolute;
     left: 0;
-    z-index: 7;
+    z-index: 9;
     background-repeat: no-repeat;
     opacity: 0.0;
     transition-delay: 0s;
@@ -768,5 +768,5 @@ FOOTER SECTION .dark { text-shadow: 0 0 8px black; color: gray; font-family: "Lu
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px black;
 	float: right;
-	height: 302px;
+	height: 286px;
 }

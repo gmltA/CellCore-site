@@ -33,6 +33,7 @@ $config['realms'][] = array(
                     'gamebuild'		=>	'3.3.5.12340',             // Версия билда
                     'name_img'		=>	'',
                     'realmlist'		=>	'logon.riverrise.net',     // Реалмлист
+                    'stat_link'		=>	'http://forum.riverrise.net/forum/5/',
 
                     //status checker settings
                     'realm_host'	=>	'1',                      // ид реалма

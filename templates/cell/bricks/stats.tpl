@@ -1,6 +1,6 @@
 {foreach from=$realms item=realm}
-	<div class="statbox" style="line-height: 15px;">
-		<a href="http://forum.riverrise.net/index.php?showforum=5" class="realmname {$realm.class_name}"></a>
+	<div class="statbox">
+		<a href="{$realm.stat_link}" class="realmname {$realm.class_name}"></a>
 		<div class="state {$realm.state}"></div>
 		<table class="stats">
 		  <tr>
