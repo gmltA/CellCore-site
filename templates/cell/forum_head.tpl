@@ -9,6 +9,8 @@
 						{if !$user->isLoggedIn()}
 							<a href="{$site.panel_url}" onclick="openLogin()">{$lang.auth}</a>
 							<span class="spacer">|</span>
+							<a href="{$site.panel_url}registration/">{$lang.register}</a>
+							<span class="spacer">|</span>
 						{/if}
 						{$user->getDisplayName()}
 					</div>

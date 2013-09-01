@@ -3,7 +3,7 @@ function openLogin()
 	event.preventDefault();
 	if ($('.embed_login').html() == '')
 	{
-		$('.embed_login').html('<iframe src="http://lk1.riverrise.net/loginframe/" id="loginbox" frameborder="0"/>');
+		$('.embed_login').html('<iframe src="http://lk.riverrise.net/loginframe/" id="loginbox" frameborder="0"/>');
 	}
 
 	$('#loginbox').stop().fadeIn("fast").animate({'marginLeft' : '0px'}, "slow", "easeInOutCubic");

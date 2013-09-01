@@ -14,6 +14,7 @@ $lang = array(
 	'main_page'			=>	'Main',
 	'news_page'			=>	'News',
 	'auth'				=>	'Auth',
+	'register'			=>	'Register',
 	'anonymous'			=>	'Anonymous',
 	'search'			=>	'Search',
 	'search_result_1'	=>	'Result of request',

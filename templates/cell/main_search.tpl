@@ -41,9 +41,13 @@
 					</div>
 				</div>
 				
-				{foreach from=$newsList item=newsEntry}
-					{include file="bricks/news.tpl"}
-				{/foreach}
+				{if $newsList|sizeof == 0}
+					{include file="bricks/main.tpl"}
+				{else}
+					{foreach from=$newsList item=newsEntry}
+						{include file="bricks/news.tpl"}
+					{/foreach}
+				{/if}
 			</div>
 			<div class="clearfix"></div>
 		</div>

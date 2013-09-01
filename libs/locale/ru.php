@@ -14,6 +14,7 @@ $lang = array(
 	'main_page'			=>	'Главная',
 	'news_page'			=>	'Новости',
 	'auth'				=>	'Авторизация',
+	'register'			=>	'Регистрация',
 	'anonymous'			=>	'Anonymous',
 	'search'			=>	'Поиск',
 	'search_result_1'	=>	'По запросу',
