@@ -68,6 +68,11 @@ class NewsCommentManager
 		global $DB;
 
 		$body = trim($body, '<br/>');
+		$body = trim($body, '&nbsp;');
+
+		if (empty($body))
+			return;
+
 		$body = preg_replace('/((\<br\>)|(\<br\/\>)|(\<br \/\>))+/m', '<br/>', $body);
 		$body = strip_tags($body, '<br><br/><br />');
 
