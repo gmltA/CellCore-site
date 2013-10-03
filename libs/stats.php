@@ -15,7 +15,8 @@ function GetRealmStats()
 	$stats = array();
 	foreach ($config['realms'] as $key=>$realm)
 	{
-		$uptimeData = $rDB[$key]->selectRow('SELECT SEC_TO_TIME(MAX(uptime)) AS max_uptime, SEC_TO_TIME(uptime) AS uptime FROM uptime WHERE realmid = ?d ORDER BY starttime DESC LIMIT 1', $realm['realm_host']);
+		$uptimeData = $rDB[$key]->selectRow('SELECT SEC_TO_TIME(uptime) AS uptime FROM uptime WHERE realmid = ?d ORDER BY starttime DESC LIMIT 1', $realm['realm_host']);
+		$maxUptimeData = $rDB[$key]->selectRow('SELECT SEC_TO_TIME(MAX(uptime)) AS max_uptime FROM uptime WHERE realmid = ?d LIMIT 1', $realm['realm_host']);
 
 		$horde_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (2, 5, 6, 8, 10) AND online = 1');
 		$alliance_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (1, 3, 4, 7, 11) AND online = 1');
@@ -30,7 +31,7 @@ function GetRealmStats()
 			'alliance_online' 	=> 	$alliance_online,
 			'horde_online'		=>	$horde_online,
 			'uptime'			=>	get_time($uptimeData['uptime']),
-			'max_uptime'		=>	get_time($uptimeData['max_uptime']),
+			'max_uptime'		=>	get_time($maxUptimeData['max_uptime']),
 			'state'				=>	$state
 		);
 	}

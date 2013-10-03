@@ -136,7 +136,7 @@ function get_time($t)
 	global $lang;
 
 	list($h, $m, $s) = explode(':', $t);
-	$d = $h > 24 ? floor($h / 24) . ' д.' : '';
+	$d = $h > 24 ? floor($h / 24) . ' д. ' : '';
   
 	if ($d)
 		$h -= 24*$d;
