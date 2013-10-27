@@ -1,0 +1,59 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.jumbotron
+{
+	background: radial-gradient(ellipse at center, rgba(0,0,0,0) 20%,rgba(0,0,0,0.5) 100%), url(/templates/master/img/blueprint-bg.png) repeat-x;
+	box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+	color: white;
+}
+
+.site-logo
+{
+	background: url(/templates/master/img/logo.png) no-repeat;
+	height: 173px;
+	width: 157px;
+}
+
+.site-logo.small
+{
+	background: url(/templates/master/img/logo-small.png) no-repeat;
+	height: 86px;
+	width: 103px;
+}
+
+.jumbotron.small
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.jumbotron .container p
+{
+	padding-top: 10px;
+}
+
+.input-group.max
+{
+	width: 100%;
+}
+
+img.catalog-thumbnail
+{
+	border: 1px solid rgb(120,120,120);
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+

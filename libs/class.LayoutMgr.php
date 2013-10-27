@@ -31,19 +31,23 @@ class LayoutManager extends Smarty_Studio
 				break;
 
 			case 'search':
-				$this->bodyFile = 'main_search.tpl';
+				$this->bodyFile = 'catalog.tpl';
 				break;
 
 			case 'error':
 				$this->bodyFile = 'error.tpl';
 				break;
 
-			case 'core':
-				$this->bodyFile = 'core.tpl';
-				break;
-
 			case 'about':
 				$this->bodyFile = 'about.tpl';
+				break;
+			
+			case 'catalog':
+				$this->bodyFile = 'catalog.tpl';
+				break;
+				
+			case 'catalog_item':
+				$this->bodyFile = 'catalog_item.tpl';
 				break;
 
 			case 'main':
@@ -66,13 +70,6 @@ class LayoutManager extends Smarty_Studio
 		global $lang;
 		switch ($page)
 		{
-			case PAGE_STATS:
-				$layout = new self($page, 'dynamic', 'main', 'stats');
-				$vars['title'] = $lang['title_stats'];
-				$vars['mainBlock'] = true;
-				$vars['newsLoader'] = false;
-				break;
-
 			case PAGE_NEWS:
 			case PAGE_NEWS_PART:
 				$layout = new self($page, 'dynamic', 'main');
@@ -92,18 +89,6 @@ class LayoutManager extends Smarty_Studio
 				$layout = new self($page, 'dynamic', 'news');
 				break;
 
-			case PAGE_RULES:
-				$layout = new self($page, 'dynamic', 'main', 'static/rules');
-				$vars['title'] = $lang['title_rules'];
-				$vars['mainBlock'] = true;
-				$vars['newsLoader'] = false;
-				break;
-
-			case PAGE_CORE:
-				$layout = new self($page, 'dynamic', 'core');
-				$vars['title'] = $lang['title_core'];
-				break;
-
 			case PAGE_ABOUT:
 				$layout = new self($page, 'dynamic', 'about');
 				$vars['title'] = $lang['title_about'];
@@ -115,6 +100,28 @@ class LayoutManager extends Smarty_Studio
 				$vars['error']['description'] = $lang['404_description'];
 				$vars['error']['class'] = 'error404';
 				$vars['error']['referer'] = $_SERVER['HTTP_REFERER'];
+				break;
+
+			case PAGE_CATALOG:
+			case PAGE_CATALOG_PART:
+				$layout = new self($page, 'dynamic', 'catalog');
+				$vars['title'] = $lang['title_catalog'];
+				$vars['mainBlock'] = false;
+				$vars['newsLoader'] = false;
+				break;
+
+			case PAGE_CATALOG_SEARCH:
+				$layout = new self($page, 'dynamic', 'search');
+				$vars['title'] = $lang['title_cat_search'];
+				$vars['mainBlock'] = false;
+				$vars['newsLoader'] = false;
+				break;
+
+			case PAGE_CATALOG_ITEM:
+				$layout = new self($page, 'dynamic', 'catalog_item');
+				$vars['title'] = $lang['title_catalog'];
+				$vars['mainBlock'] = false;
+				$vars['newsLoader'] = false;
 				break;
 
 			case PAGE_MAIN:
@@ -151,9 +158,7 @@ class LayoutManager extends Smarty_Studio
 
 	public static function render($layout)
 	{
-		global $skins;
 		global $config;
-		global $user;
 		global $lang;
 		global $app_version;
 
@@ -161,8 +166,6 @@ class LayoutManager extends Smarty_Studio
 		$layout->assign('locale', $config['website']['locale']);
 		$layout->assign('site', $config['website']);
 		$layout->assign('app_version', $app_version);
-		$layout->assign('forumSkin', $skins[$user->getSkin()]);
-		$layout->assign('user', $user);
 		$layout->assign('debug', $config['debug']);
 
 		$layout->assign('header', $layout->getHeader());

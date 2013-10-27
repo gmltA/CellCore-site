@@ -1,6 +1,6 @@
 <?php
 
-class NewsManager
+class Catalog
 {
     protected static $instance;
 
@@ -20,7 +20,7 @@ class NewsManager
 	{
         if (is_null(self::$instance))
 		{
-            self::$instance = new NewsManager();
+            self::$instance = new Catalog();
         }
 
         return self::$instance;
@@ -32,26 +32,33 @@ class NewsManager
 
 		return ($newsLink['0'] && is_numeric($newsLink['0'])) ? $newsLink['0'] : false;
 	}
-
-	public function loadNews($count, $begin = 0)
+	
+	public function loadItem($itemID)
 	{
 		global $DB;
 
-		$newsList = $DB->select('SELECT id, title, thumbnail, content, views, date, commentsEnabled FROM ?_news ORDER BY date DESC LIMIT ?d, ?d', $begin, $count);
+		$item = $DB->selectRow('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items WHERE id = ?d', $itemID);
 
-		if (!$newsList)
+		if (!$item)
 		{
 			return false;
 		}
 
-		foreach ($newsList as $key=>$newsEntry)
+		return $item;
+	}
+
+	public function loadItems($count, $begin = 0)
+	{
+		global $DB;
+
+		$itemList = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items ORDER BY id ASC LIMIT ?d, ?d', $begin, $count);
+
+		if (!$itemList)
 		{
-			$newsList[$key]['content'] = self::buildCutContent($newsEntry['content']);
-			$newsList[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
-			$newsList[$key]['link'] = self::buildNewsURI($newsEntry);
+			return false;
 		}
 
-		return $newsList;
+		return $itemList;
 	}
 
 	public function loadNewsEntry($id)
@@ -75,7 +82,7 @@ class NewsManager
 		return $newsEntry;
 	}
 
-	public function searchNews($query, $limit = 0)
+	public function searchItems($query, $limit = 0)
 	{
 		global $DB;
 
@@ -84,33 +91,35 @@ class NewsManager
 		$resultQuery = '';
 		foreach ($query as $key => $sub)
 		{
-			$resultQuery = $resultQuery . ' +' . $sub;
+			$resultQuery = $resultQuery . ' ' . $sub;
 		}
 
 		if ($limit == 0)
 		{
-			$matchedNews = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC', $resultQuery);
+			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC');
 		}
 		else
 		{
-			$matchedNews = $DB->select('SELECT id, title, content, views, date, commentsEnabled FROM ?_news WHERE MATCH(title, content, keywords) AGAINST(? IN BOOLEAN MODE) ORDER BY date DESC LIMIT ?d', $resultQuery, $limit);
+			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC LIMIT ?d', $limit);
 		}
 
-		foreach ($matchedNews as $key=>$newsEntry)
-		{
-			$matchedNews[$key]['content'] = self::removeCutDelimiter($newsEntry['content']);
-			$matchedNews[$key]['commentsNumber'] = self::loadCommentsNumber($newsEntry['id']);
-			$matchedNews[$key]['link'] = self::buildNewsURI($newsEntry);
-		}
+		return $matchedItems;
+	}
+	
+	public function getCategories()
+	{
+		global $DB;
+		
+		$categories = $DB->select('SELECT id, name, caption_ru FROM ?_catalog_categories');
 
-		return $matchedNews;
+		return $categories;
 	}
 
 	public function buildPagination($page)
 	{
 		global $DB;
 
-		$newsCount = $DB->selectCell("SELECT COUNT(id) FROM ?_news");
+		$newsCount = $DB->selectCell("SELECT COUNT(id) FROM ?_catalog_items");
 		$total = intval(($newsCount - 1) / 5) + 1;
 
 		if (empty($page) || $page < 0)

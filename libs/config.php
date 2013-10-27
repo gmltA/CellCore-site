@@ -11,7 +11,7 @@ $config['db']['forum_prefix']                = 'ibf_';
 $config['db']['driver']['site']              = 'mysql'; //values: mysql, mypdo
 $config['db']['driver']['realm']             = 'mysql'; //values: mysql, mypdo
 
-$config['website']['template']               = 'cell'; // шаблон
+$config['website']['template']               = 'master'; // шаблон
 
 $config['website']['main_url']               = 'http://localhost:81/';
 $config['website']['session_domain']         = '.riverrise.net';
@@ -20,7 +20,7 @@ $config['website']['panel_url']              = 'http://lk1.riverrise.net/';
 $config['website']['content_dir']            = 'content'; // CMS content directory (e.g. /content/...)
 
 $config['website']['app_name']               = 'CellCore-site';
-$config['website']['app_descr']              = 'RiverRise.net | World of Warcraft.by';
+$config['website']['app_descr']              = 'SiteName';
 
 $config['website']['locale']             	 = 'ru';
 

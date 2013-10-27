@@ -74,49 +74,117 @@ switch ($page['1'])
 
 	case 'search':
 		$query = '';
-		if (isset($_POST['search_query']))
+			$w = array();
+			if (($_POST['filter_category']))
+			{
+				$category = $_POST['filter_category'];
+				$w[] = "category='$category'";
+			}
+			if (($_POST['filter_material']))
+			{
+				$material = $_POST['filter_material'];
+				$w[] = "material='$material'";
+			}
+			if (($_POST['filter_mem']))
+			{
+				$mem = $_POST['filter_mem'];
+				$w[] = "monument='$mem'";
+			}
+			if (($_POST['filter_dig']))
+			{
+				$dig = $_POST['filter_dig'];
+				$w[] = "digging='$dig'";
+			}
+			if (($_POST['filter_year']))
+			{
+				$year = $_POST['filter_year'];
+				$w[] = "year='$year'";
+			}
+			if (($_POST['filter_title']))
+			{
+				$title = $_POST['filter_title'];
+				$w[] = "title='$title'";
+			}
+			$query = implode($w, ' AND ');
+
+		if ($query)
 		{
-			$query = $_POST['search_query'];
-		}
-		elseif (isset($page['2']))
-		{
-			$query = $page['2'];
+			$query = ' WHERE ' . $query;
 		}
 
-		if ($query == '')
-		{
-			header('Location: /');
-			exit;
-		}
+		$layout = LayoutManager::buildPage(PAGE_CATALOG_SEARCH, array(
 
-		$layout = LayoutManager::buildPage(PAGE_NEWS_SEARCH, array(
-
-				'newsList' 	=> NewsManager::getInstance()->searchNews($query),
-				'query' 	=> preg_replace ('/\+/', ' ', $query)
+				'items' 	=> Catalog::getInstance()->searchItems($query),
+				'query' 	=> preg_replace ('/\+/', ' ', $query),
+				'searchResult' 	=> 1
 
 		));
-		break;
-	case 'stats':
-		include dirname(__FILE__) . '/libs/stats.php';
-
-		$layout = LayoutManager::buildPage(PAGE_STATS, array('realms' => GetRealmStats()));
-
-		break;
-
-	case 'rules':
-		$layout = LayoutManager::buildPage(PAGE_RULES);
-
-		break;
-
-	case 'core':
-		$layout = LayoutManager::buildPage(PAGE_CORE);
-
 		break;
 
 	case 'about':
 		$layout = LayoutManager::buildPage(PAGE_ABOUT);
 
 		break;
+	
+	case 'catalog':
+		if (!$page['2'])
+		{
+			header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
+			break;
+		}
+
+		if ($page['2'] == 'page')
+		{
+			if (!is_numeric($page['3']))
+			{
+				header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
+				break;
+			}
+
+			if ($items = Catalog::getInstance()->loadItems(5, $page['3']*5-5))
+			{
+				$layout = LayoutManager::buildPage(PAGE_CATALOG_PART, array(
+
+					'items' => $items,
+					'pagination' => Catalog::getInstance()->buildPagination($page['3'])
+
+				));
+				break;
+			}
+			else
+			{
+				header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
+				break;
+			}
+		}
+		else if ($page['2'] == 'object')
+		{
+			if (!is_numeric($page['3'])) // @todo: handle 404
+			{
+				if ($_SERVER['HTTP_REFERER'])
+					header('Location: ' . $_SERVER['HTTP_REFERER']);
+				else
+					header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
+
+				break;
+			}
+
+			if ($item = Catalog::getInstance()->loadItem($page['3']))
+			{
+				$layout = LayoutManager::buildPage(PAGE_CATALOG_ITEM, array(
+
+					'item' => $item,
+
+				));
+				break;
+			}
+			else // @todo: handle 404
+			{
+				header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
+				break;
+			}
+		}
+
 
 
 	case '':

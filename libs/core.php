@@ -10,19 +10,12 @@ require_once dirname(__FILE__) . '/config.php';
 require_once dirname(__FILE__) . '/defines.php';
 require_once dirname(__FILE__) . '/includes/db.php';
 require_once dirname(__FILE__) . '/locale/' . $config['website']['locale'] . '.php';
-require_once dirname(__FILE__) . '/class.User.php';
-require_once dirname(__FILE__) . '/class.AuthMgr.php';
+require_once dirname(__FILE__) . '/class.Catalog.php';
 require_once dirname(__FILE__) . '/class.NewsMgr.php';
 require_once dirname(__FILE__) . '/class.NewsCommentMgr.php';
 require_once dirname(__FILE__) . '/class.LayoutMgr.php';
 
 global $config;
-session_set_cookie_params(0, '/', $config['website']['session_domain']);
-session_name('cell_session');
-session_start();
-
-global $user;
-$user = AuthManager::getInstance()->checkAuth();
 
 function url_slug($str, $options = array())
 {

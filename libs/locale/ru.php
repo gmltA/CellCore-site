@@ -30,6 +30,8 @@ $lang = array(
 	'title_rules'		=>	'Правила сервера',
 	'title_core'		=>	'О ядре',
 	'title_about'		=>	'Обновление сайта',
+	'title_catalog'		=>	'Каталог',
+	'title_cat_search'	=>	'Поиск предметов',
 	
 	// error
 	'404_title'			=>	'404 - Страница не найдена',
