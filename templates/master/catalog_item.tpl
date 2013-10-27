@@ -33,7 +33,11 @@
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
+		<ol class="breadcrumb">
+			 <li><a href="/">Home</a></li>
+			 <li><a href="/catalog/">Catalog</a></li>
+			 <li class="active">{$item.title}</li>
+		</ol>
       <div class="row">
         <div class="panel panel-default">
 		  <!-- Default panel contents -->

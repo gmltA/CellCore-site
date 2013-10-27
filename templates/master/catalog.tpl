@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">{$site.app_descr}</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -46,50 +46,38 @@
 			<form action="/search/" enctype="application/x-www-form-urlencoded" method="post" id="filter_form">       
 			<div class="row">
 				<div class="col-md-2">
-					<div class="input-group max">
 						<select name="filter_category" class="form-control " >
 						  <option disabled selected >Category</option>
 						  <option value="2">Амулет</option>
 						  <option>Пункт 2</option>
 						</select>
-					</div>
 				</div>
 				<div class="col-md-2">
-					<div class="input-group max">
 						<select name="filter_material" class="form-control " >
 						  <option disabled selected >Material</option>
 						  <option value="Stone">Stone</option>
 						  <option value="Lether">Lether</option>
 						</select>
-					</div>
 				</div>
 				<div class="col-md-2">
-					<div class="input-group max">
 						<select name="filter_mem" class="form-control">
 						  <option disabled selected >Памятник</option>
 						  <option>Пункт 1</option>
 						  <option>Пункт 2</option>
 						</select>
-					</div>
 				</div>
 				<div class="col-md-2">
-					<div class="input-group max">
 						<select name="filter_dig" class="form-control">
 						  <option disabled selected >Раскоп</option>
 						  <option>Пункт 1</option>
 						  <option>Пункт 2</option>
 						</select>
-					</div>
 				</div>
 				<div class="col-md-2">
-					<div class="input-group max">
-						<input type="text" name="filter_year" class="form-control" placeholder="Year">
-					</div>
+					<input type="text" name="filter_year" class="form-control" placeholder="Year">
 				</div>
 				<div class="col-md-2">
-					<div class="input-group max">
-						<input type="text" name="filter_title" class="form-control" placeholder="Title">
-					</div>
+					<input type="text" name="filter_title" class="form-control" placeholder="Title">
 				</div>
 			</div>
 			<hr>
@@ -109,7 +97,7 @@
 		  </div>
 
 		  <!-- Table -->
-		  <table class="table table-hover">
+		  <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>#</th>
@@ -120,7 +108,7 @@
               <th>Раскоп</th>
               <th>Год</th>
               <th>Наименование</th>
-              <th>Код</th>
+              <th>Подробнее</th>
             </tr>
           </thead>
           <tbody>
@@ -134,7 +122,7 @@
               <td>{$itemEntry.digging}</td>
               <td>{$itemEntry.year}</td>
               <td>{$itemEntry.title}</td>
-              <td><a href="/catalog/object/{$itemEntry.id}">{$itemEntry.code}</td>
+              <td><a class="btn btn-primary" href="/catalog/object/{$itemEntry.id}">Полная информация &raquo;</td>
             </tr>
 			{/foreach}
           </tbody>
