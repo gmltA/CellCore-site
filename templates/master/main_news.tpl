@@ -32,15 +32,17 @@
     </div>
 
     <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="/">Home</a></li>
-	  <li class="active">{$newsEntry.title}</li>
-	</ol>
-      <div class="row">
-        <div class="col-lg-12">
-			<p>{$newsEntry.content}</p>
-		</div>
-      </div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<ol class="breadcrumb heading">
+		  <li><a href="/">Home</a></li>
+		  <li class="active">{$newsEntry.title}</li>
+		</ol>
+	  </div>
+	  <div class="panel-body">
+		<p>{$newsEntry.content}</p>
+	  </div>
+	</div>
 	
 	  <hr>
 

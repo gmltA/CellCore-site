@@ -30,9 +30,9 @@
         <div class="site-logo small pull-left"></div>
         <p>Добро пожаловать в наш супер-пупер мега каталог.</p>
 		{if $searchResult}
-			<p>По вашему запросу найдено {$items|@count} предмет.</p>
+			<p>По вашему запросу {$items|@count|declension:'найден;найдено;найдено':false:$lang.id} {$items|@count|declension:' предмет; предмета; предметов':true:$lang.id}.</p>
 		{else}
-			<p>В нашей базе данных уже 100500 предметов.</p>
+			<p>В нашей базе данных уже {$dbSize|declension:' предмет; предмета; предметов':true:$lang.id}.</p>
 		{/if}
       </div>
     </div>
@@ -43,56 +43,95 @@
         <div class="panel panel-default">
 		  <!-- Default panel contents -->
 		  <div class="panel-heading">
-			<form action="/search/" enctype="application/x-www-form-urlencoded" method="post" id="filter_form">       
-			<div class="row">
-				<div class="col-md-2">
-						<select name="filter_category" class="form-control " >
-						  <option disabled selected >Category</option>
-						  <option value="2">Амулет</option>
-						  <option>Пункт 2</option>
-						</select>
-				</div>
-				<div class="col-md-2">
-						<select name="filter_material" class="form-control " >
-						  <option disabled selected >Material</option>
-						  <option value="Stone">Stone</option>
-						  <option value="Lether">Lether</option>
-						</select>
-				</div>
-				<div class="col-md-2">
-						<select name="filter_mem" class="form-control">
-						  <option disabled selected >Памятник</option>
-						  <option>Пункт 1</option>
-						  <option>Пункт 2</option>
-						</select>
-				</div>
-				<div class="col-md-2">
-						<select name="filter_dig" class="form-control">
-						  <option disabled selected >Раскоп</option>
-						  <option>Пункт 1</option>
-						  <option>Пункт 2</option>
-						</select>
-				</div>
-				<div class="col-md-2">
-					<input type="text" name="filter_year" class="form-control" placeholder="Year">
-				</div>
-				<div class="col-md-2">
-					<input type="text" name="filter_title" class="form-control" placeholder="Title">
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="btn-group pull-right">
-						<button type="submit" class="btn btn-success">
-							<span class="glyphicon glyphicon-filter"></span> Filter
-						</button>
-						<a class="btn btn-danger" id="filter-reset">
-							<span class="glyphicon glyphicon-remove"></span> Clear
-						</a>
+			<form action="/search/" enctype="application/x-www-form-urlencoded" method="post" id="filter_form" class="form-horizontal" role="form">
+				<div id="filter-inputs" hidden>
+					<div class="form-group">
+						<label for="filter-category" class="col-lg-offset-3 col-lg-2 control-label">Category</label>
+						<div class="col-lg-3">
+								<select name="filter_category" class="form-control input-sm" id="filter-category">
+								  <option disabled selected >Category</option>
+								  {foreach from=$filterContent.category item=category}
+									<option value="{$category.category}">{$category.category}</option>
+								  {/foreach}
+								</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-material" class="col-lg-offset-3 col-lg-2 control-label">Material</label>
+						<div class="col-lg-3">
+							<select name="filter_material" class="form-control input-sm" id="filter-material">
+							  <option disabled selected >Material</option>
+							  {foreach from=$filterContent.material item=material}
+								<option value="{$material.material}">{$material.material}</option>
+							  {/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-district" class="col-lg-offset-3 col-lg-2 control-label">District</label>
+						<div class="col-lg-3">
+							<select name="filter_district" class="form-control input-sm" id="filter-district">
+							  <option disabled selected>Район</option>
+							  {foreach from=$filterContent.district item=district}
+								<option value="{$district.district}">{$district.district}</option>
+							  {/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-town" class="col-lg-offset-3 col-lg-2 control-label">Town</label>
+						<div class="col-lg-3">
+							<select name="filter_town" class="form-control input-sm" id="filter-town">
+							  <option disabled selected>Населенный пункт</option>
+							  {foreach from=$filterContent.town item=town}
+								<option value="{$town.town}">{$town.town}</option>
+							  {/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-dig" class="col-lg-offset-3 col-lg-2 control-label">Digging</label>
+						<div class="col-lg-3">
+							<select name="filter_dig" class="form-control input-sm" id="filter-dig">
+							  <option disabled selected >Раскоп</option>
+							  {foreach from=$filterContent.digging item=digging}
+								<option value="{$digging.digging}">{$digging.digging}</option>
+							  {/foreach}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-year" class="col-lg-offset-3 col-lg-2 control-label">Year</label>
+						<div class="col-lg-3">
+							<input type="text" name="filter_year" class="form-control input-sm" placeholder="Year" id="filter-year">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="filter-title" class="col-lg-offset-3 col-lg-2 control-label">Title</label>
+						<div class="col-lg-3">
+							<input type="text" name="filter_title" class="form-control input-sm" placeholder="Title" id="filter-title">
+						</div>
 					</div>
 				</div>
-			</div>
+				<div class="form-group" id="filter-buttons" hidden>
+					<div class="col-lg-offset-5 col-lg-4">
+						<div class="btn-group">
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-filter"></span> Filter
+							</button>
+							<a class="btn btn-danger" id="filter-reset">
+								<span class="glyphicon glyphicon-remove"></span> Clear
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-4 col-lg-4">
+						<div class="btn btn-primary btn-block" id="filter-show">
+						<span class="glyphicon glyphicon-arrow-down"></span> Show filter <span class="glyphicon glyphicon-arrow-down"></span>
+						</div>
+					</div>
+				</div>
 			</form>
 		  </div>
 
@@ -101,28 +140,30 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Изображение</th>
-              <th>Категория</th>
-              <th>Материал</th>
-              <th>Памятник</th>
-              <th>Раскоп</th>
-              <th>Год</th>
-              <th>Наименование</th>
-              <th>Подробнее</th>
+              <th><span class="glyphicon glyphicon-picture glyphicon-gray"></span> Изображение</th>
+              <th><span class="glyphicon glyphicon-barcode glyphicon-gray"></span> Категория</th>
+              <th><span class="glyphicon glyphicon-leaf glyphicon-gray"></span> Материал</th>
+              <th><span class="glyphicon glyphicon-map-marker glyphicon-gray"></span> Район</th>
+              <th><span class="glyphicon glyphicon-screenshot glyphicon-gray"></span> Населенный пункт</th>
+              <th><span class="glyphicon glyphicon-flag glyphicon-gray"></span> Раскоп</th>
+              <th><span class="glyphicon glyphicon-calendar glyphicon-gray"></span> Год</th>
+              <th><span class="glyphicon glyphicon-header glyphicon-gray"></span> Наименование</th>
+              <th><span class="glyphicon glyphicon-list-alt glyphicon-gray"></span> Подробнее</th>
             </tr>
           </thead>
           <tbody>
 		  {foreach from=$items item=itemEntry}
-            <tr>
+            <tr id="{$itemEntry.id}">
               <td>{$itemEntry.id}</td>
               <td><a href="{$itemEntry.image}"><img class="catalog-thumbnail" src="{$itemEntry.thumbnail}" height="100"></a></td>
               <td>{$itemEntry.category}</td>
               <td>{$itemEntry.material}</td>
-              <td>{$itemEntry.monument}</td>
+              <td>{$itemEntry.district}</td>
+              <td>{$itemEntry.town}</td>
               <td>{$itemEntry.digging}</td>
               <td>{$itemEntry.year}</td>
               <td>{$itemEntry.title}</td>
-              <td><a class="btn btn-primary" href="/catalog/object/{$itemEntry.id}">Полная информация &raquo;</td>
+              <td><a class="btn btn-primary btn-more-info" href="/catalog/object/{$itemEntry.id}">Подробнее &raquo;</a></td>
             </tr>
 			{/foreach}
           </tbody>
@@ -138,10 +179,57 @@
 		{
 			$('#filter-reset').click(function()
 			{
-				$('#filter_form')[0].reset();
-				$('#filter_form').submit();
+				window.location.href = '/catalog/';
+			});
+			
+			$('#filter-show').on("click", function()
+			{
+				$('#filter-buttons, #filter-inputs, #filter-show').slideToggle();
+			});
+			
+			$('.btn-more-info').on("click", function(event)
+			{
+				event.preventDefault();
+				var id = $(this).parent().parent().attr("id");
+				
+				$.ajax({
+					url: "./?ajax&action=get_item_details",
+					data: "&itemId="+id,
+					type: "POST",
+					cache: false,
+					beforeSend: function()
+					{
+						$('#myModal').find('.modal-body').html('');
+					},
+					success: function(response)
+					{
+						$('#myModal').find('.modal-body').html(response);
+					},
+					error:function (xhr, ajaxOptions, thrownError)
+					{
+					}
+				});
+				
+				$('#myModal').modal('show');
 			});
 		});
-	  </script>
+	</script>
+	<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 	</body>
 </html>

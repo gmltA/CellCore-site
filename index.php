@@ -85,10 +85,15 @@ switch ($page['1'])
 				$material = $_POST['filter_material'];
 				$w[] = "material='$material'";
 			}
-			if (($_POST['filter_mem']))
+			if (($_POST['filter_district']))
 			{
-				$mem = $_POST['filter_mem'];
-				$w[] = "monument='$mem'";
+				$district = $_POST['filter_district'];
+				$w[] = "district='$district'";
+			}
+			if (($_POST['filter_town']))
+			{
+				$town = $_POST['filter_town'];
+				$w[] = "district='$town'";
 			}
 			if (($_POST['filter_dig']))
 			{
@@ -115,6 +120,7 @@ switch ($page['1'])
 		$layout = LayoutManager::buildPage(PAGE_CATALOG_SEARCH, array(
 
 				'items' 	=> Catalog::getInstance()->searchItems($query),
+				'filterContent'=> Catalog::getInstance()->getFilters(),
 				'query' 	=> preg_replace ('/\+/', ' ', $query),
 				'searchResult' 	=> 1
 
@@ -146,6 +152,8 @@ switch ($page['1'])
 				$layout = LayoutManager::buildPage(PAGE_CATALOG_PART, array(
 
 					'items' => $items,
+					'filterContent'=> Catalog::getInstance()->getFilters(),
+					'dbSize' => Catalog::getInstance()->getDBSize(),
 					'pagination' => Catalog::getInstance()->buildPagination($page['3'])
 
 				));

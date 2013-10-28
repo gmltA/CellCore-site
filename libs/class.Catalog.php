@@ -37,7 +37,9 @@ class Catalog
 	{
 		global $DB;
 
-		$item = $DB->selectRow('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items WHERE id = ?d', $itemID);
+		$item = $DB->selectRow('SELECT id, thumbnail, image, category, material, region, district, town, digging,
+								layer, square, fieldNumber, area, homestead, gps, year, title, description, dating, storagePlace, notes
+								FROM ?_catalog_items WHERE id = ?d', $itemID);
 
 		if (!$item)
 		{
@@ -51,7 +53,7 @@ class Catalog
 	{
 		global $DB;
 
-		$itemList = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items ORDER BY id ASC LIMIT ?d, ?d', $begin, $count);
+		$itemList = $DB->select('SELECT id, thumbnail, image, category, material, district, town, digging, year, title FROM ?_catalog_items ORDER BY id ASC LIMIT ?d, ?d', $begin, $count);
 
 		if (!$itemList)
 		{
@@ -59,27 +61,6 @@ class Catalog
 		}
 
 		return $itemList;
-	}
-
-	public function loadNewsEntry($id)
-	{
-		global $DB;
-
-		$newsEntry = $DB->selectRow('SELECT id, title, content, keywords, views, date, commentsEnabled FROM ?_news WHERE id = ?d LIMIT 1', $id);
-
-		if (!$newsEntry)
-		{
-			return false;
-		}
-
-		$newsEntry['content'] = self::removeCutDelimiter($newsEntry['content']);
-
-		$newsEntry['description'] = self::buildDescription($newsEntry['content']);
-		$newsEntry['comments'] = array();
-		if ($comments = NewsCommentManager::getInstance()->loadComments($id))
-			$newsEntry['comments'] = $comments;
-
-		return $newsEntry;
 	}
 
 	public function searchItems($query, $limit = 0)
@@ -96,23 +77,14 @@ class Catalog
 
 		if ($limit == 0)
 		{
-			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC');
+			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, district, town, digging, year, title FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC');
 		}
 		else
 		{
-			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, monument, digging, year, title, code FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC LIMIT ?d', $limit);
+			$matchedItems = $DB->select('SELECT id, thumbnail, image, category, material, district, town, digging, year, title FROM ?_catalog_items' . $resultQuery . ' ORDER BY id ASC LIMIT ?d', $limit);
 		}
 
 		return $matchedItems;
-	}
-	
-	public function getCategories()
-	{
-		global $DB;
-		
-		$categories = $DB->select('SELECT id, name, caption_ru FROM ?_catalog_categories');
-
-		return $categories;
 	}
 
 	public function buildPagination($page)
@@ -146,41 +118,32 @@ class Catalog
 		return '<ul class="pagination">'.$pervpage.$page2left.$page1left.'<li class="active"><a>'.$page.'</a></li>'.$page1right.$page2right.$nextpage.'</ul>';
 	}
 
-	public function updateViewsCount($id)
+	public function getDBSize()
 	{
 		global $DB;
 
-		$newsList = $DB->query('UPDATE ?_news SET views = views + 1 WHERE id = ?d', $id);
+		return $DB->selectCell('SELECT COUNT(id) FROM ?_catalog_items');
+	}
+	
+	public function getFilters()
+	{
+		$filters = array();
+		$filters['category'] = self::getFilterList('category');
+		$filters['material'] = self::getFilterList('material');
+		$filters['district'] = self::getFilterList('district');
+		$filters['town']     = self::getFilterList('town');
+		$filters['digging']  = self::getFilterList('digging');
+		
+		return $filters;
 	}
 
-	private static function buildCutContent($content)
+	private static function getFilterList($filter)
 	{
-		$content = preg_replace('/' . NOCUT_START . '(\w||\W)+' . NOCUT_END_R . '/', '', $content);
-		return current(explode(CUT_DELIMITER, $content));
-	}
+		if (!$filter)
+			return array();
 
-	private static function removeCutDelimiter($content)
-	{
-		$target = array(CUT_DELIMITER, NOCUT_START, NOCUT_END);
-		return str_replace($target, '', $content);
-	}
-
-	private static function buildDescription($content)
-	{
-		return cut_string(preg_replace('/\<.+\>/', ' ', $content), 200) . '...';
-	}
-
-	private static function buildNewsURI($newsEntry)
-	{
-		global $config;
-
-		return $config['website']['main_url'].'news/' . $newsEntry['id'] . '-' . url_slug($newsEntry['title'], array('transliterate' => true)) . '/';
-	}
-
-	private static function loadCommentsNumber($newsEntryId)
-	{
 		global $DB;
 
-		return $DB->selectCell('SELECT COUNT(id) FROM ?_news_comments WHERE newsId = ?d', $newsEntryId);
+		return $DB->select('SELECT ' . $filter . ' FROM ?_catalog_items GROUP BY ' . $filter);
 	}
 }

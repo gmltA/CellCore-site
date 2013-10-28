@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">{$site.app_descr}</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -33,30 +33,17 @@
     </div>
 
     <div class="container">
-		<ol class="breadcrumb">
+      <div class="row">
+        <div class="panel panel-default">
+		  <div class="panel-heading">
+			<ol class="breadcrumb heading">
 			 <li><a href="/">Home</a></li>
 			 <li><a href="/catalog/">Catalog</a></li>
 			 <li class="active">{$item.title}</li>
-		</ol>
-      <div class="row">
-        <div class="panel panel-default">
-		  <!-- Default panel contents -->
-		  <div class="panel-heading">
-			Heading
+			</ol>
 		  </div>
 			<img src="{$item.image}">
-		  <!-- Table -->
-		  <table class="table table-bordered">
-            <tr>
-              <td>Идентификатор</td>
-              <td>{$item.id}</td>
-            </tr>
-			<tr>
-              <td>Категория</td>
-              <td>{$item.category}</td>
-            </tr>
-          </tbody>
-		  </table>
+		  {include file="bricks\catalog_item_data.tpl"}
 		</div>
       </div>
 	  {$pagination}
