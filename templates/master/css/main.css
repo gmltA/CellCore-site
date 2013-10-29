@@ -4,6 +4,8 @@
    Author's custom styles
    ========================================================================== */
 
+* { outline: none; }
+
 .jumbotron
 {
 	background: radial-gradient(ellipse at center, rgba(0,0,0,0) 20%,rgba(0,0,0,0.5) 100%), url(/templates/master/img/blueprint-bg.png) repeat-x;

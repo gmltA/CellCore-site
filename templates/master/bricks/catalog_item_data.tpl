@@ -4,6 +4,10 @@
               <td>{$item.id}</td>
             </tr>
 			<tr>
+              <td>Название</td>
+              <td>{$item.title}</td>
+            </tr>
+			<tr>
               <td>Категория</td>
               <td>{$item.category}</td>
             </tr>

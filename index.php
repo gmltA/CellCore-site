@@ -93,7 +93,7 @@ switch ($page['1'])
 			if (($_POST['filter_town']))
 			{
 				$town = $_POST['filter_town'];
-				$w[] = "district='$town'";
+				$w[] = "town='$town'";
 			}
 			if (($_POST['filter_dig']))
 			{
