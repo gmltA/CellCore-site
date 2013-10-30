@@ -12,7 +12,6 @@ require_once dirname(__FILE__) . '/includes/db.php';
 require_once dirname(__FILE__) . '/locale/' . $config['website']['locale'] . '.php';
 require_once dirname(__FILE__) . '/class.Catalog.php';
 require_once dirname(__FILE__) . '/class.NewsMgr.php';
-require_once dirname(__FILE__) . '/class.NewsCommentMgr.php';
 require_once dirname(__FILE__) . '/class.LayoutMgr.php';
 
 global $config;

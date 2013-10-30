@@ -60,10 +60,6 @@
               <td>{$item.dating}</td>
             </tr>
 			<tr>
-              <td>Датировка</td>
-              <td>{$item.dating}</td>
-            </tr>
-			<tr>
               <td>Место хранения</td>
               <td>{$item.storagePlace}</td>
             </tr>

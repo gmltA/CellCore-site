@@ -21,13 +21,6 @@ define('PAGE_CATALOG_ENTRY','catalog_entry');
 define('PAGE_CATALOG_SEARCH','catalog_search');
 define('PAGE_CATALOG_ITEM',	'catalog_item');
 
-// Forum skins
-global $skins;
-$skins = array(
-    '42'	=>	'riverrise',
-    '55'	=>	'master'
-);
-
 // CMS
 define('CUT_DELIMITER', '{cut}');
 define('NOCUT_START', '{nocut}');
