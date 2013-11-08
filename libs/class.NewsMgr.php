@@ -68,9 +68,6 @@ class NewsManager
 		$newsEntry['content'] = self::removeCutDelimiter($newsEntry['content']);
 
 		$newsEntry['description'] = self::buildDescription($newsEntry['content']);
-		$newsEntry['comments'] = array();
-		if ($comments = NewsCommentManager::getInstance()->loadComments($id))
-			$newsEntry['comments'] = $comments;
 
 		return $newsEntry;
 	}

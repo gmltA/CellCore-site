@@ -78,13 +78,6 @@ class LayoutManager extends Smarty_Studio
 				$vars['newsLoader'] = true;
 				break;
 
-			case PAGE_NEWS_SEARCH:
-				$layout = new self($page, 'dynamic', 'search');
-				$vars['title'] = $lang['title_search'];
-				$vars['mainBlock'] = false;
-				$vars['newsLoader'] = false;
-				break;
-
 			case PAGE_NEWS_ENTRY:
 				$layout = new self($page, 'dynamic', 'news');
 				break;
@@ -127,19 +120,6 @@ class LayoutManager extends Smarty_Studio
 			case PAGE_MAIN:
 			default:
 				$content = 'static/main';
-				if ($config['website']['main_block'])
-				{
-					//@todo: WTF?
-					if (rand(0,1) || $config['website']['main_block'] == 2)
-					{
-						$sliderContent = self::loadSliderContent();
-						if ($sliderContent)
-						{
-							$content = 'slider';
-							$vars['sliderContent'] = $sliderContent;
-						}
-					}
-				}
 
 				$layout = new self($page, 'static', 'main', $content);
 

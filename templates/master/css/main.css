@@ -58,6 +58,22 @@ img.catalog-thumbnail
 	color: rgb(172,172,172);
 }
 
+.banner-faculty
+{
+	height: 100px;
+	width: 63px;
+	background-image: url(/templates/master/img/faculty-logo.png);
+	display: block;
+}
+
+.banner-university
+{
+	height: 100px;
+	width: 63px;
+	background-image: url(/templates/master/img/university-logo.png);
+	display: block;
+}
+
 
 
 

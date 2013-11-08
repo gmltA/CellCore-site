@@ -17,7 +17,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/"><span class="glyphicon glyphicon-home"></span> Главная</a></li>
-            <li><a href="#about"><span class="glyphicon glyphicon-question-sign"></span> О проекте</a></li>
+            <li><a href="/about/"><span class="glyphicon glyphicon-question-sign"></span> О проекте</a></li>
             <li><a href="/catalog/"><span class="glyphicon glyphicon-book"></span> Каталог</a></li>
           </ul>
         </div><!--/.navbar-collapse -->

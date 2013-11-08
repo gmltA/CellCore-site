@@ -24,6 +24,7 @@ $lang = array(
 	'minutes'			=>	'мин.',
 	
 	// titles
+	'title_about'		=>	'О проекте',
 	'title_catalog'		=>	'Каталог',
 	'title_cat_search'	=>	'Поиск предметов',
 

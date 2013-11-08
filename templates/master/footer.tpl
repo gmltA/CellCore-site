@@ -1,5 +1,15 @@
       <footer>
-        <p>&copy; Company 2013</p>
+		<div class="row">
+			<div class="col-lg-1">
+				<a href="#faculty" class="banner-faculty"></a>
+			</div>
+			<div class="col-lg-2">
+				<p>&copy; Company 2013</p>
+			</div>
+			<div class="col-lg-1 pull-right">
+				<a href="#university" class="banner-university"></a>
+			</div>
+		</div>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/{$MainTemplateDir}/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>

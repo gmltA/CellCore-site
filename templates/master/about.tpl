@@ -1,107 +1,54 @@
-{include file='header_dynamic.tpl'}
+{include file="$header"}
 
-<body>
-    <div class="tool_logo dev"></div>
-    <div class="middle_plate">
-        <div class="wrapper">
-            <div class="middle_placeholder">
-                <div class="breadcrumb breadcrumbsub">
-                    <div class="left"></div>
-                    <div class="center">
-                        <div class="ref">
-                            <div class="contents">
-                                <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="link">
-									<a href="/" itemprop="url">
-										<span itemprop="title">Главная</span>
-									</a>
-								</div>
-                                <div class="arrowsm"></div>
-                                <div class="text">О сайте</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right"></div>
-                </div>
-                <div class="content">
-                    <div class="about_logo"></div>
-                    <h2>Приветствуем Вас на сайте WorldOfWarcraft.by</h2>
-                    <h4 style="text-align: center;">Некоторая информация устарела. Страница оставлена для истории.</h4>
-                    <div class="sub">
-                        Добро пожаловать на обновлённый сайт!<br>
-                        Как Вы могли заметить, новая версия разрабатывалась именно как обновление для предыдущего сайта. Мы постарались сохранить и улучшить структуру и функционал, но полностью обновить стиль.<br>
-                        Теперь касательно нововведений:
-                        <ul>
-                            <div class="about_tool"></div>
-                            <br>
-                            <br>
-                            <br>
-                            <li style="font-size: 16px;"><a href="/tools/">Новая страница инструментов</a> теперь не только откроет доступ к функциям, но и вкратце раскажет о каждой из них.<br>
-                                Теперь Вам не надо искать требования для <b>смены фракции</b> или <b>восстановления персонажа</b> на форуме: Вы можете узнать о них на странице инструмента.
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="about_stats"></div>
-                            <br>
-                            <br>
-                            <br>
-                            <li style="font-size: 16px;"><a href="/stats/">Обновлённая страница статистики</a> теперь будет показывать Вам раздельный онлайн по фракциям и текущее состояние реалма<br> (online\offline).
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="about_mail"></div>
-                            <br>
-                            <li style="font-size: 16px;">Письма, отсылаемые сайтом, теперь будут реже помечаться как спам, что повышает вероятность того, что они дойдут до Вас вовремя и без ошибок.<br>
-                                Кроме того, теперь они несут гораздо больше информации.
-                            <br>
-                            <br>
-                            <br>
-                            <div class="about_header"></div>
-                            <br>
-                            <br>
-                            <li style="font-size: 16px;">Шапка сайта теперь будет меняться в соответствии с выбранным Вами скином на форуме (необходимо очистить cookies).
-                        </ul>
-                        <br>
-                        <br>
-                        <br>
-                        Так как в разметке сайта используются элементы стандарта HTML5, то вы должны обладать одним из следующих браузеров для полноценной работы с сайтом.<br>
-                        Поддерживаемые браузеры:
-                        <ul>
-                            <li><b>Opera 10.5 и выше</b>
-                            <li><b>Firefox 4 и выше</b>
-                            <li><b>Chrome</b>
-                            <li><b>Safari</b>
-                        </ul>
-                        Если Вы обнаружили ошибку\недочёт в оформлении или функционале, сообщите об этом нам в <a href="http://forum.riverrise.net/index.php?app=tracker&showproject=56">специальном разделе</a>.
-                    </div>
-                    <div class="about_thx"></div>
-                    <h2>Благодарность за помощь в создании сайта</h2>
-                    <ul>
-                        <li><b>Blizzard Entertainment</b> - за вдохновление дизайном и некоторые элементы оформления (текстуры\стили)
-                        <li><b>Adobe Systems</b> - за Creative Suite 5.5 и отдельно за Photoshop и DreamWeaver, в котором начиналась вёрстка сайта
-                        <li><b>Opera Software</b> - за браузер Opera с функцией <b>Unite</b>, при помощи которой начиналась разработка и отладка сайта
-                        <li><b>Джону Резигу</b> - за библиотеку jQuery, которая существенно облегчила разработку
-                        <li>Сайту <b>filezilla-project.org</b> - за FTP клиент FileZilla
-                        <li>Сайту <b>jqueryglobe.com</b> - за идею Feature List на jQuery (можно увидеть на <a href="/tools/">странице инструментов</a>)
-                        <li>Сайту <b>google.com</b> - за всё =)
-                        <li>Большому количеству сайтов с учебниками и примерами на <b>HTML \ CSS \ PHP \ jQuery</b> названия которых я не запомнил
-                        <hr>
-                    </ul>
-                    <h2>Отдельная благодарность</h2>
-                    <ul>
-                        <li><b>Владимиру</b> - за предоставление отдельного домена и FTP для разработки и тестирования сайта, и ещё много за что ;)
-                        <li><b>Олегу</b> - за советы и помощь при портировании модулей старого сайта
-                        <li><b>Виталику a.k.a. angelShlesser</b> - за советы и помощь в создании сайта и работе с cookies
-                        <li><b>Андрею a.k.a. Mindcontrol</b> - за идеи и помощь в оформлении сайта
-                        <li><b>Пашке</b> - за предоставление отдельного IP адреса и FTP для разработки сайта (не пригодилось, но всё равно спасибо)
-                        <li>Проекту <b>WorldOfWarcraft.by</b>, благодаря которому я (хоть немного) освоил HTML и CSS
-                    </ul>
-                </div>
-            </div>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{$site.app_descr}</a>
         </div>
-		{include file='footer.tpl'}
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span> Главная</a></li>
+            <li class="active"><a href="/about/"><span class="glyphicon glyphicon-question-sign"></span> О проекте</a></li>
+            <li><a href="/catalog/"><span class="glyphicon glyphicon-book"></span> Каталог</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
     </div>
-</body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="site-logo pull-left"></div>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a href="/catalog/" class="btn btn-primary btn-lg">Перейти к каталогу &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="panel panel-default">
+			<div class="panel-heading">О нашем проекте</div>
+			<div class="panel-body">
+				<p>На историческом факультете созданы условия, позволяющие раскрыть научно-исследовательский потенциал студентов, реализовать их способности к самостоятельной научно-исследовательской работе.</p>
+				<p>Тематика курсовых и дипломных работ позволяет выполнять оригинальные исследования, основанные на архивных и краеведческих материалах. Регулярно проводятся научно-практические конференции, которые дают студентам возможность апробировать результаты своих исследований.</p>
+				<p>Студенты исторического факультета участвуют в научных мероприятиях, которые проводятся в Минске, Гродно, Мозыре, Полоцке, Витебске, а также за пределами республики – в России (Москва), Польше (Белосток, Вроцлав, Краков), Украине (Луцк), Германии (Франкфурт-на-Одере).</p>
+				<p>Наиболее интересные исследования, построенные на использовании архивных и полевых материалов, принимают участие в республиканских конкурсах научных студенческих работ. Многие работы удостоены высокой оценки, а их авторы получили премии Специального фонда Президента Республики Беларусь по социальной поддержке одаренных учащихся и студентов.</p>
+				<p>В 2010 г. работа студентки 5 курса Борисюк Татьяны (научный руководитель к.ф.н. Н.П. Галимова) была удостоена дипломом Второй степени в VIРеспубликанском конкурсе творческих работ учащихся и студентов по социально-гуманитарным наукам «Вялікая перамога ў нашай памяці жыве», посвященной 65-й годовщине Победы советского народа в Великой Отечественной войне.</p>
+				<p>На историческом факультете издается сборник студенческих работ «Моладзь Берасцейшчыны», сборник научных трудов «Берасцейскі хранограф», а так же материалы научных конференций. Под руководством преподавателей факультета действуют Студенческое научное общество и студенческие научно-исследовательские группы по изучению различных проблем отечественной и мировой истории и культуры.</p>
+			</div>
+		</div>
+      </div>
+
+	{include file='footer.tpl'}
+	</body>
 </html>
