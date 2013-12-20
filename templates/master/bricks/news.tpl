@@ -6,6 +6,6 @@
 	  <div class="panel-body">
 		<p>{$newsEntry.content}</p>
 	  </div>
-	  <div class="panel-footer"><a class="btn btn-default" href="{$newsEntry.link}">Читать далее &raquo;</a></div>
+	  <div class="panel-footer"><a class="btn btn-default" href="{$newsEntry.link}">{$lang.full_news_entry}</a></div>
 	</div>
 </div>

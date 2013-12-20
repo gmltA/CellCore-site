@@ -16,7 +16,8 @@
 		{if $robots}
 			<meta name="robots" content="{$robots}"/>
 		{/if}
-        <meta name="description" content="">
+
+		<meta name="generator" content="{$app_name} {$app_version}"/>
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="/{$MainTemplateDir}/css/bootstrap.min.css">

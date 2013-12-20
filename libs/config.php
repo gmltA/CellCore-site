@@ -18,7 +18,11 @@ $config['website']['content_dir']            = 'content'; // CMS content directo
 $config['website']['app_name']               = 'CellCore-site';
 $config['website']['app_descr']              = 'Раскопатор';
 
-$config['website']['locale']             	 = 'ru';
+$config['website']['description']            = 'Лучшая база археологических находок.';
+
+$config['website']['company']                = 'Раскопатор';
+
+$config['website']['locale']             	 = 'en';
 
 //$config['catalog_o']
 

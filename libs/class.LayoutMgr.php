@@ -34,10 +34,6 @@ class LayoutManager extends Smarty_Studio
 				$this->bodyFile = 'catalog.tpl';
 				break;
 
-			case 'error':
-				$this->bodyFile = 'error.tpl';
-				break;
-
 			case 'about':
 				$this->bodyFile = 'about.tpl';
 				break;
@@ -79,7 +75,6 @@ class LayoutManager extends Smarty_Studio
 			case PAGE_NEWS_PART:
 				$layout = new self($page, 'dynamic', 'main');
 				$vars['title'] = $lang['title_news'];
-				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = true;
 				break;
 
@@ -92,33 +87,22 @@ class LayoutManager extends Smarty_Studio
 				$vars['title'] = $lang['title_about'];
 				break;
 
-			case PAGE_ERROR_404:
-				$layout = new self($page, 'dynamic', 'error');
-				$vars['title'] = $vars['error']['title'] = $lang['404_title'];
-				$vars['error']['description'] = $lang['404_description'];
-				$vars['error']['class'] = 'error404';
-				$vars['error']['referer'] = $_SERVER['HTTP_REFERER'];
-				break;
-
 			case PAGE_CATALOG:
 			case PAGE_CATALOG_PART:
 				$layout = new self($page, 'dynamic', 'catalog');
 				$vars['title'] = $lang['title_catalog'];
-				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
 
 			case PAGE_CATALOG_SEARCH:
 				$layout = new self($page, 'dynamic', 'search');
 				$vars['title'] = $lang['title_cat_search'];
-				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
 
 			case PAGE_CATALOG_ITEM:
 				$layout = new self($page, 'dynamic', 'catalog_item');
 				$vars['title'] = $lang['title_catalog'];
-				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
 
@@ -126,7 +110,6 @@ class LayoutManager extends Smarty_Studio
 				$layout = new self($page, 'dynamic', 'catalog_add_item');
 				$vars['title'] = $lang['title_catalog_add'];
 				$vars['robots'] = "noindex,nofollow";
-				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
 
@@ -136,7 +119,6 @@ class LayoutManager extends Smarty_Studio
 
 				$layout = new self($page, 'static', 'main', $content);
 
-				$vars['mainBlock'] = true;
 				$vars['newsLoader'] = true;
 				break;
 		}
@@ -158,6 +140,7 @@ class LayoutManager extends Smarty_Studio
 		$layout->assign('lang', $lang);
 		$layout->assign('locale', $config['website']['locale']);
 		$layout->assign('site', $config['website']);
+		$layout->assign('app_name', $config['website']['app_name']);
 		$layout->assign('app_version', $app_version);
 		$layout->assign('debug', $config['debug']);
 

@@ -14,9 +14,12 @@ if (!$server_ajax)
 
 function getItemDetails($itemId)
 {
+	global $lang;
+
 	$item = Catalog::getInstance()->loadItem($itemId);
 
 	$smarty = new Smarty_Studio($config['website']['template']);
+	$smarty->assign('lang', $lang);
 	$smarty->assign('item', $item);
 
 	return $smarty->fetch('bricks/catalog_item_data.tpl');

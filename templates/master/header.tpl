@@ -7,7 +7,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{$site.app_descr}</title>
-        <meta name="description" content="">
+        <meta name="description" content="{$site.description}">
+		<meta name="generator" content="{$app_name} {$app_version}"/>
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="/{$MainTemplateDir}/css/bootstrap.min.css">
