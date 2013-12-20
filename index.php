@@ -75,40 +75,41 @@ switch ($page['1'])
 	case 'search':
 		$query = '';
 			$w = array();
+			$filter = array();
+			$filter['category'] = $_POST['filter_category'] ? $_POST['filter_category'] : '';
+			$filter['material'] = $_POST['filter_material'] ? $_POST['filter_material'] : '';
+			$filter['district'] = $_POST['filter_district'] ? $_POST['filter_district'] : '';
+			$filter['town'] = $_POST['filter_town'] ? $_POST['filter_town'] : '';
+			$filter['digging'] = $_POST['filter_dig'] ? $_POST['filter_dig'] : '';
+			$filter['year'] = $_POST['filter_year'] ? $_POST['filter_year'] : '';
+			$filter['title'] = $_POST['filter_title'] ? $_POST['filter_title'] : '';
 			if (($_POST['filter_category']))
 			{
-				$category = $_POST['filter_category'];
-				$w[] = "category='$category'";
+				$w[] = "category='" . $filter['category'] . "'";
 			}
 			if (($_POST['filter_material']))
 			{
-				$material = $_POST['filter_material'];
-				$w[] = "material='$material'";
+				$w[] = "material='" . $filter['material'] . "'";
 			}
 			if (($_POST['filter_district']))
 			{
-				$district = $_POST['filter_district'];
-				$w[] = "district='$district'";
+				$w[] = "district='" . $filter['district'] . "'";
 			}
 			if (($_POST['filter_town']))
 			{
-				$town = $_POST['filter_town'];
-				$w[] = "town='$town'";
+				$w[] = "town='" . $filter['town'] . "'";
 			}
 			if (($_POST['filter_dig']))
 			{
-				$dig = $_POST['filter_dig'];
-				$w[] = "digging='$dig'";
+				$w[] = "digging='" . $filter['digging'] . "'";
 			}
 			if (($_POST['filter_year']))
 			{
-				$year = $_POST['filter_year'];
-				$w[] = "year='$year'";
+				$w[] = "year='" . $filter['year'] . "'";
 			}
 			if (($_POST['filter_title']))
 			{
-				$title = $_POST['filter_title'];
-				$w[] = "title='$title'";
+				$w[] = "title='" . $filter['title'] . "'";
 			}
 			$query = implode($w, ' AND ');
 
@@ -116,14 +117,23 @@ switch ($page['1'])
 		{
 			$query = ' WHERE ' . $query;
 		}
+		
+		$hasFilter = false;
+		
+		foreach ($filter as $key => $value)
+		{
+			if ($value != '')
+				$hasFilter = true;
+		}
 
 		$layout = LayoutManager::buildPage(PAGE_CATALOG_SEARCH, array(
 
 				'items' 	=> Catalog::getInstance()->searchItems($query),
-				'filterContent'=> Catalog::getInstance()->getFilters(),
+				'filterContent' => Catalog::getInstance()->getFilters(),
+				'isFilterApplied' => $hasFilter,
+				'filterTokens' => $filter,
 				'query' 	=> preg_replace ('/\+/', ' ', $query),
 				'searchResult' 	=> 1
-
 		));
 		break;
 
@@ -192,8 +202,28 @@ switch ($page['1'])
 				break;
 			}
 		}
+		
+	case 'additem':
+		if ($_POST['data'])
+		{
+			$data = $_POST['data'];
+			foreach ($data as $key => $value)
+			{
+				if (!$value)
+					unset($data[$key]);
+			}
+			$keys = implode(array_keys($data), ', ');
+			$DB->query('INSERT INTO ?_catalog_items (' . $keys . ') VALUES (?a)', array_values($data));
+			$layout = LayoutManager::buildPage(PAGE_CATALOG_ADD_ITEM, array(
 
+					'result' => 'success',
 
+				));
+		}
+		else
+			$layout = LayoutManager::buildPage(PAGE_CATALOG_ADD_ITEM);
+
+		break;
 
 	case '':
 	case 'main':

@@ -26,6 +26,7 @@
 	background: url(/templates/master/img/logo-small.png) no-repeat;
 	height: 86px;
 	width: 103px;
+	-webkit-filter: drop-shadow(0 0 5px white);
 }
 
 .jumbotron.small
@@ -58,27 +59,57 @@ img.catalog-thumbnail
 	color: rgb(172,172,172);
 }
 
-.banner-faculty
+.banner
 {
 	height: 100px;
 	width: 63px;
+	display: block;
+	opacity: 0.5;
+	transition: opacity ease 0.3s;
+	-webkit-filter: blur(1px);
+}
+
+.banner:hover
+{
+	-webkit-filter: blur(0px);
+	opacity: 1;
+}
+
+.banner.faculty
+{
 	background-image: url(/templates/master/img/faculty-logo.png);
-	display: block;
 }
 
-.banner-university
+.banner.university
 {
-	height: 100px;
-	width: 63px;
 	background-image: url(/templates/master/img/university-logo.png);
-	display: block;
 }
 
+FOOTER
+{
+	color: #777;
+	font: 13px Helvetica, arial, freesans, clean, sans-serif;
+}
 
+.footer-text
+{
+	margin: 50px 10px;
+}
 
+.list-inline > LI
+{
+	border-left: solid 1px #777;
+}
 
+.list-inline > LI:first-child
+{
+	border-left: none;
+}
 
-
+.navbar
+{
+	box-shadow: 0 0 15px black;
+}
 
 
 

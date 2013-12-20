@@ -27,6 +27,7 @@ $lang = array(
 	'title_about'		=>	'О проекте',
 	'title_catalog'		=>	'Каталог',
 	'title_cat_search'	=>	'Поиск предметов',
+	'title_catalog_add'	=>	'Добавление предмета',
 
 	// error
 	'404_title'			=>	'404 - Страница не найдена',

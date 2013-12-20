@@ -13,6 +13,9 @@
 		{if $description}
 			<meta name="description" content="{$description}"/>
 		{/if}
+		{if $robots}
+			<meta name="robots" content="{$robots}"/>
+		{/if}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 

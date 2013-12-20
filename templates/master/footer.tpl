@@ -1,16 +1,23 @@
-      <footer>
-		<div class="row">
-			<div class="col-lg-1">
-				<a href="#faculty" class="banner-faculty"></a>
-			</div>
-			<div class="col-lg-2">
-				<p>&copy; Company 2013</p>
-			</div>
-			<div class="col-lg-1 pull-right">
-				<a href="#university" class="banner-university"></a>
-			</div>
-		</div>
-      </footer>
+    <footer>
+			<p class="pull-left">
+				<a href="#faculty" class="banner faculty"></a>
+			</p>
+			<p class="footer-text pull-left">&copy; Company 2013</p>
+			<ul class="footer-text list-inline pull-left">
+				<li>
+					<a href="http://www.brsu.by/">BRSU</a>
+				</li>
+				<li>
+					<a href="#">Link 2</a>
+				</li>
+				<li>
+					<a href="#">Link 3</a>
+				</li>
+			</ul>
+			<p class="pull-right">
+				<a href="#university" class="banner university"></a>
+			</p>
+    </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/{$MainTemplateDir}/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 

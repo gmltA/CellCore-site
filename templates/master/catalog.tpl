@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">{$site.app_descr}</a>
+          <a class="navbar-brand" href="/">{$site.app_descr}</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -44,76 +44,76 @@
 		  <!-- Default panel contents -->
 		  <div class="panel-heading">
 			<form action="/search/" enctype="application/x-www-form-urlencoded" method="post" id="filter_form" class="form-horizontal" role="form">
-				<div id="filter-inputs" hidden>
-					<div class="form-group">
+				<div id="filter-inputs" {if $isFilterApplied != true}hidden{/if}>
+					<div class="form-group {if $filterTokens.category}has-success{/if}">
 						<label for="filter-category" class="col-lg-offset-3 col-lg-2 control-label">Category</label>
 						<div class="col-lg-3">
 								<select name="filter_category" class="form-control input-sm" id="filter-category">
-								  <option disabled selected >Category</option>
+								  <option disabled {if !$filterTokens.category}selected{/if}>Category</option>
 								  {foreach from=$filterContent.category item=category}
-									<option value="{$category.category}">{$category.category}</option>
+									<option value="{$category.category}" {if $category.category == $filterTokens.category}selected{/if}>{$category.category}</option>
 								  {/foreach}
 								</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.material}has-success{/if}">
 						<label for="filter-material" class="col-lg-offset-3 col-lg-2 control-label">Material</label>
 						<div class="col-lg-3">
 							<select name="filter_material" class="form-control input-sm" id="filter-material">
-							  <option disabled selected >Material</option>
+							  <option disabled {if !$filterTokens.material}selected{/if}>Material</option>
 							  {foreach from=$filterContent.material item=material}
-								<option value="{$material.material}">{$material.material}</option>
+								<option value="{$material.material}" {if $material.material == $filterTokens.material}selected{/if}>{$material.material}</option>
 							  {/foreach}
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.district}has-success{/if}">
 						<label for="filter-district" class="col-lg-offset-3 col-lg-2 control-label">District</label>
 						<div class="col-lg-3">
 							<select name="filter_district" class="form-control input-sm" id="filter-district">
-							  <option disabled selected>Район</option>
+							  <option disabled {if !$filterTokens.district}selected{/if}>Район</option>
 							  {foreach from=$filterContent.district item=district}
-								<option value="{$district.district}">{$district.district}</option>
+								<option value="{$district.district}" {if $district.district == $filterTokens.district}selected{/if}>{$district.district}</option>
 							  {/foreach}
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.town}has-success{/if}">
 						<label for="filter-town" class="col-lg-offset-3 col-lg-2 control-label">Town</label>
 						<div class="col-lg-3">
 							<select name="filter_town" class="form-control input-sm" id="filter-town">
-							  <option disabled selected>Населенный пункт</option>
+							  <option disabled {if !$filterTokens.town}selected{/if}>Населенный пункт</option>
 							  {foreach from=$filterContent.town item=town}
-								<option value="{$town.town}">{$town.town}</option>
+								<option value="{$town.town}" {if $town.town == $filterTokens.town}selected{/if}>{$town.town}</option>
 							  {/foreach}
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.digging}has-success{/if}">
 						<label for="filter-dig" class="col-lg-offset-3 col-lg-2 control-label">Digging</label>
 						<div class="col-lg-3">
 							<select name="filter_dig" class="form-control input-sm" id="filter-dig">
-							  <option disabled selected >Раскоп</option>
+							  <option disabled {if !$filterTokens.digging}selected{/if}>Раскоп</option>
 							  {foreach from=$filterContent.digging item=digging}
-								<option value="{$digging.digging}">{$digging.digging}</option>
+								<option value="{$digging.digging}" {if $digging.digging == $filterTokens.digging}selected{/if}>{$digging.digging}</option>
 							  {/foreach}
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.year}has-success{/if}">
 						<label for="filter-year" class="col-lg-offset-3 col-lg-2 control-label">Year</label>
 						<div class="col-lg-3">
-							<input type="text" name="filter_year" class="form-control input-sm" placeholder="Year" id="filter-year">
+							<input type="text" name="filter_year" class="form-control input-sm" placeholder="Year" id="filter-year" {if $filterTokens.year}value="{$filterTokens.year}"{/if}}>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group {if $filterTokens.title}has-success{/if}">
 						<label for="filter-title" class="col-lg-offset-3 col-lg-2 control-label">Title</label>
 						<div class="col-lg-3">
-							<input type="text" name="filter_title" class="form-control input-sm" placeholder="Title" id="filter-title">
+							<input type="text" name="filter_title" class="form-control input-sm" placeholder="Title" id="filter-title" {if $filterTokens.title}value="{$filterTokens.title}"{/if}>
 						</div>
 					</div>
 				</div>
-				<div class="form-group" id="filter-buttons" hidden>
+				<div class="form-group" id="filter-buttons" {if $isFilterApplied != true}hidden{/if}>
 					<div class="col-lg-offset-5 col-lg-4">
 						<div class="btn-group">
 							<button type="submit" class="btn btn-success">
@@ -126,7 +126,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-lg-offset-4 col-lg-4">
+					<div class="col-lg-offset-4 col-lg-4" {if $isFilterApplied == true}hidden{/if}>
 						<div class="btn btn-primary btn-block" id="filter-show">
 						<span class="glyphicon glyphicon-arrow-down"></span> Show filter <span class="glyphicon glyphicon-arrow-down"></span>
 						</div>

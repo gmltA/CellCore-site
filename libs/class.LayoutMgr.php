@@ -41,14 +41,19 @@ class LayoutManager extends Smarty_Studio
 			case 'about':
 				$this->bodyFile = 'about.tpl';
 				break;
-			
+
 			case 'catalog':
 				$this->bodyFile = 'catalog.tpl';
 				break;
-				
+
 			case 'catalog_item':
 				$this->bodyFile = 'catalog_item.tpl';
 				break;
+
+			case 'catalog_add_item':
+				$this->bodyFile = 'catalog_add_item.tpl';
+				break;
+
 
 			case 'main':
 			default:
@@ -113,6 +118,14 @@ class LayoutManager extends Smarty_Studio
 			case PAGE_CATALOG_ITEM:
 				$layout = new self($page, 'dynamic', 'catalog_item');
 				$vars['title'] = $lang['title_catalog'];
+				$vars['mainBlock'] = false;
+				$vars['newsLoader'] = false;
+				break;
+
+			case PAGE_CATALOG_ADD_ITEM:
+				$layout = new self($page, 'dynamic', 'catalog_add_item');
+				$vars['title'] = $lang['title_catalog_add'];
+				$vars['robots'] = "noindex,nofollow";
 				$vars['mainBlock'] = false;
 				$vars['newsLoader'] = false;
 				break;
