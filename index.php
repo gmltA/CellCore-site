@@ -146,7 +146,7 @@ switch ($page['1'])
 		if (!$page['2'])
 		{
 			header('Location: ' . $config['website']['main_url'] . 'catalog/page/1');
-			break;
+			exit;
 		}
 
 		if ($page['2'] == 'page')
