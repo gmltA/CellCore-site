@@ -11,7 +11,7 @@ $config['db']['forum_prefix']                = 'ibf_';
 $config['db']['driver']['site']              = 'mysql'; //values: mysql, mypdo
 $config['db']['driver']['realm']             = 'mysql'; //values: mysql, mypdo
 
-$config['website']['template']               = 'cell'; // шаблон
+$config['website']['template']               = 'cell_cata'; // шаблон
 
 $config['website']['main_url']               = 'http://localhost:81/';
 $config['website']['session_domain']         = '.riverrise.net';
