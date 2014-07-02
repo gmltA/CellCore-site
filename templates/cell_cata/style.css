@@ -259,12 +259,12 @@ NAV A { margin-right: 3px; }
     min-height: 64px;
 }
 
-.riverrise .branding { height: 120px; }
+.riverrise .branding { height: 200px; }
 
-.riverrise HEADER { background: url(images/header_bg.jpg) 50% 0 no-repeat #010E16; }
+.riverrise HEADER { background: url(images/header_bg.jpg) 50% 0 no-repeat black; min-width: 990px; }
 
 .logo { display: inline; }
-.riverrise .logo { position: absolute; top: 0; }
+.riverrise .logo { position: absolute; margin-left: -256px; }
 
 .branding, .header_bar, NAV { min-width: 980px; }
 
@@ -274,6 +274,8 @@ NAV A { margin-right: 3px; }
     min-width: 960px;
     width: 87% !important;
 }
+
+.main_width.center { text-align: center; }
 
 .riverrise .branding .main_width { width: 90% !important; }
 
@@ -320,11 +322,11 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
     text-align: center;
     display: block;
     box-shadow: 0 0 15px black;
-    background: url(images/nbuttons_rus.png) no-repeat #006e8f;
+    background: url(images/nbuttons_rus.png) no-repeat #005169;
     cursor: default;
 }
 
-.nbutton:hover { background-color: #05acdc; }
+.nbutton:hover, .nbutton.active { background-color: #05acdc; }
 
 .nbutton.main                               { border-radius: 5px 0 0 0; z-index: 5; }
 .nbutton.main:hover, .nbutton.main.active   { background-position: 0 -210px; }
