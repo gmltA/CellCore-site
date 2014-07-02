@@ -37,3 +37,13 @@ define('CUT_DELIMITER', '{cut}');
 define('NOCUT_START', '{nocut}');
 define('NOCUT_END', '{/nocut}');
 define('NOCUT_END_R', '{\/nocut}');
+
+// Game
+
+define('GAMEBUILD_WOTLK', 12340);
+define('GAMEBUILD_CATA', 15595);
+
+define('RACE_ALL_ALLIANCE_WOTLK', '1, 3, 4, 7, 11');
+define('RACE_ALL_ALLIANCE_CATA', '1, 3, 4, 7, 11, 22');
+define('RACE_ALL_HORDE_WOTLK', '2, 5, 6, 8, 10');
+define('RACE_ALL_HORDE_CATA', '2, 5, 6, 8, 9, 10');

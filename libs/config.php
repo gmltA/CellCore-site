@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__FILE__) . '/defines.php';
 global $config;
 
 $config['db']['host']                        = 'localhost';
@@ -30,7 +31,7 @@ $config['realms'][] = array(
                     'name'			=>	'Frostmourne',             // Название реалма
                     'type'			=>	0,
                     'rates'			=>	'x4',                      // Рейты реалма (влияет на класс таблицы статистики)
-                    'gamebuild'		=>	'3.3.5.12340',             // Версия билда
+                    'gamebuild'		=>	GAMEBUILD_WOTLK,             // Версия билда
                     'name_img'		=>	'',
                     'realmlist'		=>	'logon.riverrise.net',     // Реалмлист
                     'stat_link'		=>	'http://forum.riverrise.net/forum/5/',

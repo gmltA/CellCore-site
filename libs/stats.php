@@ -2,9 +2,11 @@
 
 if (!defined('IS_IN_ENGINE'))
 {
-    header('HTTP/1.1 403 Forbidden');
-    die('<h1>403 Forbidden</h1>');
+	header('HTTP/1.1 403 Forbidden');
+	die('<h1>403 Forbidden</h1>');
 }
+
+require_once dirname(__FILE__) . '/defines.php';
 
 function GetRealmStats()
 {
@@ -18,8 +20,24 @@ function GetRealmStats()
 		$uptimeData = $rDB[$key]->selectRow('SELECT SEC_TO_TIME(uptime) AS uptime FROM uptime WHERE realmid = ?d ORDER BY starttime DESC LIMIT 1', $realm['realm_host']);
 		$maxUptimeData = $rDB[$key]->selectRow('SELECT SEC_TO_TIME(MAX(uptime)) AS max_uptime FROM uptime WHERE realmid = ?d LIMIT 1', $realm['realm_host']);
 
-		$horde_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (2, 5, 6, 8, 10) AND online = 1');
-		$alliance_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (1, 3, 4, 7, 11) AND online = 1');
+		$racelist_horde = "";
+		$racelist_alliance = "";
+		if ($realm['gamebuild'] == GAMEBUILD_WOTLK)
+		{
+			$racelist_horde = RACE_ALL_HORDE_WOTLK;
+			$racelist_alliance = RACE_ALL_ALLIANCE_WOTLK;
+		}
+		elseif ($realm['gamebuild'] == GAMEBUILD_CATA)
+		{
+			$racelist_horde = RACE_ALL_HORDE_CATA;
+			$racelist_alliance = RACE_ALL_ALLIANCE_CATA;
+		}
+
+		if ($racelist_horde == "")
+			die("Wrong gamebuild");
+
+		$horde_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (' .  $racelist_horde . ') AND online = 1');
+		$alliance_online = $cDB[$key]->selectCell('SELECT COUNT(*) FROM characters WHERE race IN (' . $racelist_alliance . ') AND online = 1');
 		$online = (int)$horde_online + (int)$alliance_online;
 
 		$fp = @fsockopen($realm['realmlist'], $realm['realm_port'], $errno, $errstr, '1');

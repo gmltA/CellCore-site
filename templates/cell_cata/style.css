@@ -364,6 +364,7 @@ ASIDE { float: left; width: 159px; margin-top: 126px; }
 .standardbox ARTICLE .statbox .state.offline { background-position: bottom center; }
 .standardbox ARTICLE .statbox .realmname.x4 { background: url(images/stats_x4.png); }
 .standardbox ARTICLE .statbox .realmname.x1 { background: url(images/stats_x1.png); }
+.standardbox ARTICLE .statbox .realmname.x2 { background: url(images/stats_x2.png); }
 .standardbox ARTICLE .statbox .realmname.x100 { background: url(images/stats_x100.png); }
 .standardbox ARTICLE .statbox .realmname.fun { background: url(images/stats_at.png); }
 .standardbox ARTICLE .statbox .realmname { float: left; width: 138px; height: 75px; margin: 16px 0 0 15px; background-position: top center; }
